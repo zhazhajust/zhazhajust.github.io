@@ -27,6 +27,9 @@ https://github.com/zhazhajust/WolGoWeb.git
 
 然后测试url唤醒，在浏览器输入 http://xxx:9090/wol?mac=00-00-00-00-00-00 （网卡MAC地址）。
 
+## Wake On Lan GUI 程序（Optional）
+https://github.com/basildane/WakeOnLAN.git
+
 ### 参考文献
 
 https://www.jianshu.com/p/6622c33f4cd3
