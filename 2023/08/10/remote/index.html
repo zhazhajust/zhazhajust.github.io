@@ -16,21 +16,21 @@
   <meta name="author" content="JayZz">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="简介首先准备好公网ipv4 or ipv6，使用ddns-go绑定动态ip地址到dns服务器（静态ip不需要），此时可。随后运行WolGoWeb服务，即可使用url进行远程唤醒。 dynv6使用 https:&#x2F;&#x2F;dynv6.com 进行动态域名解析，绑定ipv6于自定义域名 https:&#x2F;&#x2F;xxx.dynv6.net 。 ddns-go简单好用的DDNS。自动更新域名解析到公网IP(支持阿里云、腾">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2024/07/07/hello-world/index.html">
+<meta property="og:title" content="远程连接与唤醒">
+<meta property="og:url" content="http://example.com/2023/08/10/remote/index.html">
 <meta property="og:site_name" content="Jayz Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="简介首先准备好公网ipv4 or ipv6，使用ddns-go绑定动态ip地址到dns服务器（静态ip不需要），此时可。随后运行WolGoWeb服务，即可使用url进行远程唤醒。 dynv6使用 https:&#x2F;&#x2F;dynv6.com 进行动态域名解析，绑定ipv6于自定义域名 https:&#x2F;&#x2F;xxx.dynv6.net 。 ddns-go简单好用的DDNS。自动更新域名解析到公网IP(支持阿里云、腾">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-07-07T07:24:22.000Z">
-<meta property="article:modified_time" content="2024-07-07T07:24:22.000Z">
+<meta property="article:published_time" content="2023-08-10T00:00:00.000Z">
+<meta property="article:modified_time" content="2025-02-01T15:06:30.205Z">
 <meta property="article:author" content="JayZz">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Hello World - Jayz Blog</title>
+  <title>远程连接与唤醒 - Jayz Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hello World"></span>
+            <span id="subtitle" data-typed-text="远程连接与唤醒"></span>
           
         </div>
 
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-07 15:24" pubdate>
-          2024年7月7日 下午
+        <time datetime="2023-08-10 08:00" pubdate>
+          2023年8月10日 早上
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          18 字
+          236 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          1 分钟
+          2 分钟
         
       </span>
     
@@ -267,24 +267,22 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Hello World</h1>
+            <h1 id="seo-header">远程连接与唤醒</h1>
             
             
               <div class="markdown-body">
                 
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>首先准备好公网ipv4 or ipv6，使用ddns-go绑定动态ip地址到dns服务器（静态ip不需要），此时可。随后运行WolGoWeb服务，即可使用url进行远程唤醒。</p>
+<h2 id="dynv6"><a href="#dynv6" class="headerlink" title="dynv6"></a>dynv6</h2><p>使用 <a target="_blank" rel="noopener" href="https://dynv6.com/">https://dynv6.com</a> 进行动态域名解析，绑定ipv6于自定义域名 <a target="_blank" rel="noopener" href="https://xxx.dynv6.net/">https://xxx.dynv6.net</a> 。</p>
+<h2 id="ddns-go"><a href="#ddns-go" class="headerlink" title="ddns-go"></a>ddns-go</h2><p>简单好用的DDNS。自动更新域名解析到公网IP(支持阿里云、腾讯云、Dnspod、Cloudflare、Callback、华为云、百度云、Porkbun、GoDaddy、Google Domain)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/jeessy2/ddns-go.git">https://github.com/jeessy2/ddns-go.git</a></p>
+<p>此时，ipv6已解析于ddns服务器，通过自定义url可以通过远程连接软件如rdp、moonlight、parsec等直接访问。</p>
+<h2 id="WolGoWeb"><a href="#WolGoWeb" class="headerlink" title="WolGoWeb"></a>WolGoWeb</h2><p>基于Golang的Web服务器，使用url链接即可发起wake on lan局域网唤醒。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zhazhajust/WolGoWeb.git">https://github.com/zhazhajust/WolGoWeb.git</a></p>
+<p>然后测试url唤醒，在浏览器输入 <a target="_blank" rel="noopener" href="http://xxx:9090/wol?mac=00-00-00-00-00-00">http://xxx:9090/wol?mac=00-00-00-00-00-00</a> （网卡MAC地址）。</p>
+<h2 id="Wake-On-Lan-GUI-程序（Optional）"><a href="#Wake-On-Lan-GUI-程序（Optional）" class="headerlink" title="Wake On Lan GUI 程序（Optional）"></a>Wake On Lan GUI 程序（Optional）</h2><p><a target="_blank" rel="noopener" href="https://github.com/basildane/WakeOnLAN.git">https://github.com/basildane/WakeOnLAN.git</a></p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6622c33f4cd3">https://www.jianshu.com/p/6622c33f4cd3</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhouym.tech/2022/Wake-On-Lan/">https://zhouym.tech/2022/Wake-On-Lan/</a></p>
 
                 
               </div>
@@ -302,8 +300,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hello World</div>
-      <div>http://example.com/2024/07/07/hello-world/</div>
+      <div>远程连接与唤醒</div>
+      <div>http://example.com/2023/08/10/remote/</div>
     </div>
     <div class="license-meta">
       
@@ -315,7 +313,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年7月7日</div>
+          <div>2023年8月10日</div>
         </div>
       
       
@@ -347,15 +345,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="./2024/07/07/My-First-Post/" title="My First Post">
+                      <a href="./2023/08/10/datascience/" title="机器学习资源">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">My First Post</span>
+                        <span class="hidden-mobile">机器学习资源</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="./2023/08/10/vtk/" title="远程连接与唤醒">
+                        <span class="hidden-mobile">远程连接与唤醒</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
