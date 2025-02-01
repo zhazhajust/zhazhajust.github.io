@@ -19,7 +19,7 @@ timezone: ''
 # permalink_defaults:
 
 # URL
-url: https://zhazhajust.github.io/myblog
+# url: https://zhazhajust.github.io/myblog
 root: ./
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -110,5 +110,7 @@ theme: fluid
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: git@github.com:zhazhajust/myblog.git
-  branch: main
+  # repo: git@github.com:zhazhajust/myblog.git
+  repo: git@github.com:zhazhajust/zhazhajust.github.io.git
+  # branch: main
+  branch: gh-pages
