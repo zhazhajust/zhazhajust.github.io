@@ -5,6 +5,19 @@
   
   <entry>
     <title>Cloudflare tunnel 内网穿透</title>
+    <link href="./2025/02/02/postpic/"/>
+    <url>./2025/02/02/postpic/</url>
+    
+    <content type="html"><![CDATA[<h2 id="PIC模拟后处理软件"><a href="#PIC模拟后处理软件" class="headerlink" title="PIC模拟后处理软件"></a>PIC模拟后处理软件</h2><h4 id="postpic"><a href="#postpic" class="headerlink" title="postpic"></a>postpic</h4><p>地址<a href="https://github.com/skuschel/postpic.git">https://github.com/skuschel/postpic.git</a><br>示例<a href="https://github.com/skuschel/postpic-examples.git">https://github.com/skuschel/postpic-examples.git</a></p><h4 id="VisualPIC"><a href="#VisualPIC" class="headerlink" title="VisualPIC"></a>VisualPIC</h4><p>可视化GUI程序<a href="https://github.com/AngelFP/VisualPIC.git@dev">https://github.com/AngelFP/VisualPIC.git@dev</a></p><h4 id="PICViewer"><a href="#PICViewer" class="headerlink" title="PICViewer"></a>PICViewer</h4><p>PICViewer is a visualization GUI implemented on PyQt.<br>dependency</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/yt-project/y</span>t.git<br></code></pre></td></tr></table></figure><p>Install</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">https:</span>//bitbucket<span class="hljs-meta">.org</span>/ecp_warpx/picviewer/<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Cloudflare tunnel 内网穿透</title>
     <link href="./2024/07/07/cloudflare/"/>
     <url>./2024/07/07/cloudflare/</url>
     
@@ -173,11 +186,11 @@
   
   
   <entry>
-    <title>高斯差分和超高斯滤波</title>
-    <link href="./2022/07/05/gauss_diff/"/>
-    <url>./2022/07/05/gauss_diff/</url>
+    <title>超高斯滤波和阶跃函数</title>
+    <link href="./2022/07/05/guass/"/>
+    <url>./2022/07/05/guass/</url>
     
-    <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">gauss_func</span>(<span class="hljs-params">Nx, sigma, n</span>):<br>    x = np.arange(Nx) * dx<br>    cen = x0<br>    <span class="hljs-built_in">print</span>(cen)<br>    amp = <span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> amp * np.exp(-(x - cen) ** n / (<span class="hljs-number">2</span> * sigma ** n))<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">gauss_func2d</span>(<span class="hljs-params">Nx, Ny, sigma, n</span>):<br>    x = np.arange(Nx)<br>    y = np.arange(Ny)<br>    Y, X = np.meshgrid(y, x)<br>    cen = [x0, y0]<br>    <span class="hljs-built_in">print</span>(cen)<br>    amp = <span class="hljs-number">1</span><br>    R = np.sqrt((X * dx - cen[<span class="hljs-number">0</span>])**<span class="hljs-number">2</span> + (Y * dy - cen[<span class="hljs-number">1</span>])**<span class="hljs-number">2</span>)<br>    <span class="hljs-keyword">return</span> amp * np.exp(- R ** n / (<span class="hljs-number">2</span> * sigma ** n))<br><br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[]]></content>
     
     
     
@@ -186,11 +199,11 @@
   
   
   <entry>
-    <title>超高斯滤波和阶跃函数</title>
-    <link href="./2022/07/05/guass/"/>
-    <url>./2022/07/05/guass/</url>
+    <title>高斯差分和超高斯滤波</title>
+    <link href="./2022/07/05/gauss_diff/"/>
+    <url>./2022/07/05/gauss_diff/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">gauss_func</span>(<span class="hljs-params">Nx, sigma, n</span>):<br>    x = np.arange(Nx) * dx<br>    cen = x0<br>    <span class="hljs-built_in">print</span>(cen)<br>    amp = <span class="hljs-number">1</span><br>    <span class="hljs-keyword">return</span> amp * np.exp(-(x - cen) ** n / (<span class="hljs-number">2</span> * sigma ** n))<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">gauss_func2d</span>(<span class="hljs-params">Nx, Ny, sigma, n</span>):<br>    x = np.arange(Nx)<br>    y = np.arange(Ny)<br>    Y, X = np.meshgrid(y, x)<br>    cen = [x0, y0]<br>    <span class="hljs-built_in">print</span>(cen)<br>    amp = <span class="hljs-number">1</span><br>    R = np.sqrt((X * dx - cen[<span class="hljs-number">0</span>])**<span class="hljs-number">2</span> + (Y * dy - cen[<span class="hljs-number">1</span>])**<span class="hljs-number">2</span>)<br>    <span class="hljs-keyword">return</span> amp * np.exp(- R ** n / (<span class="hljs-number">2</span> * sigma ** n))<br><br></code></pre></td></tr></table></figure>]]></content>
     
     
     
