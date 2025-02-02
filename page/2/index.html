@@ -224,6 +224,39 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="./2022/08/16/NewtonMethod/" target="_self">
+          牛顿迭代法隐式欧拉法求解微分方程
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="./2022/08/16/NewtonMethod/" target="_self">
+        <div>
+          牛顿迭代法求解ODE首先根据 dy&#x2F;dx &#x3D; f(x, y) 构建 F(x, y) &#x3D; 0，然后求解F(x, y)对y的导数，然后迭代求解零点误差 abs(F(x, y) - F(x, next_y)) 最小处的y，将next_y作为y带入下一个递归， 1234567891011121314151617181920212223242526272829303132333
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-08-16 08:00" pubdate>
+              2022-08-16
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="./2022/08/15/pymesh/" target="_self">
           Marching Cube算法提取网格
         </a>
@@ -323,15 +356,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="./2022/07/05/antiFilter/" target="_self">
-          反滤波
+        <a href="./2022/07/05/gauss_diff/" target="_self">
+          高斯差分和超高斯滤波
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="./2022/07/05/antiFilter/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="./2022/07/05/gauss_diff/" target="_self">
         <div>
-          使用傅里叶变换去卷积和逆滤波如果已经有了一张具有模糊核的模糊图像，我们需要将其恢复到原始图像。原理上，我们只需要对原有的滤波卷积核每一个值进行倒数的操作即可实现逆滤波器的效果。在此我们仍然是在频域上进行卷积，代码如下。 需要注意的是，卷积核取到数的过程中需要在原来的数值上加一个微小数值epsilon，以避免分母为零。 12345678910111213141516171819202122im =
+          123456789101112131415161718def gauss_func(Nx, sigma, n):    x = np.arange(Nx) * dx    cen = x0    print(cen)    amp = 1    return amp * np.exp(-(x - cen) ** n / (2 * sigma ** n))def gauss_func2d(Nx, N
         </div>
       </a>
 
@@ -389,15 +422,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="./2022/07/05/gauss_diff/" target="_self">
-          高斯差分和超高斯滤波
+        <a href="./2022/07/05/antiFilter/" target="_self">
+          反滤波
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="./2022/07/05/gauss_diff/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="./2022/07/05/antiFilter/" target="_self">
         <div>
-          123456789101112131415161718def gauss_func(Nx, sigma, n):    x = np.arange(Nx) * dx    cen = x0    print(cen)    amp = 1    return amp * np.exp(-(x - cen) ** n / (2 * sigma ** n))def gauss_func2d(Nx, N
+          使用傅里叶变换去卷积和逆滤波如果已经有了一张具有模糊核的模糊图像，我们需要将其恢复到原始图像。原理上，我们只需要对原有的滤波卷积核每一个值进行倒数的操作即可实现逆滤波器的效果。在此我们仍然是在频域上进行卷积，代码如下。 需要注意的是，卷积核取到数的过程中需要在原来的数值上加一个微小数值epsilon，以避免分母为零。 12345678910111213141516171819202122im =
         </div>
       </a>
 
@@ -506,39 +539,6 @@
             <i class="iconfont icon-date"></i>
             <time datetime="2022-07-03 08:00" pubdate>
               2022-07-03
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="./2022/07/01/Divide-and-Conquer/" target="_self">
-          分治算法
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="./2022/07/01/Divide-and-Conquer/" target="_self">
-        <div>
-          问题给你一个由数字和运算符组成的字符串 expression ，按不同优先级组合数字和运算符，计算并返回所有可能组合的结果。你可以 按任意顺序 返回答案。 生成的测试用例满足其对应输出值符合 32 位整数范围，不同结果的数量不超过 $10^4$ 。 示例12345输入：expression = &quot;2-1-1&quot;输出：[0,2]解释：((2-1)-1) = 0 (2-(1-1))
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-01 08:00" pubdate>
-              2022-07-01
             </time>
           </div>
         
