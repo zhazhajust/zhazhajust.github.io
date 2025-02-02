@@ -488,15 +488,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2022/07/03/myfftconvolve/" target="_self">
+        <a href="/2022/07/03/conv/" target="_self">
           卷积算法实现AutoCorr和高斯滤波（高斯模糊）
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/07/03/myfftconvolve/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/07/03/conv/" target="_self">
         <div>
-          自定义FFT卷积使用fftshift(fft(fftshift(signal))): 1.不改变频谱的幅度和相位 2.使得频谱的范围为-Fs&#x2F;2到Fs&#x2F;2，中心频率为0 1234567891011121314def fftconvolve(im, gauss_kernel):    gauss_f = np.fft.fftshift(np.fft.fft2(np.fft.fft
+          自相关123456from scipy import signalrng = np.random.default_rng()sig = rng.standard_normal(1000)autocorr = signal.fftconvolve(sig, sig[::-1], mode=&#x27;full&#x27;)  高斯滤波12345678910import scipyfrom scipy
         </div>
       </a>
 
@@ -521,15 +521,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2022/07/03/conv/" target="_self">
+        <a href="/2022/07/03/myfftconvolve/" target="_self">
           卷积算法实现AutoCorr和高斯滤波（高斯模糊）
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/07/03/conv/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/07/03/myfftconvolve/" target="_self">
         <div>
-          自相关123456from scipy import signalrng = np.random.default_rng()sig = rng.standard_normal(1000)autocorr = signal.fftconvolve(sig, sig[::-1], mode=&#x27;full&#x27;)  高斯滤波12345678910import scipyfrom scipy
+          自定义FFT卷积使用fftshift(fft(fftshift(signal))): 1.不改变频谱的幅度和相位 2.使得频谱的范围为-Fs&#x2F;2到Fs&#x2F;2，中心频率为0 1234567891011121314def fftconvolve(im, gauss_kernel):    gauss_f = np.fft.fftshift(np.fft.fft2(np.fft.fft
         </div>
       </a>
 

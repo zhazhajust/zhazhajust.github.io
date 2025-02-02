@@ -19,12 +19,12 @@
     <meta name="description" content="Cloudflare 实现内网穿透主要通过其 Cloudflare Tunnel（也叫 Argo Tunnel）功能来实现。它允许你在不暴露公共 IP 的情况下，将本地服务器或应用暴露到互联网上，从而实现内网穿透。以下是 Cloudflare Tunnel 的基本工作原理和步骤： 工作原理： Cloudflare Tunnel 创建了一个从本地服务器到 Cloudflare 的加密隧道。你的应用或">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cloudflare tunnel 内网穿透">
-<meta property="og:url" content="https://zhazhajust.github.io/2024/07/07/cloudflare/index.html">
+<meta property="og:url" content="https://zhazhajust.github.io/2025/02/02/cloudflare/index.html">
 <meta property="og:site_name" content="Jayz Blog">
 <meta property="og:description" content="Cloudflare 实现内网穿透主要通过其 Cloudflare Tunnel（也叫 Argo Tunnel）功能来实现。它允许你在不暴露公共 IP 的情况下，将本地服务器或应用暴露到互联网上，从而实现内网穿透。以下是 Cloudflare Tunnel 的基本工作原理和步骤： 工作原理： Cloudflare Tunnel 创建了一个从本地服务器到 Cloudflare 的加密隧道。你的应用或">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-07-07T07:33:21.000Z">
-<meta property="article:modified_time" content="2025-02-02T07:30:21.092Z">
+<meta property="article:published_time" content="2025-02-02T07:40:21.000Z">
+<meta property="article:modified_time" content="2025-02-02T07:40:28.674Z">
 <meta property="article:author" content="JayZz">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -207,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-07 15:33" pubdate>
-          2024年7月7日 下午
+        <time datetime="2025-02-02 15:40" pubdate>
+          2025年2月2日 下午
         </time>
       </span>
     
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          930 字
+          1.1k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          8 分钟
+          9 分钟
         
       </span>
     
@@ -340,6 +340,26 @@
 <li>此时，你的本地服务就已经通过 Cloudflare Tunnel 暴露到互联网上了。</li>
 </ul>
 </li>
+<li><p><strong>启用 “Always Use HTTPS” 设置</strong></p>
+<ul>
+<li><p>Cloudflare 提供了一个非常简单的方法来自动将所有 HTTP 流量重定向到 HTTPS：通过 “Always Use HTTPS” 选项。这是最直接的方式，适用于大多数场景。</p>
+</li>
+<li><p>操作步骤：</p>
+</li>
+<li><p>登录到你的 Cloudflare 控制面板。</p>
+</li>
+<li><p>选择你要配置的域名。</p>
+</li>
+<li><p>进入 “SSL&#x2F;TLS” 设置页面。</p>
+</li>
+<li><p>在页面顶部，点击 “Edge Certificates” 选项卡。</p>
+</li>
+<li><p>向下滚动，找到 “Always Use HTTPS” 设置。</p>
+</li>
+<li><p>开启这个选项，将所有的 HTTP 请求自动重定向到 HTTPS。</p>
+</li>
+</ul>
+</li>
 </ol>
 <h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><ul>
 <li><strong>安全性高</strong>：内网不需要暴露在公网，只通过加密隧道进行通信。</li>
@@ -369,7 +389,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Cloudflare tunnel 内网穿透</div>
-      <div>https://zhazhajust.github.io/2024/07/07/cloudflare/</div>
+      <div>https://zhazhajust.github.io/2025/02/02/cloudflare/</div>
     </div>
     <div class="license-meta">
       
@@ -381,7 +401,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年7月7日</div>
+          <div>2025年2月2日</div>
         </div>
       
       
@@ -413,18 +433,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/02/02/subtree/" title="Subtree仓库添加">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Subtree仓库添加</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/10/computation/" title="计算辐射物理">
-                        <span class="hidden-mobile">计算辐射物理</span>
+                      <a href="/2025/02/02/postpic/" title="PIC模拟后处理">
+                        <span class="hidden-mobile">PIC模拟后处理</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
