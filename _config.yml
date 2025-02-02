@@ -110,7 +110,5 @@ theme: fluid
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  # repo: git@github.com:zhazhajust/myblog.git
   repo: git@github.com:zhazhajust/zhazhajust.github.io.git
-  # branch: main
   branch: gh-pages
