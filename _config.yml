@@ -19,8 +19,9 @@ timezone: ''
 # permalink_defaults:
 
 # URL
-# url: https://zhazhajust.github.io/myblog
-root: ./
+url: https://zhazhajust.github.io
+# root: ./
+# root: https://zhazhajust.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
