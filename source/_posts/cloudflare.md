@@ -4,6 +4,8 @@ date: 2025-02-02 15:40:21
 tags:
 ---
 
+- https://cloudflared.cn/get-started/create-local-tunnel/
+
 Cloudflare 实现内网穿透主要通过其 **Cloudflare Tunnel**（也叫 Argo Tunnel）功能来实现。它允许你在不暴露公共 IP 的情况下，将本地服务器或应用暴露到互联网上，从而实现内网穿透。以下是 Cloudflare Tunnel 的基本工作原理和步骤：
 
 ### 工作原理：
