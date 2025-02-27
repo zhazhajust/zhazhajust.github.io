@@ -290,19 +290,6 @@
   
   
   <entry>
-    <title>PRL投稿问题</title>
-    <link href="/2022/07/01/REVTex/"/>
-    <url>/2022/07/01/REVTex/</url>
-    
-    <content type="html"><![CDATA[<h2 id="prl投稿问题">PRL投稿问题</h2><p>PRL投稿需要使用REVTEX，而使用REVTEX模板发现去除所有内容后，abstract后自动换页然后输出。</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>EPOCH Code For Spectrum</title>
     <link href="/2022/06/30/centspec/"/>
     <url>/2022/06/30/centspec/</url>
