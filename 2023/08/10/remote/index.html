@@ -19,12 +19,12 @@
   <meta name="author" content="JayZz">
   <meta name="keywords" content="">
   
-    <meta name="description" content="简介首先准备好公网ipv4 or ipv6，使用ddns-go绑定动态ip地址到dns服务器（静态ip不需要），此时可。随后运行WolGoWeb服务，即可使用url进行远程唤醒。 dynv6使用 https:&#x2F;&#x2F;dynv6.com 进行动态域名解析，绑定ipv6于自定义域名 https:&#x2F;&#x2F;xxx.dynv6.net 。 ddns-go简单好用的DDNS。自动更新域名解析到公网IP(支持阿里云、腾">
+    <meta name="description" content="简介 首先准备好公网ipv4 or ipv6，使用ddns-go绑定动态ip地址到dns服务器（静态ip不需要），此时可。随后运行WolGoWeb服务，即可使用url进行远程唤醒。 dynv6 使用 https:&#x2F;&#x2F;dynv6.com 进行动态域名解析，绑定ipv6于自定义域名 https:&#x2F;&#x2F;xxx.dynv6.net 。 ddns-go 简单好用的DDNS。自动更新域名解析到公网">
 <meta property="og:type" content="article">
 <meta property="og:title" content="远程连接与唤醒">
 <meta property="og:url" content="https://zhazhajust.github.io/2023/08/10/remote/index.html">
 <meta property="og:site_name" content="Jayz Blog">
-<meta property="og:description" content="简介首先准备好公网ipv4 or ipv6，使用ddns-go绑定动态ip地址到dns服务器（静态ip不需要），此时可。随后运行WolGoWeb服务，即可使用url进行远程唤醒。 dynv6使用 https:&#x2F;&#x2F;dynv6.com 进行动态域名解析，绑定ipv6于自定义域名 https:&#x2F;&#x2F;xxx.dynv6.net 。 ddns-go简单好用的DDNS。自动更新域名解析到公网IP(支持阿里云、腾">
+<meta property="og:description" content="简介 首先准备好公网ipv4 or ipv6，使用ddns-go绑定动态ip地址到dns服务器（静态ip不需要），此时可。随后运行WolGoWeb服务，即可使用url进行远程唤醒。 dynv6 使用 https:&#x2F;&#x2F;dynv6.com 进行动态域名解析，绑定ipv6于自定义域名 https:&#x2F;&#x2F;xxx.dynv6.net 。 ddns-go 简单好用的DDNS。自动更新域名解析到公网">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-08-10T00:00:00.000Z">
 <meta property="article:modified_time" content="2025-02-27T03:08:34.110Z">
@@ -275,17 +275,28 @@
             
               <div class="markdown-body">
                 
-                <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>首先准备好公网ipv4 or ipv6，使用ddns-go绑定动态ip地址到dns服务器（静态ip不需要），此时可。随后运行WolGoWeb服务，即可使用url进行远程唤醒。</p>
-<h2 id="dynv6"><a href="#dynv6" class="headerlink" title="dynv6"></a>dynv6</h2><p>使用 <a target="_blank" rel="noopener" href="https://dynv6.com/">https://dynv6.com</a> 进行动态域名解析，绑定ipv6于自定义域名 <a target="_blank" rel="noopener" href="https://xxx.dynv6.net/">https://xxx.dynv6.net</a> 。</p>
-<h2 id="ddns-go"><a href="#ddns-go" class="headerlink" title="ddns-go"></a>ddns-go</h2><p>简单好用的DDNS。自动更新域名解析到公网IP(支持阿里云、腾讯云、Dnspod、Cloudflare、Callback、华为云、百度云、Porkbun、GoDaddy、Google Domain)</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/jeessy2/ddns-go.git">https://github.com/jeessy2/ddns-go.git</a></p>
+                <h2 id="简介">简介</h2>
+<p>首先准备好公网ipv4 or
+ipv6，使用ddns-go绑定动态ip地址到dns服务器（静态ip不需要），此时可。随后运行WolGoWeb服务，即可使用url进行远程唤醒。</p>
+<h2 id="dynv6">dynv6</h2>
+<p>使用 https://dynv6.com 进行动态域名解析，绑定ipv6于自定义域名
+https://xxx.dynv6.net 。</p>
+<h2 id="ddns-go">ddns-go</h2>
+<p>简单好用的DDNS。自动更新域名解析到公网IP(支持阿里云、腾讯云、Dnspod、Cloudflare、Callback、华为云、百度云、Porkbun、GoDaddy、Google
+Domain)</p>
+<p>https://github.com/jeessy2/ddns-go.git</p>
 <p>此时，ipv6已解析于ddns服务器，通过自定义url可以通过远程连接软件如rdp、moonlight、parsec等直接访问。</p>
-<h2 id="WolGoWeb"><a href="#WolGoWeb" class="headerlink" title="WolGoWeb"></a>WolGoWeb</h2><p>基于Golang的Web服务器，使用url链接即可发起wake on lan局域网唤醒。</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/zhazhajust/WolGoWeb.git">https://github.com/zhazhajust/WolGoWeb.git</a></p>
-<p>然后测试url唤醒，在浏览器输入 <a target="_blank" rel="noopener" href="http://xxx:9090/wol?mac=00-00-00-00-00-00">http://xxx:9090/wol?mac=00-00-00-00-00-00</a> （网卡MAC地址）。</p>
-<h2 id="Wake-On-Lan-GUI-程序（Optional）"><a href="#Wake-On-Lan-GUI-程序（Optional）" class="headerlink" title="Wake On Lan GUI 程序（Optional）"></a>Wake On Lan GUI 程序（Optional）</h2><p><a target="_blank" rel="noopener" href="https://github.com/basildane/WakeOnLAN.git">https://github.com/basildane/WakeOnLAN.git</a></p>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6622c33f4cd3">https://www.jianshu.com/p/6622c33f4cd3</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhouym.tech/2022/Wake-On-Lan/">https://zhouym.tech/2022/Wake-On-Lan/</a></p>
+<h2 id="wolgoweb">WolGoWeb</h2>
+<p>基于Golang的Web服务器，使用url链接即可发起wake on lan局域网唤醒。</p>
+<p>https://github.com/zhazhajust/WolGoWeb.git</p>
+<p>然后测试url唤醒，在浏览器输入
+http://xxx:9090/wol?mac=00-00-00-00-00-00 （网卡MAC地址）。</p>
+<h2 id="wake-on-lan-gui-程序optional">Wake On Lan GUI
+程序（Optional）</h2>
+<p>https://github.com/basildane/WakeOnLAN.git</p>
+<h3 id="参考文献">参考文献</h3>
+<p>https://www.jianshu.com/p/6622c33f4cd3</p>
+<p>https://zhouym.tech/2022/Wake-On-Lan/</p>
 
                 
               </div>
