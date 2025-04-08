@@ -3,7 +3,7 @@ name: Deploy Hexo to GitHub Pages
 on:
   push:
     branches:
-      - main  # 你希望自动部署的分支
+      - fluid  # 你希望自动部署的分支
       # 你也可以使用其他分支，如 'master' 或 'dev'，根据你的实际需求
 
 jobs:
