@@ -27,6 +27,13 @@ jobs:
           npm install
           npm install hexo-cli -g
 
+      # Set up Git user
+      - name: Set up Git user
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "jiecai@stu.pku.edu.cn"
+
+
       # 清理、构建并部署
       - name: Clean, Build and Deploy
         run: |
