@@ -108,7 +108,15 @@ theme: fluid
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
+#deploy:
+#  type: git
+#  repo: git@github.com:zhazhajust/zhazhajust.github.io.git
+#  branch: gh-pages
+
+# Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: git@github.com:zhazhajust/zhazhajust.github.io.git
+  repository: https://github.com/zhazhajust/zhazhajust.github.io.git  # 使用 HTTPS
   branch: gh-pages
+
