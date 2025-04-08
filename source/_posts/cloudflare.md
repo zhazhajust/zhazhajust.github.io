@@ -75,7 +75,7 @@ Cloudflare 实现内网穿透主要通过其 **Cloudflare Tunnel**（也叫 Argo
 
    - 或者通过cloudflared程序进行路由
    ```bash
-   cloudflared tunnel route dns jayzquaz retereview.cn
+   cloudflared tunnel route dns jayzquaz rentereview.cn
    ```
    - 这将把域名 retereview.cn 路由到名为 jayzquaz 的 Tunnel。
 7. **启动和验证：**
