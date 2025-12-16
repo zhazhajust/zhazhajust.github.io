@@ -1,0 +1,53 @@
+name: Deploy Hexo to GitHub Pages
+
+on:
+  push:
+    branches:
+      - fluid  # 你希望自动部署的分支
+      # 你也可以使用其他分支，如 'master' 或 'dev'，根据你的实际需求
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # Set up SSH key
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      # Checkout 代码
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 设置 Node.js 环境
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # 选择适合你项目的 Node.js 版本
+
+      # 安装依赖
+      - name: Install dependencies
+        run: |
+          npm install
+          npm install hexo-cli -g
+
+      # Set up Git user
+      - name: Set up Git user
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "jiecai@stu.pku.edu.cn"
+
+
+      # 清理、构建并部署
+      - name: Clean, Build and Deploy
+        run: |
+          npm run clean
+          npm run build
+          npm run deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 使用 GitHub 自动生成的 Token 进行推送
