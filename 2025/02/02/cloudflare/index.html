@@ -294,8 +294,8 @@
 <li><p><strong>安装 Cloudflare Tunnel 客户端：</strong></p>
 <ul>
 <li>在你的本地服务器上安装 <code>cloudflared</code> 客户端。你可以通过 <a target="_blank" rel="noopener" href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation">Cloudflare 的官方文档</a> 了解详细的安装过程。大致步骤：<ul>
-<li>在 Linux 上，你可以使用以下命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb</span><br><span class="line"><span class="built_in">sudo</span> dpkg -i cloudflared-linux-amd64.deb</span><br></pre></td></tr></table></figure>
-对于没有sudo权限的普通用户<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64</span><br></pre></td></tr></table></figure></li>
+<li>在 Linux 上，你可以使用以下命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb<br><span class="hljs-built_in">sudo</span> dpkg -i cloudflared-linux-amd64.deb<br></code></pre></td></tr></table></figure>
+对于没有sudo权限的普通用户<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64<br></code></pre></td></tr></table></figure></li>
 <li>也可以在 macOS、Windows 等其他平台上进行类似安装。</li>
 </ul>
 </li>
@@ -303,21 +303,21 @@
 </li>
 <li><p><strong>认证 Cloudflare Tunnel：</strong></p>
 <ul>
-<li>在服务器上运行以下命令，进行认证：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel login</span><br></pre></td></tr></table></figure></li>
+<li>在服务器上运行以下命令，进行认证：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel login<br></code></pre></td></tr></table></figure></li>
 <li>该命令会打开一个浏览器窗口，要求你登录到 Cloudflare 账户并授权。</li>
 </ul>
 </li>
 <li><p><strong>创建 Tunnel：</strong></p>
 <ul>
-<li>创建一个新的 Tunnel：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel create &lt;tunnel-name&gt;</span><br></pre></td></tr></table></figure></li>
+<li>创建一个新的 Tunnel：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel create &lt;tunnel-name&gt;<br></code></pre></td></tr></table></figure></li>
 <li>这会生成一个隧道 ID 和证书文件。</li>
 </ul>
 </li>
 <li><p><strong>配置 Tunnel 代理：</strong></p>
 <ul>
-<li>设置隧道代理，通常是在本地应用监听的端口上。例如，如果你的服务在 <code>localhost:8080</code> 上运行，可以使用以下命令将流量通过隧道转发：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel --url http://localhost:8080</span><br></pre></td></tr></table></figure></li>
-<li>或者也可以直接更改配置文件”~&#x2F;.cloudflared&#x2F;config.yml” <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tunnel: 6bc4c976-1c0c-45a4-bab0-93b7eed4e1d1 # 你的 Tunnel ID</span><br><span class="line">credentials-file: /home/yujq2/.cloudflared/6bc4c976-1c0c-45a4-bab0-93b7eed4e1d1.json</span><br><span class="line"></span><br><span class="line">ingress:</span><br><span class="line">- hostname: rentereview.cn</span><br><span class="line">    service: http://localhost:8080  # 你的 Web 服务监听端口</span><br><span class="line">- service: http_status:404</span><br></pre></td></tr></table></figure></li>
-<li>然后运行 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel run &lt;tunnel-name&gt;</span><br></pre></td></tr></table></figure></li>
+<li>设置隧道代理，通常是在本地应用监听的端口上。例如，如果你的服务在 <code>localhost:8080</code> 上运行，可以使用以下命令将流量通过隧道转发：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel --url http://localhost:8080<br></code></pre></td></tr></table></figure></li>
+<li>或者也可以直接更改配置文件”~&#x2F;.cloudflared&#x2F;config.yml” <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">tunnel:</span> <span class="hljs-string">6bc4c976-1c0c-45a4-bab0-93b7eed4e1d1</span> <span class="hljs-comment"># 你的 Tunnel ID</span><br><span class="hljs-attr">credentials-file:</span> <span class="hljs-string">/home/yujq2/.cloudflared/6bc4c976-1c0c-45a4-bab0-93b7eed4e1d1.json</span><br><br><span class="hljs-attr">ingress:</span><br><span class="hljs-bullet">-</span> <span class="hljs-attr">hostname:</span> <span class="hljs-string">rentereview.cn</span><br>    <span class="hljs-attr">service:</span> <span class="hljs-string">http://localhost:8080</span>  <span class="hljs-comment"># 你的 Web 服务监听端口</span><br><span class="hljs-bullet">-</span> <span class="hljs-attr">service:</span> <span class="hljs-string">http_status:404</span><br></code></pre></td></tr></table></figure></li>
+<li>然后运行 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel run &lt;tunnel-name&gt;<br></code></pre></td></tr></table></figure></li>
 </ul>
 </li>
 <li><p><strong>配置 DNS 和路由：</strong></p>
@@ -335,14 +335,14 @@
 <li><p>等待 DNS 记录生效后，你应该就可以通过访问 tunnel.retereview.cn 来访问你本地的服务了。</p>
 </li>
 <li><p>或者通过cloudflared程序进行路由</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel route dns jayzquaz rentereview.cn</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel route dns jayzquaz rentereview.cn<br></code></pre></td></tr></table></figure></li>
 <li><p>这将把域名 retereview.cn 路由到名为 jayzquaz 的 Tunnel。</p>
 </li>
 </ul>
 </li>
 <li><p><strong>启动和验证：</strong></p>
 <ul>
-<li>运行 Cloudflare Tunnel 服务：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel run &lt;tunnel-name&gt;</span><br></pre></td></tr></table></figure></li>
+<li>运行 Cloudflare Tunnel 服务：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel run &lt;tunnel-name&gt;<br></code></pre></td></tr></table></figure></li>
 <li>此时，你的本地服务就已经通过 Cloudflare Tunnel 暴露到互联网上了。</li>
 </ul>
 </li>
@@ -353,16 +353,16 @@
 <p> <strong>方法一：使用 systemd 创建服务（推荐）</strong></p>
 <ol>
 <li><p>创建服务文件<br>使用文本编辑器创建服务文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nano /etc/systemd/system/cloudflared-tunnel.service</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> nano /etc/systemd/system/cloudflared-tunnel.service<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>服务文件内容<br>将以下内容复制到文件中，注意替换 <code>&lt;tunnel-name&gt;</code> 为你的隧道名称：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Cloudflare Tunnel</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">User=root</span><br><span class="line">ExecStart=/usr/local/bin/cloudflared tunnel run &lt;tunnel-name&gt;</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=5</span><br><span class="line"># 可选：设置环境变量</span><br><span class="line">Environment=TUNNEL_ORIGIN_CERT=/path/to/cert.pem</span><br><span class="line"># 可选：指定配置文件</span><br><span class="line">Environment=CLOUDFLARED_CONFIG=/path/to/config.yml</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[Unit]</span><br><span class="hljs-attr">Description</span>=Cloudflare Tunnel<br><span class="hljs-attr">After</span>=network.target<br><br><span class="hljs-section">[Service]</span><br><span class="hljs-attr">Type</span>=simple<br><span class="hljs-attr">User</span>=root<br><span class="hljs-attr">ExecStart</span>=/usr/local/bin/cloudflared tunnel run &lt;tunnel-name&gt;<br><span class="hljs-attr">Restart</span>=always<br><span class="hljs-attr">RestartSec</span>=<span class="hljs-number">5</span><br><span class="hljs-comment"># 可选：设置环境变量</span><br><span class="hljs-attr">Environment</span>=TUNNEL_ORIGIN_CERT=/path/to/cert.pem<br><span class="hljs-comment"># 可选：指定配置文件</span><br><span class="hljs-attr">Environment</span>=CLOUDFLARED_CONFIG=/path/to/config.yml<br><br><span class="hljs-section">[Install]</span><br><span class="hljs-attr">WantedBy</span>=multi-user.target<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>启用并启动服务<br>依次执行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重新加载 systemd</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl daemon-reload</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启用开机自启</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> cloudflared-tunnel.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动服务</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl start cloudflared-tunnel.service</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 重新加载 systemd</span><br><span class="hljs-built_in">sudo</span> systemctl daemon-reload<br><br><span class="hljs-comment"># 启用开机自启</span><br><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">enable</span> cloudflared-tunnel.service<br><br><span class="hljs-comment"># 启动服务</span><br><span class="hljs-built_in">sudo</span> systemctl start cloudflared-tunnel.service<br></code></pre></td></tr></table></figure>
 
 <p>之后，可以使用以下命令检查服务状态和日志：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查状态</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl status cloudflared-tunnel.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看日志</span></span><br><span class="line"><span class="built_in">sudo</span> journalctl -u cloudflared-tunnel.service -f</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 检查状态</span><br><span class="hljs-built_in">sudo</span> systemctl status cloudflared-tunnel.service<br><br><span class="hljs-comment"># 查看日志</span><br><span class="hljs-built_in">sudo</span> journalctl -u cloudflared-tunnel.service -f<br></code></pre></td></tr></table></figure></li>
 </ol>
 </li>
 <li><p><strong>启用 “Always Use HTTPS” 设置</strong></p>
