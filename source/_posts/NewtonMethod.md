@@ -5,7 +5,7 @@ date: '2022-08-16'
 
 # 牛顿迭代法求解ODE
 
-首先根据 dy/dx = f(x, y) 构建 F(x, y) = 0，然后求解F(x, y)对y的导数，然后迭代求解零点误差 abs(F(x, y) - F(x, next_y)) 最小处的y，将next_y作为y带入下一个递归，
+首先根据 \(\frac{dy}{dx} = f(x, y)\) 构建 \(F(x, y) = 0\)，然后求解\(F(x, y)\)对\(y\)的导数，然后迭代求解零点误差 \(\text{abs}(F(x, y) - F(x, \text{next}_y))\) 最小处的\(y\)，将\(\text{next}_y\)作为\(y\)带入下一个递归，
 
 ```
 import matplotlib.pyplot as plt

@@ -15,32 +15,43 @@ Method of Lines是求解偏微分方程的一种通用计算方法。Method of L
 
 例：求解扩散方程
 
-$\partial u/\partial t = D\partial^2 u/\partial^2 x$
+\[
+\frac{\partial u}{\partial t} = D\frac{\partial^2 u}{\partial x^2}
+\]
 
-将$D\partial_x^2$离散化为矩阵A，将$\frac{d}{dt}U$写为$\dot U$，使用矩阵形式表示为$\dot U = AU$。
+将\(D\frac{\partial^2}{\partial x^2}\)离散化为矩阵\(A\)，将\(\frac{d}{dt}U\)写为\(\dot U\)，使用矩阵形式表示为\(\dot U = AU\)。
 
 
-例如$\frac{du_i}{dt} = -v\frac{du}{dx}$
-方程转化为$\frac{du_i}{dt} = -v\frac{(u_i - u_{i-1})}{\delta x}, 1 \leq i \leq M$，再转化为矩阵形式。
+例如\(\frac{du_i}{dt} = -v\frac{du}{dx}\)
+方程转化为\(\frac{du_i}{dt} = -v\frac{(u_i - u_{i-1})}{\delta x}, 1 \leq i \leq M\)，再转化为矩阵形式。
 
 ## forward eular
 
 讲矩阵乘积写为函数形式
-$\dot U = F(U)$
+\[
+\dot U = F(U)
+\]
 则可使用前向欧拉法进行求解
-$U_{k+1} = U_k + \delta tF(U_k)$
+\[
+U_{k+1} = U_k + \delta tF(U_k)
+\]
 
 ## RK方法
 
 龙格库塔方法显式求解Method of Lines得到的ODEs，可以得到更高精度的解。
 
 积分中值定理可以得出
-$U(t + \delta t) = U(t) + \delta tF(U(t + \frac{1}{2}\delta t)) + O(\delta t^3)$
+\[
+U(t + \delta t) = U(t) + \delta tF(U(t + \frac{1}{2}\delta t)) + O(\delta t^3)
+\]
 
-龙格库塔法通过预测$U(t + \frac{1}{2}\delta t)$来使用前向欧拉法
+龙格库塔法通过预测\(U(t + \frac{1}{2}\delta t)\)来使用前向欧拉法
+\[
+\widetilde U_{k+\frac{1}{2}} = U_k + \frac{\delta t}{2}F(U_k)
+\]
 
-$\widetilde U_{k+\frac{1}{2}} = U_k + \frac{\delta t}{2}F(U_k)$
+\[
+U_{k+1} = U_k + \delta tF(\widetilde U_{k+\frac{1}{2}})
+\]
 
-$U_{k+1} = U_k + \delta tF(\widetilde U_{k+\frac{1}{2}})$
-
-这是一种两阶段方法。第一阶段预测中点值,第二阶段，即校正阶段，使用预测的中点值进行时间步进。
+这是一种两阶段方法。第一阶段预测中点值，第二阶段，即校正阶段，使用预测的中点值进行时间步进。

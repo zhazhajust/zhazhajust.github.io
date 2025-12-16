@@ -79,22 +79,77 @@ Cloudflare 实现内网穿透主要通过其 **Cloudflare Tunnel**（也叫 Argo
    ```
    - 这将把域名 retereview.cn 路由到名为 jayzquaz 的 Tunnel。
 7. **启动和验证：**
-   - 运行 Cloudflare Tunnel 服务：
-     ```bash
-     cloudflared tunnel run <tunnel-name>
-     ```
-   - 此时，你的本地服务就已经通过 Cloudflare Tunnel 暴露到互联网上了。
+    - 运行 Cloudflare Tunnel 服务：
+      ```bash
+      cloudflared tunnel run <tunnel-name>
+      ```
+    - 此时，你的本地服务就已经通过 Cloudflare Tunnel 暴露到互联网上了。
 
-8. **启用 "Always Use HTTPS" 设置**
-   - Cloudflare 提供了一个非常简单的方法来自动将所有 HTTP 流量重定向到 HTTPS：通过 "Always Use HTTPS" 选项。这是最直接的方式，适用于大多数场景。
+8. **持久化服务（使用 systemd）**
+    - 以上步骤中运行 `cloudflared tunnel run` 的方式在终端退出后就会停止，为了让服务在后台持续运行，可以使用 systemd 来管理。
 
-   - 操作步骤：
-   - 登录到你的 Cloudflare 控制面板。
-   - 选择你要配置的域名。
-   - 进入 "SSL/TLS" 设置页面。
-   - 在页面顶部，点击 "Edge Certificates" 选项卡。
-   - 向下滚动，找到 "Always Use HTTPS" 设置。
-   - 开启这个选项，将所有的 HTTP 请求自动重定向到 HTTPS。
+    **方法一：使用 systemd 创建服务（推荐）**
+
+    1. 创建服务文件
+       使用文本编辑器创建服务文件：
+       ```bash
+       sudo nano /etc/systemd/system/cloudflared-tunnel.service
+       ```
+
+    2. 服务文件内容
+       将以下内容复制到文件中，注意替换 `<tunnel-name>` 为你的隧道名称：
+       ```
+       [Unit]
+       Description=Cloudflare Tunnel
+       After=network.target
+
+       [Service]
+       Type=simple
+       User=root
+       ExecStart=/usr/local/bin/cloudflared tunnel run <tunnel-name>
+       Restart=always
+       RestartSec=5
+       # 可选：设置环境变量
+       Environment=TUNNEL_ORIGIN_CERT=/path/to/cert.pem
+       # 可选：指定配置文件
+       Environment=CLOUDFLARED_CONFIG=/path/to/config.yml
+
+       [Install]
+       WantedBy=multi-user.target
+       ```
+
+    3. 启用并启动服务
+       依次执行以下命令：
+       ```bash
+       # 重新加载 systemd
+       sudo systemctl daemon-reload
+
+       # 启用开机自启
+       sudo systemctl enable cloudflared-tunnel.service
+
+       # 启动服务
+       sudo systemctl start cloudflared-tunnel.service
+       ```
+
+       之后，可以使用以下命令检查服务状态和日志：
+       ```bash
+       # 检查状态
+       sudo systemctl status cloudflared-tunnel.service
+
+       # 查看日志
+       sudo journalctl -u cloudflared-tunnel.service -f
+       ```
+
+9. **启用 "Always Use HTTPS" 设置**
+    - Cloudflare 提供了一个非常简单的方法来自动将所有 HTTP 流量重定向到 HTTPS：通过 "Always Use HTTPS" 选项。这是最直接的方式，适用于大多数场景。
+
+    - 操作步骤：
+    - 登录到你的 Cloudflare 控制面板。
+    - 选择你要配置的域名。
+    - 进入 "SSL/TLS" 设置页面。
+    - 在页面顶部，点击 "Edge Certificates" 选项卡。
+    - 向下滚动，找到 "Always Use HTTPS" 设置。
+    - 开启这个选项，将所有的 HTTP 请求自动重定向到 HTTPS。
 
 ### 优点：
 - **安全性高**：内网不需要暴露在公网，只通过加密隧道进行通信。

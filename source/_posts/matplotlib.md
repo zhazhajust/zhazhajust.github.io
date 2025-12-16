@@ -12,13 +12,11 @@ norm = mpl.colors.Normalize(0, 20, clip=True)
 im = plt.pcolormesh([[0,0,0],[0,0,20],[0,6,0]], cmap = 'jet', norm = norm)
 
 cbar2 = fig.colorbar(im, cmap = 'jet', location='top',  shrink = 0.8)
-cbar2.set_label('E$_k$ [MeV]')
+cbar2.set_label('E_k [MeV]')
 
 ```
 
-如果figure.colorbar没有location参数，则使用mpl.colorbar.make_axes或者mpl.colorbar.make_axes_gridspec构造cax然后生成调用C
-olorbar构造函数生成cbar
-
+如果figure.colorbar没有location参数，则使用mpl.colorbar.make_axes或者mpl.colorbar.make_axes_gridspec构造cax然后生成调用Colorbar构造函数生成cbar
 ```python
 
 #plt.colorbar().set_label.__doc__
@@ -37,7 +35,7 @@ NON_COLORBAR_KEYS = ['fraction', 'pad', 'shrink', 'aspect', 'anchor',
 cb_kw = {k: v for k, v in kw.items() if k not in NON_COLORBAR_KEYS}
 
 cbar = mpl.colorbar.Colorbar(cax, im, ticklocation = "top", orientation = "horizontal")
-cbar.set_label('E$_k$ [MeV]')
+cbar.set_label('E_k [MeV]')
 
 ```
 
@@ -50,6 +48,6 @@ cbar = mpl.colorbar.Colorbar(cax, im, orientation = "horizontal", ticklocation =
 cbar.set_ticks([0, 10, 20])
 cbar.ax.xaxis.set_ticks_position('top')
 cbar.ax.xaxis.set_label_position('top')
-cbar.set_label('E$_k$ [MeV]')
+cbar.set_label('E_k [MeV]')
 
 ```

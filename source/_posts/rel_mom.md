@@ -3,10 +3,10 @@ title: '广义动量守恒推导'
 date: '2025-02-27'
 ---
 
-下面给出一个较为详细的推导思路，说明为什么会得到方程  
+下面给出一个较为详细的推导思路，说明为什么会得到方程
 \[
-\frac{d}{dt}\bigl(\mathbf{p}_\perp + q\,\mathbf{A}\bigr) = 0 \quad \Longrightarrow \quad \mathbf{p}_\perp = \mathbf{p}_\perp^0 \;-\; q\,\mathbf{A},
-\]  
+\frac{d}{dt}\left(\mathbf{p}_\perp + q\,\mathbf{A}\right) = 0 \quad \Longrightarrow \quad \mathbf{p}_\perp = \mathbf{p}_\perp^0 - q\,\mathbf{A},
+\]
 以及 \(\mathbf{p}_\perp^0 = m \gamma^0 \mathbf{v}_\perp^0\) 等结果。这里 \(\mathbf{p}_\perp\) 指的是粒子的横向(与主传播方向正交)动量，\(\mathbf{A}\) 是电磁势(矢势)，\(q\) 是粒子电荷，\(m\) 是粒子质量，\(\gamma\) 是相对论因子。下面分步骤说明。
 
 ---

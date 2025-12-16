@@ -1,0 +1,78 @@
+# Icarus主题配置
+# 完整配置参考：https://github.com/ppoffice/hexo-theme-icarus
+version: 6.1.1
+
+# 站点基本设置
+site:
+  title: Jayz Blog
+  subtitle: '简洁现代的博客'
+  logo: /img/icon.png
+  logo_alt: 站点Logo
+  url: https://zhazhajust.github.io
+  keywords: '博客, 技术, 分享'
+  author: JayZz
+  description: 简洁现代的博客
+
+# 导航菜单
+menu:
+  首页: /
+  归档: /archives
+  分类: /categories
+  标签: /tags
+  关于: /about
+
+# 内容展示
+index:
+  excerpt_link: 阅读更多
+  excerpt_length: 200
+  order_by: -date
+
+# 页面元素
+widgets:
+  - type: profile
+    position: left
+    author: JayZz
+    author_title: 开发者
+    location: 城市, 国家
+    avatar: /img/icon.png
+    avatar_alt: 头像
+    follow_me:
+      - title: GitHub
+        url: https://github.com/zhazhajust
+
+  - type: toc
+    position: right
+    index: true
+    headline: 文章目录
+
+  - type: recent_posts
+    position: right
+    limit: 5
+    headline: 最新文章
+
+# 页脚设置
+footer:
+  since: 2023
+  icon:
+    name: heart
+    animated: true
+    color: "#ff0000"
+  powered: true
+  beian: ""
+
+# 主题插件
+plugins:
+  search: 
+    path: search.json
+  share: true
+  comment:
+    type: disqus
+    shortname: your-disqus-shortname
+  donate: 
+    alipay: /img/alipay.jpg
+    wechatpay: /img/wechatpay.jpg
+  widgets: 
+    - type: recent_posts
+    - type: category
+    - type: tag
+    - type: archive

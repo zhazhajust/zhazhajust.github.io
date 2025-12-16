@@ -1,0 +1,68 @@
+# Anzhiyu主题配置
+# 完整配置参考：https://docs.anheyu.com/config/
+
+# 站点基本设置
+site:
+  title: Jayz Blog
+  subtitle: '简洁现代的博客'
+  logo: /img/icon.png
+  logo_alt: 站点Logo
+  url: https://zhazhajust.github.io
+  keywords: '博客, 技术, 分享'
+  author: JayZz
+  description: 简洁现代的博客
+
+# 导航菜单
+menu:
+  - name: 首页
+    link: /
+    icon: fas fa-home
+  - name: 归档
+    link: /archives
+    icon: fas fa-archive
+  - name: 分类
+    link: /categories
+    icon: fas fa-folder
+  - name: 标签
+    link: /tags
+    icon: fas fa-tags
+  - name: 关于
+    link: /about
+    icon: fas fa-user
+
+# 首页设置
+index:
+  excerpt_length: 200
+  order_by: -date
+
+# 社交链接
+social:
+  - name: GitHub
+    link: https://github.com/zhazhajust
+    icon: fab fa-github
+
+# 页脚设置
+footer:
+  since: 2023
+  copyright: true
+  icp: ""
+  beian: ""
+
+# 主题插件
+plugins:
+  search: true
+  comment:
+    type: waline
+    serverURL: https://your-waline-domain.com
+  analytics:
+    enable: false
+    baidu: ""
+    google: ""
+
+# 外观设置
+appearance:
+  theme: light
+  dark_mode: auto
+  font_family: 
+    global: "Arial, sans-serif"
+  code_theme: default
