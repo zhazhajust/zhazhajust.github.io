@@ -64,13 +64,11 @@ footer:
 plugins:
   search: 
     path: search.json
-  share: true
+  share: false
   comment:
     type: disqus
-    shortname: your-disqus-shortname
-  donate: 
-    alipay: /img/alipay.jpg
-    wechatpay: /img/wechatpay.jpg
+    shortname: ""  # 请在这里填入您的Disqus shortname
+  donate: false
   widgets: 
     - type: recent_posts
     - type: category
