@@ -27,16 +27,17 @@ tags: [Slurm, HPC, 集群管理]
 ```bash
 hostnamectl set-hostname node1
 cat >> /etc/hosts <<EOF
-192.168.1.10   node1
+# 192.168.1.10   node1
+127.0.0.1   node1
 EOF
 ```
 
-### 2. 关闭防火墙（测试环境建议）
+### 2. 关闭防火墙（可选，测试环境建议）
 ```bash
 systemctl disable --now firewalld
 ```
 
-### 3. 关闭 SELinux
+### 3. 关闭 SELinux（可选，测试环境建议）
 ```bash
 sed -i 's/^SELINUX=.*/SELINUX=disabled/' /etc/selinux/config
 setenforce 0
@@ -63,7 +64,7 @@ Slurm 强依赖 munge 进行节点认证。
 /usr/sbin/create-munge-key
 ```
 
-### 2. 设置权限
+### 2. 设置权限（可选，测试环境建议）
 ```bash
 chown -R munge:munge /etc/munge /var/lib/munge /var/log/munge
 chmod 400 /etc/munge/munge.key
