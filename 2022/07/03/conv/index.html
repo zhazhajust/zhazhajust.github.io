@@ -21,19 +21,19 @@
   
     <meta name="description" content="自相关123456from scipy import signalrng &#x3D; np.random.default_rng()sig &#x3D; rng.standard_normal(1000)autocorr &#x3D; signal.fftconvolve(sig, sig[::-1], mode&#x3D;&#x27;full&#x27;)  高斯滤波12345678910import scipyfrom scipy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="卷积算法实现AutoCorr和高斯滤波（高斯模糊）">
+<meta property="og:title" content="滤波与反滤波">
 <meta property="og:url" content="https://zhazhajust.github.io/2022/07/03/conv/index.html">
 <meta property="og:site_name" content="Jayz Blog">
 <meta property="og:description" content="自相关123456from scipy import signalrng &#x3D; np.random.default_rng()sig &#x3D; rng.standard_normal(1000)autocorr &#x3D; signal.fftconvolve(sig, sig[::-1], mode&#x3D;&#x27;full&#x27;)  高斯滤波12345678910import scipyfrom scipy">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-03T00:00:00.000Z">
-<meta property="article:modified_time" content="2025-12-21T07:30:14.888Z">
+<meta property="article:modified_time" content="2025-12-21T07:55:13.303Z">
 <meta property="article:author" content="JayZz">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>卷积算法实现AutoCorr和高斯滤波（高斯模糊） - Jayz Blog</title>
+  <title>滤波与反滤波 - Jayz Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="卷积算法实现AutoCorr和高斯滤波（高斯模糊）"></span>
+            <span id="subtitle" data-typed-text="滤波与反滤波"></span>
           
         </div>
 
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          858 字
+          1.5k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          8 分钟
+          13 分钟
         
       </span>
     
@@ -270,7 +270,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">卷积算法实现AutoCorr和高斯滤波（高斯模糊）</h1>
+            <h1 id="seo-header">滤波与反滤波</h1>
             
             
               <div class="markdown-body">
@@ -291,12 +291,23 @@
 <p>简洁版</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs python"><br><span class="hljs-keyword">from</span> scipy <span class="hljs-keyword">import</span> signal<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> numpy.fft <span class="hljs-keyword">as</span> fp<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">fftConv</span>(<span class="hljs-params">im, sigma</span>):<br><br>    gauss_kernel = np.outer(signal.gaussian(im.shape[<span class="hljs-number">0</span>], sigma), <br>    signal.gaussian(im.shape[<span class="hljs-number">1</span>], sigma))<br>    plotFreq(freqX, freqY, gauss_kernel.T)<br><br>    freq = np.fft.fft2(im)<br>    <span class="hljs-keyword">assert</span>(freq.shape == gauss_kernel.shape)<br>    freq_kernel = np.fft.fft2(np.fft.ifftshift(gauss_kernel))<br>    <span class="hljs-comment">#freq_kernel = np.fft.fft2(gauss_kernel)</span><br>    plotField(freqX, freqY, np.log10(np.<span class="hljs-built_in">abs</span>(fp.ifftshift(freq))).T)<br>    plotFreq(freqX, freqY, np.<span class="hljs-built_in">abs</span>(fp.ifftshift(freq_kernel)).T) <br><br>    conv = freq*freq_kernel<br>    im1 = fp.ifft2(conv).real<br>    <span class="hljs-keyword">return</span> im1<br><br>im = EyEnd<br>plotField(x, y, im.T)<br>sigma = <span class="hljs-number">15</span><br>im1 = fftConv(im, sigma)<br>plotField(freqX, freqY, im1.T) <br><br></code></pre></td></tr></table></figure>
 
-
 <p>时域和频域对比</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> pylab<br><br>freq = np.fft.fft2(im)<br><span class="hljs-keyword">assert</span>(freq.shape == gauss_kernel.shape)<br>freq_kernel = np.fft.fft2(np.fft.ifftshift(gauss_kernel))<br>conv = freq * freq_kernel<br>im1 = fp.ifft2(conv).real<br><br>pylab.figure(figsize = (<span class="hljs-number">20</span>, <span class="hljs-number">8</span>))<br>pylab.gray()<br>pylab.subplot(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>), pylab.pcolormesh(im.T, cmap = <span class="hljs-string">&#x27;bwr&#x27;</span>), pylab.title(<span class="hljs-string">&#x27;Original Image&#x27;</span>, size = <span class="hljs-number">30</span>), pylab.axis(<span class="hljs-string">&#x27;off&#x27;</span>)<br>pylab.subplot(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>), pylab.pcolormesh(gauss_kernel.T, cmap = <span class="hljs-string">&#x27;jet&#x27;</span>), pylab.title(<span class="hljs-string">&#x27;Gaussian Kernel&#x27;</span>, size = <span class="hljs-number">30</span>), pylab.axis(<span class="hljs-string">&#x27;off&#x27;</span>)<br>pylab.subplot(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>), pylab.pcolormesh(im1.T, cmap = <span class="hljs-string">&#x27;bwr&#x27;</span>), pylab.title(<span class="hljs-string">&#x27;Output Image&#x27;</span>, size = <span class="hljs-number">30</span>), pylab.axis(<span class="hljs-string">&#x27;off&#x27;</span>)<br><br>imOrigin = (<span class="hljs-number">20</span>*np.log10(np.<span class="hljs-built_in">abs</span>(<span class="hljs-number">0.1</span>+fp.ifftshift(freq)))).astype(<span class="hljs-built_in">int</span>)<br>pylab.subplot(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>), pylab.pcolormesh(imOrigin.T, cmap = <span class="hljs-string">&#x27;bwr&#x27;</span>)<br>pylab.title(<span class="hljs-string">&#x27;Origin Image Spectrum&#x27;</span>, size = <span class="hljs-number">30</span>), pylab.axis(<span class="hljs-string">&#x27;off&#x27;</span>)<br><br>imGuassian = (<span class="hljs-number">20</span>*np.log10(np.<span class="hljs-built_in">abs</span>(<span class="hljs-number">0.1</span>+fp.ifftshift(freq_kernel)))).astype(<span class="hljs-built_in">int</span>)<br>pylab.subplot(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>), pylab.pcolormesh(imGuassian.T, cmap = <span class="hljs-string">&#x27;jet&#x27;</span>)<br>pylab.title(<span class="hljs-string">&#x27;Gaussian Kernel Spectrum&#x27;</span>, size = <span class="hljs-number">30</span>), pylab.axis(<span class="hljs-string">&#x27;off&#x27;</span>)<br><br>imOutSpec = (<span class="hljs-number">20</span>*np.log10(np.<span class="hljs-built_in">abs</span>(<span class="hljs-number">0.1</span>+fp.ifftshift(conv)))).astype(<span class="hljs-built_in">int</span>)<br>pylab.subplot(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">6</span>), pylab.pcolormesh(imOutSpec.T, cmap = <span class="hljs-string">&#x27;jet&#x27;</span>)<br>pylab.title(<span class="hljs-string">&#x27;Output Image Spectrum&#x27;</span>, size = <span class="hljs-number">30</span>), pylab.axis(<span class="hljs-string">&#x27;off&#x27;</span>)<br><br></code></pre></td></tr></table></figure>
 
 <h2 id="带通滤波"><a href="#带通滤波" class="headerlink" title="带通滤波"></a>带通滤波</h2><p>在这里尝试使用高斯差分核（两个高斯核的差），作为带通滤波器。带通滤波是保留一定频段内的频率分量，而丢弃其余所有的频率分量。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">###读取图像</span><br>im = img_as_float(pylab.imread(<span class="hljs-string">&#x27;./images/snow.jpg&#x27;</span>))<br>pylab.figure(), pylab.imshow(im), pylab.axis(<span class="hljs-string">&#x27;off&#x27;</span>), pylab.show()<br>x = np.linspace(-<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">15</span>)<br><span class="hljs-comment">###kernel 1 生成</span><br>kernel = np.exp(-<span class="hljs-number">0.005</span>*x**<span class="hljs-number">2</span>)<br>kernel /= np.trapz(kernel)<br>guass_kernel_1 = kernel[:, np.newaxis] * kernel[np.newaxis, :]<br><span class="hljs-comment">###kernel 2 生成</span><br>kernel = np.exp(-<span class="hljs-number">5</span>*x**<span class="hljs-number">2</span>)<br>kernel /= np.trapz(kernel)<br>guass_kernel_2 = kernel[:, np.newaxis] * kernel[np.newaxis, :]<br><span class="hljs-comment">###进行差分</span><br>DOGkernel = guass_kernel_1[:,:,np.newaxis] - guass_kernel_2[:,:,np.newaxis]<br><span class="hljs-comment">###卷积</span><br>im = signal.fftconvolve(im, DOGkernel, mode = <span class="hljs-string">&#x27;same&#x27;</span>)<br>pylab.figure, pylab.imshow(np.clip(im, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>)), pylab.axis(<span class="hljs-string">&#x27;off&#x27;</span>), <span class="hljs-built_in">print</span>(np.<span class="hljs-built_in">max</span>(im))<br>pylab.show()<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="使用傅里叶变换去卷积和逆滤波"><a href="#使用傅里叶变换去卷积和逆滤波" class="headerlink" title="使用傅里叶变换去卷积和逆滤波"></a>使用傅里叶变换去卷积和逆滤波</h2><p>如果已经有了一张具有模糊核的模糊图像，我们需要将其恢复到原始图像。原理上，我们只需要对原有的滤波卷积核每一个值进行倒数的操作即可实现逆滤波器的效果。在此我们仍然是在频域上进行卷积，代码如下。</p>
+<p>需要注意的是，卷积核取到数的过程中需要在原来的数值上加一个微小数值epsilon，以避免分母为零。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><br>im = EyEnd <span class="hljs-comment">#255*rgb2gray(imread(&#x27;./images/snow.jpg&#x27;))</span><br>gauss_kernel = np.outer(signal.gaussian(im.shape[<span class="hljs-number">0</span>], <span class="hljs-number">3</span>), signal.gaussian(im.shape[<span class="hljs-number">1</span>], <span class="hljs-number">3</span>))<br> <br>freq = fp.fft2(im)<br>freq_kernel = fp.fft2(fp.ifftshift(gauss_kernel))<br>conv = freq*freq_kernel<br>im_blur = fp.ifft2(conv).real<br>im_blur = <span class="hljs-number">255</span>*im_blur/np.<span class="hljs-built_in">max</span>(im_blur)<br> <br>epsilon = <span class="hljs-number">10</span>**-<span class="hljs-number">6</span><br>freq = fp.fft2(im_blur)<br>freq_kernel = <span class="hljs-number">1</span>/(epsilon+freq_kernel) <span class="hljs-comment"># avoid freq_kernel is zero</span><br>im_rst = fp.ifft2(conv).real<br>im_rst = <span class="hljs-number">255</span>*im_rst/np.<span class="hljs-built_in">max</span>(im_rst)<br> <br>pylab.figure(figsize = (<span class="hljs-number">10</span>, <span class="hljs-number">6</span>))<br>pylab.subplot(<span class="hljs-number">221</span>), pylab.imshow(im), pylab.title(<span class="hljs-string">&#x27;Original Image&#x27;</span>), pylab.axis(<span class="hljs-string">&#x27;off&#x27;</span>)<br>pylab.subplot(<span class="hljs-number">222</span>), pylab.imshow(im_blur), pylab.title(<span class="hljs-string">&#x27;Blurred Image Image&#x27;</span>), pylab.axis(<span class="hljs-string">&#x27;off&#x27;</span>)<br>pylab.subplot(<span class="hljs-number">223</span>), pylab.imshow(im_rst), pylab.title(<span class="hljs-string">&#x27;Restored Image with inverse filter&#x27;</span>), pylab.axis(<span class="hljs-string">&#x27;off&#x27;</span>)<br>pylab.subplot(<span class="hljs-number">224</span>), pylab.imshow(im_rst - im), pylab.title(<span class="hljs-string">&#x27;Diff Image&#x27;</span>), pylab.axis(<span class="hljs-string">&#x27;off&#x27;</span>)<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="利用维纳滤波器去卷积"><a href="#利用维纳滤波器去卷积" class="headerlink" title="利用维纳滤波器去卷积"></a>利用维纳滤波器去卷积</h2><p>前面的去卷积方法需要已知模糊核，在这里使用维纳滤波器，在不知道模糊核的情况下，从损坏的信号中去除噪声，达到复原图像的目的。首先构造一个已经损坏了的图像。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><br>im = rgb2gray(imread(<span class="hljs-string">&#x27;./images/cat.jpg&#x27;</span>))<br> <br>n = <span class="hljs-number">7</span><br>psf = np.ones((n, n))/n**<span class="hljs-number">2</span><br>im1 = signal.convolve2d(im, psf, mode = <span class="hljs-string">&#x27;same&#x27;</span>)<br>im1 += <span class="hljs-number">0.1</span>*np.std(im1)*np.random.standard_normal(im.shape)<br><br></code></pre></td></tr></table></figure>
+
+<p>再使用维纳滤波完成操作，最后就能得到图像</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><br>im2, _ = restoration.unsupervised_wiener(im1, psf)<br>fig, axes = pylab.subplots(nrows = <span class="hljs-number">1</span>, ncols = <span class="hljs-number">3</span>, figsize = (<span class="hljs-number">200</span>, <span class="hljs-number">40</span>), sharex = <span class="hljs-literal">True</span>,<br> sharey = <span class="hljs-literal">True</span>)<br>pylab.gray()<br>axes[<span class="hljs-number">0</span>].imshow(im), axes[<span class="hljs-number">0</span>].axis(<span class="hljs-string">&#x27;off&#x27;</span>), axes[<span class="hljs-number">0</span>].set_title(<span class="hljs-string">&#x27;Original image&#x27;</span>, size = <span class="hljs-number">200</span>)<br>axes[<span class="hljs-number">1</span>].imshow(im1), axes[<span class="hljs-number">1</span>].axis(<span class="hljs-string">&#x27;off&#x27;</span>), axes[<span class="hljs-number">1</span>].set_title(<span class="hljs-string">&#x27;Noisy blurred image&#x27;</span>, size = <span class="hljs-number">200</span>)<br>axes[<span class="hljs-number">2</span>].imshow(im2), axes[<span class="hljs-number">2</span>].axis(<span class="hljs-string">&#x27;off&#x27;</span>), axes[<span class="hljs-number">2</span>].set_title(<span class="hljs-string">&#x27;Self tuned restoration&#x27;</span>, size = <span class="hljs-number">200</span>)<br>fig.tight_layout()<br>pylab.show()<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="使用低通滤波，重建图像"><a href="#使用低通滤波，重建图像" class="headerlink" title="使用低通滤波，重建图像"></a>使用低通滤波，重建图像</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><br>im_fft = fp.ifftshift(im_fft_shift)<br>im = np.clip(fp.ifft2(im_fft).real, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>)<br>pylab.figure(figsize = (<span class="hljs-number">10</span>,<span class="hljs-number">10</span>))<br>pylab.imshow(im,pylab.cm.gray), pylab.axis(<span class="hljs-string">&#x27;off&#x27;</span>), pylab.title(<span class="hljs-string">&#x27;Noise image&#x27;</span>), pylab.show()<br><br>keep_fraction = <span class="hljs-number">0.1</span><br>r,c = im_fft.shape<br>im_fft[<span class="hljs-built_in">int</span>(r*keep_fraction):<span class="hljs-built_in">int</span>(r*(<span class="hljs-number">1</span>-keep_fraction))] = <span class="hljs-number">0</span><br>im_fft[:, <span class="hljs-built_in">int</span>(c*keep_fraction):<span class="hljs-built_in">int</span>(c*(<span class="hljs-number">1</span>-keep_fraction))] = <span class="hljs-number">0</span><br>pylab.figure(), plot_spectrum(fp.fftshift(im_fft)), pylab.title(<span class="hljs-string">&#x27;Filitered Spectrum&#x27;</span>)<br><br>im_new = fp.ifft2(im_fft).real<br>pylab.figure(figsize = (<span class="hljs-number">10</span>, <span class="hljs-number">10</span>))<br>pylab.imshow(im_new,pylab.cm.gray), pylab.axis(<span class="hljs-string">&#x27;off&#x27;</span>), pylab.title(<span class="hljs-string">&#x27;Reconstructed image&#x27;</span>), pylab.show()<br><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -314,7 +325,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>卷积算法实现AutoCorr和高斯滤波（高斯模糊）</div>
+      <div>滤波与反滤波</div>
       <div>https://zhazhajust.github.io/2022/07/03/conv/</div>
     </div>
     <div class="license-meta">
@@ -359,9 +370,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/04/matplotlib/" title="matplotlib colorbar位置">
+                      <a href="/2022/07/09/segmentTree/" title="动态开点线段树">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">matplotlib colorbar位置</span>
+                        <span class="hidden-mobile">动态开点线段树</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -369,8 +380,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/03/myfftconvolve/" title="卷积算法实现AutoCorr和高斯滤波（高斯模糊）">
-                        <span class="hidden-mobile">卷积算法实现AutoCorr和高斯滤波（高斯模糊）</span>
+                      <a href="/2022/07/01/Divide-and-Conquer/" title="分治算法">
+                        <span class="hidden-mobile">分治算法</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

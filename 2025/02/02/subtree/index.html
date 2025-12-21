@@ -19,15 +19,15 @@
   <meta name="author" content="JayZz">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Step 1初始化git仓库git init添加README.md文件git add .git commit -m “Init” Step 2添加git subtree仓库git remote add label git fetch labelgit add subtree –prefix&#x3D; label&#x2F;">
+    <meta name="description" content="Step 1初始化 git 仓库并提交初始文件 1234567891011# 在当前目录初始化仓库git init# 创建或编辑 README.md（示例）echo &quot;# 项目&quot; &gt; README.md# 将所有改动添加到暂存区git add .# 提交到本地仓库git commit -m &quot;Init&quot;  解释：  git init：在当前目录创建一个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Subtree仓库添加">
 <meta property="og:url" content="https://zhazhajust.github.io/2025/02/02/subtree/index.html">
 <meta property="og:site_name" content="Jayz Blog">
-<meta property="og:description" content="Step 1初始化git仓库git init添加README.md文件git add .git commit -m “Init” Step 2添加git subtree仓库git remote add label git fetch labelgit add subtree –prefix&#x3D; label&#x2F;">
+<meta property="og:description" content="Step 1初始化 git 仓库并提交初始文件 1234567891011# 在当前目录初始化仓库git init# 创建或编辑 README.md（示例）echo &quot;# 项目&quot; &gt; README.md# 将所有改动添加到暂存区git add .# 提交到本地仓库git commit -m &quot;Init&quot;  解释：  git init：在当前目录创建一个">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-02-02T03:26:21.000Z">
-<meta property="article:modified_time" content="2025-12-21T07:30:14.894Z">
+<meta property="article:modified_time" content="2025-12-21T07:58:51.513Z">
 <meta property="article:author" content="JayZz">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          23 字
+          586 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          1 分钟
+          5 分钟
         
       </span>
     
@@ -275,8 +275,42 @@
             
               <div class="markdown-body">
                 
-                <h2 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h2><p>初始化git仓库<br>git init<br>添加README.md文件<br>git add .<br>git commit -m “Init”</p>
-<h2 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h2><p>添加git subtree仓库<br>git remote add label <git-url><br>git fetch label<br>git add subtree –prefix&#x3D;<path> label&#x2F;<branch></p>
+                <h2 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h2><p>初始化 git 仓库并提交初始文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 在当前目录初始化仓库</span><br>git init<br><br><span class="hljs-comment"># 创建或编辑 README.md（示例）</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;# 项目&quot;</span> &gt; README.md<br><br><span class="hljs-comment"># 将所有改动添加到暂存区</span><br>git add .<br><br><span class="hljs-comment"># 提交到本地仓库</span><br>git commit -m <span class="hljs-string">&quot;Init&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>解释：</p>
+<ul>
+<li>git init：在当前目录创建一个新的 Git 仓库（.git 目录）。</li>
+<li>git add .：把当前目录下的所有新文件和修改记录到暂存区，准备提交。</li>
+<li>git commit -m “Init”：把暂存区内容作为一次提交写入本地仓库，-m 后面是提交说明。</li>
+</ul>
+<h2 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h2><p>把另一个仓库作为子树（subtree）添加到本仓库的某个目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 添加远程仓库（label 为远程名，&lt;git-url&gt; 为远程仓库地址）</span><br>git remote add label &lt;git-url&gt;<br><br><span class="hljs-comment"># 抓取远程分支到本地（不合并，只获取引用和对象）</span><br>git fetch label<br><br><span class="hljs-comment"># 将远程仓库的某个分支以子树形式合并到当前仓库的指定目录</span><br>git subtree add --prefix=&lt;path&gt; label &lt;branch&gt;<br><span class="hljs-comment"># 可选：加上 --squash 将远程历史合并为单个提交</span><br><span class="hljs-comment"># git subtree add --prefix=&lt;path&gt; label &lt;branch&gt; --squash</span><br></code></pre></td></tr></table></figure>
+
+<p>解释：</p>
+<ul>
+<li>git remote add label <git-url>：为远程仓库起一个名字（这里用 label），便于后续引用。</li>
+<li>git fetch label：从名为 label 的远程抓取最新对象和引用，但不自动合并到当前分支。</li>
+<li>git subtree add –prefix&#x3D;<path> label <branch>：<ul>
+<li>–prefix&#x3D;<path>：把子仓库的内容导入到当前仓库的 <path> 目录下（该目录会被创建）。</li>
+<li>label：上一步添加的远程名。</li>
+<li><branch>：远程仓库中要导入的分支名（如 master 或 main）。</li>
+<li>该命令会把远程分支的内容合并到本仓库的指定目录，并保留可追溯的合并提交；–squash 可把全部历史压缩为一个提交。</li>
+</ul>
+</li>
+</ul>
+<p>补充常用操作：</p>
+<ul>
+<li>更新子树到远程最新：git subtree pull –prefix&#x3D;<path> label <branch> [–squash]</li>
+<li>将子树的变更推送回远程：git subtree push –prefix&#x3D;<path> label <branch></li>
+</ul>
+<p>注意事项：</p>
+<ul>
+<li>git subtree 在现代 Git 中通常可用；若不可用，需安装 contrib 工具或使用其他方式（如 git submodule）。</li>
+<li>在使用前确认 <path>、<git-url>、<branch> 填写正确，避免覆盖已有重要文件。</li>
+<li>若希望保留完整历史，勿使用 –squash；若想保持主仓库历史简洁，可使用 –squash。</li>
+<li>相关操作会在本地产生合并提交，合并策略与普通合并类似，请根据需要在分支上操作并做好备份。</li>
+</ul>
 
                 
               </div>
@@ -339,9 +373,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/02/02/postpic/" title="PIC模拟后处理">
+                      <a href="/2025/02/02/cloudflare/" title="Cloudflare tunnel 内网穿透">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">PIC模拟后处理</span>
+                        <span class="hidden-mobile">Cloudflare tunnel 内网穿透</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -349,8 +383,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/10/computation/" title="计算辐射物理">
-                        <span class="hidden-mobile">计算辐射物理</span>
+                      <a href="/2023/08/10/datascience/" title="机器学习资源">
+                        <span class="hidden-mobile">机器学习资源</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

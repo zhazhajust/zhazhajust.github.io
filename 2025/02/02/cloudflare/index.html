@@ -27,7 +27,7 @@
 <meta property="og:description" content="https:&#x2F;&#x2F;cloudflared.cn&#x2F;get-started&#x2F;create-local-tunnel&#x2F;  Cloudflare 实现内网穿透主要通过其 Cloudflare Tunnel（也叫 Argo Tunnel）功能来实现。它允许你在不暴露公共 IP 的情况下，将本地服务器或应用暴露到互联网上，从而实现内网穿透。以下是 Cloudflare Tunnel 的基本工作原理和步骤： 工">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-02-02T07:40:21.000Z">
-<meta property="article:modified_time" content="2025-12-21T07:30:14.887Z">
+<meta property="article:modified_time" content="2025-12-21T08:01:36.299Z">
 <meta property="article:author" content="JayZz">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -316,7 +316,7 @@
 <li><p><strong>配置 Tunnel 代理：</strong></p>
 <ul>
 <li>设置隧道代理，通常是在本地应用监听的端口上。例如，如果你的服务在 <code>localhost:8080</code> 上运行，可以使用以下命令将流量通过隧道转发：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel --url http://localhost:8080<br></code></pre></td></tr></table></figure></li>
-<li>或者也可以直接更改配置文件”~&#x2F;.cloudflared&#x2F;config.yml” <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">tunnel:</span> <span class="hljs-string">6bc4c976-1c0c-45a4-bab0-93b7eed4e1d1</span> <span class="hljs-comment"># 你的 Tunnel ID</span><br><span class="hljs-attr">credentials-file:</span> <span class="hljs-string">/home/yujq2/.cloudflared/6bc4c976-1c0c-45a4-bab0-93b7eed4e1d1.json</span><br><br><span class="hljs-attr">ingress:</span><br><span class="hljs-bullet">-</span> <span class="hljs-attr">hostname:</span> <span class="hljs-string">rentereview.cn</span><br>    <span class="hljs-attr">service:</span> <span class="hljs-string">http://localhost:8080</span>  <span class="hljs-comment"># 你的 Web 服务监听端口</span><br><span class="hljs-bullet">-</span> <span class="hljs-attr">service:</span> <span class="hljs-string">http_status:404</span><br></code></pre></td></tr></table></figure></li>
+<li>或者也可以直接更改配置文件”~&#x2F;.cloudflared&#x2F;config.yml” <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">tunnel:</span> <span class="hljs-string">6bc4c976-1c0c-45a4-bab0-93b7eed4e1d1</span> <span class="hljs-comment"># 你的 Tunnel ID</span><br><span class="hljs-attr">credentials-file:</span> <span class="hljs-string">$HOME/.cloudflared/6bc4c976-1c0c-45a4-bab0-93b7eed4e1d1.json</span><br><br><span class="hljs-attr">ingress:</span><br><span class="hljs-bullet">-</span> <span class="hljs-attr">hostname:</span> <span class="hljs-string">rentereview.cn</span><br>    <span class="hljs-attr">service:</span> <span class="hljs-string">http://localhost:8080</span>  <span class="hljs-comment"># 你的 Web 服务监听端口</span><br><span class="hljs-bullet">-</span> <span class="hljs-attr">service:</span> <span class="hljs-string">http_status:404</span><br></code></pre></td></tr></table></figure></li>
 <li>然后运行 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel run &lt;tunnel-name&gt;<br></code></pre></td></tr></table></figure></li>
 </ul>
 </li>
@@ -335,8 +335,8 @@
 <li><p>等待 DNS 记录生效后，你应该就可以通过访问 tunnel.retereview.cn 来访问你本地的服务了。</p>
 </li>
 <li><p>或者通过cloudflared程序进行路由</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel route dns jayzquaz rentereview.cn<br></code></pre></td></tr></table></figure></li>
-<li><p>这将把域名 retereview.cn 路由到名为 jayzquaz 的 Tunnel。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel route dns &lt;tunnel-name&gt; rentereview.cn<br></code></pre></td></tr></table></figure></li>
+<li><p>这将把域名 rentereview.cn 路由到名为 <tunnel-name> 的 Tunnel。</p>
 </li>
 </ul>
 </li>
@@ -468,8 +468,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/02/02/postpic/" title="PIC模拟后处理">
-                        <span class="hidden-mobile">PIC模拟后处理</span>
+                      <a href="/2025/02/02/subtree/" title="Subtree仓库添加">
+                        <span class="hidden-mobile">Subtree仓库添加</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
