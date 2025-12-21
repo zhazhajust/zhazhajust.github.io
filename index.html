@@ -227,6 +227,94 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/2025/12/21/linux-cgroup-ssh-limit/" target="_self">
+          Linux cgroup 实现 SSH 用户资源限制指南
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/12/21/linux-cgroup-ssh-limit/" target="_self">
+        <div>
+          Linux cgroup 实现 SSH 用户资源限制指南概述Linux 控制组（cgroup）是内核提供的资源管理机制，可用于限制、隔离和监控进程组（如用户会话）的资源使用。通过 systemd 与 cgroup 结合，我们可以为 SSH 登录用户设置公平的资源配额，避免单个用户过度占用 CPU、内存等系统资源，提升多用户环境的稳定性。本指南以实际脚本为例，逐步讲解配置方法。 环境准备 系统要求：
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-12-21 08:00" pubdate>
+              2025-12-21
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">#Linux</a>
+            
+              <a href="/tags/cgroup/">#cgroup</a>
+            
+              <a href="/tags/%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/">#资源管理</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/12/20/slurm-server/" target="_self">
+          CentOS Stream 9 单节点 Slurm 集群部署指南
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/12/20/slurm-server/" target="_self">
+        <div>
+          本文提供 CentOS Stream 9 单节点环境下安装配置 Slurm（含 slurmctld + slurmd）的标准流程，适用于开发、测试及单机调度场景。 一、环境假设与目标架构1. 环境假设 操作系统：CentOS Stream 9（最小化或标准安装） 主机名：node1 IP：192.168.1.10（示例） 角色： 控制节点（Controller）：node1 计算节点（Comput
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-12-20 15:40" pubdate>
+              2025-12-20
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Slurm/">#Slurm</a>
+            
+              <a href="/tags/HPC/">#HPC</a>
+            
+              <a href="/tags/%E9%9B%86%E7%BE%A4%E7%AE%A1%E7%90%86/">#集群管理</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/2025/02/27/rel_mom/" target="_self">
           广义动量守恒推导
         </a>
@@ -235,7 +323,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2025/02/27/rel_mom/" target="_self">
         <div>
-          下面给出一个较为详细的推导思路，说明为什么会得到方程 [ (+ q,) = 0 = ^0 ;-; q,, ] 以及 (^0 = m ^0 ^0) 等结果。这里 () 指的是粒子的横向(与主传播方向正交)动量，() 是电磁势(矢势)，(q) 是粒子电荷，(m) 是粒子质量，() 是相对论因子。下面分步骤说明。  1. 广义动量的定义与运动方程 在经典电动力学中，带电粒子在电磁场中运动的
+          下面给出一个较为详细的推导思路，说明为什么会得到方程$$\frac{d}{dt}\left(\mathbf{p}_\perp + q,\mathbf{A}\right) &#x3D; 0 \quad \Longrightarrow \quad \mathbf{p}_\perp &#x3D; \mathbf{p}_\perp^0 - q,\mathbf{A},$$以及 $\mathbf{p}_\pe
         </div>
       </a>
 
@@ -268,7 +356,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2025/02/02/cloudflare/" target="_self">
         <div>
-          https://cloudflared.cn/get-started/create-local-tunnel/  Cloudflare 实现内网穿透主要通过其 Cloudflare Tunnel（也叫 Argo Tunnel）功能来实现。它允许你在不暴露公共 IP 的情况下，将本地服务器或应用暴露到互联网上，从而实现内网穿透。以下是 Cloudflare Tunnel 的基本工作原理
+          https://cloudflared.cn/get-started/create-local-tunnel/  Cloudflare 实现内网穿透主要通过其 Cloudflare Tunnel（也叫 Argo Tunnel）功能来实现。它允许你在不暴露公共 IP 的情况下，将本地服务器或应用暴露到互联网上，从而实现内网穿透。以下是 Cloudflare Tunnel 的基本工作原理和步骤： 工
         </div>
       </a>
 
@@ -301,7 +389,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2025/02/02/postpic/" target="_self">
         <div>
-          PIC模拟后处理软件 postpic 地址https://github.com/skuschel/postpic.git 示例https://github.com/skuschel/postpic-examples.git VisualPIC 可视化GUI程序https://github.com/AngelFP/VisualPIC.git@dev PICViewer PICViewe
+          PIC模拟后处理软件postpic地址https://github.com/skuschel/postpic.git示例https://github.com/skuschel/postpic-examples.git VisualPIC可视化GUI程序https://github.com/AngelFP/VisualPIC.git@dev PICViewerPICViewer is a visua
         </div>
       </a>
 
@@ -334,7 +422,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2025/02/02/subtree/" target="_self">
         <div>
-          Step 1 初始化git仓库 git init 添加README.md文件 git add . git commit -m "Init" Step 2 添加git subtree仓库 git remote add label  git fetch label git add subtree --prefix= label/
+          Step 1初始化git仓库git init添加README.md文件git add .git commit -m “Init” Step 2添加git subtree仓库git remote add label git fetch labelgit add subtree –prefix&#x3D; label&#x2F;
         </div>
       </a>
 
@@ -367,7 +455,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/08/10/computation/" target="_self">
         <div>
-          ComputationalRadiationPhysics Opticspy Optics diffraction calculation. https://github.com/opticspy/lightpipes.git Clara2 Clara2 - a parallel classical radiation calculator based on Liénard-Wiech
+          ComputationalRadiationPhysicsOpticspy Optics diffraction calculation. https://github.com/opticspy/lightpipes.git Clara2Clara2 - a parallel classical radiation calculator based on Liénard-Wiechert pote
         </div>
       </a>
 
@@ -400,7 +488,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/08/10/datascience/" target="_self">
         <div>
-          数据分析入门 https://github.com/apachecn/pyda-2e-zh.git Twitter算法 https://github.com/twitter/the-algorithm.git Data Science笔记 https://github.com/fengdu78/Data-Science-Notes Machine Learning笔记 吴恩达Mach
+          数据分析入门https://github.com/apachecn/pyda-2e-zh.git Twitter算法https://github.com/twitter/the-algorithm.git Data Science笔记https://github.com/fengdu78/Data-Science-Notes Machine Learning笔记吴恩达Machine learnin
         </div>
       </a>
 
@@ -433,7 +521,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/08/10/remote/" target="_self">
         <div>
-          简介 首先准备好公网ipv4 or ipv6，使用ddns-go绑定动态ip地址到dns服务器（静态ip不需要），此时可。随后运行WolGoWeb服务，即可使用url进行远程唤醒。 dynv6 使用 https://dynv6.com 进行动态域名解析，绑定ipv6于自定义域名 https://xxx.dynv6.net 。 ddns-go 简单好用的DDNS。自动更新域名解析到公网
+          简介首先准备好公网ipv4 or ipv6，使用ddns-go绑定动态ip地址到dns服务器（静态ip不需要），此时可。随后运行WolGoWeb服务，即可使用url进行远程唤醒。 dynv6使用 https://dynv6.com 进行动态域名解析，绑定ipv6于自定义域名 https://xxx.dynv6.net 。 ddns-go简单好用的DDNS。自动更新域名解析到公网IP(支持阿里云、腾
         </div>
       </a>
 
@@ -466,7 +554,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/08/10/vtk/" target="_self">
         <div>
-          VTK and Paraview vtk examples: https://examples.vtk.org/site/Python/IO/WriteXMLLinearCells/ source: https://github.com/Kitware/vtk-examples
+          VTK and Paraviewvtk examples:https://examples.vtk.org/site/Python/IO/WriteXMLLinearCells/ source:https://github.com/Kitware/vtk-examples
         </div>
       </a>
 
@@ -476,72 +564,6 @@
             <i class="iconfont icon-date"></i>
             <time datetime="2023-08-10 08:00" pubdate>
               2023-08-10
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2022/10/03/tuisong/" target="_self">
-          2022物院新生定向越野圆满结束
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/03/tuisong/" target="_self">
-        <div>
-          2022物院新生定向越野圆满结束   年年岁岁花相似，岁岁年年人不同。又是一年开学季，又是定向越野时。今年的定向越野活动有50多位物院新生报名参赛，探索北大的每一个角落，邂逅校园中的美丽风景与悠久历史。 早晨8:30，随着第一批队伍的出发，定向越野赛正式开始。一个个少年和少女充满斗志，神采飞扬，按照地图的指引，向着各个任务点奔去。 地图如下   图片1    可以看到定向越野过程中
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-10-03 08:00" pubdate>
-              2022-10-03
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2022/09/15/undulator/" target="_self">
-          Frequency moved undulator
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/15/undulator/" target="_self">
-        <div>
-          Smilei or EPOCH Mark the oscillate electrons, and save the field produced by them. Then sparated them from the total electric field and save to a new file. 光波荡器推导 假设平面波激光方向为\(\hat k = \textbf{k}
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-09-15 08:00" pubdate>
-              2022-09-15
             </time>
           </div>
         

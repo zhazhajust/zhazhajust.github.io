@@ -19,15 +19,15 @@
   <meta name="author" content="JayZz">
   <meta name="keywords" content="">
   
-    <meta name="description" content="https:&#x2F;&#x2F;cloudflared.cn&#x2F;get-started&#x2F;create-local-tunnel&#x2F;  Cloudflare 实现内网穿透主要通过其 Cloudflare Tunnel（也叫 Argo Tunnel）功能来实现。它允许你在不暴露公共 IP 的情况下，将本地服务器或应用暴露到互联网上，从而实现内网穿透。以下是 Cloudflare Tunnel 的基本工作原理">
+    <meta name="description" content="https:&#x2F;&#x2F;cloudflared.cn&#x2F;get-started&#x2F;create-local-tunnel&#x2F;  Cloudflare 实现内网穿透主要通过其 Cloudflare Tunnel（也叫 Argo Tunnel）功能来实现。它允许你在不暴露公共 IP 的情况下，将本地服务器或应用暴露到互联网上，从而实现内网穿透。以下是 Cloudflare Tunnel 的基本工作原理和步骤： 工">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cloudflare tunnel 内网穿透">
 <meta property="og:url" content="https://zhazhajust.github.io/2025/02/02/cloudflare/index.html">
 <meta property="og:site_name" content="Jayz Blog">
-<meta property="og:description" content="https:&#x2F;&#x2F;cloudflared.cn&#x2F;get-started&#x2F;create-local-tunnel&#x2F;  Cloudflare 实现内网穿透主要通过其 Cloudflare Tunnel（也叫 Argo Tunnel）功能来实现。它允许你在不暴露公共 IP 的情况下，将本地服务器或应用暴露到互联网上，从而实现内网穿透。以下是 Cloudflare Tunnel 的基本工作原理">
+<meta property="og:description" content="https:&#x2F;&#x2F;cloudflared.cn&#x2F;get-started&#x2F;create-local-tunnel&#x2F;  Cloudflare 实现内网穿透主要通过其 Cloudflare Tunnel（也叫 Argo Tunnel）功能来实现。它允许你在不暴露公共 IP 的情况下，将本地服务器或应用暴露到互联网上，从而实现内网穿透。以下是 Cloudflare Tunnel 的基本工作原理和步骤： 工">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-02-02T07:40:21.000Z">
-<meta property="article:modified_time" content="2025-02-27T03:08:34.106Z">
+<meta property="article:modified_time" content="2025-12-21T07:30:14.887Z">
 <meta property="article:author" content="JayZz">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          1.3k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          9 分钟
+          11 分钟
         
       </span>
     
@@ -276,115 +276,126 @@
               <div class="markdown-body">
                 
                 <ul>
-<li>https://cloudflared.cn/get-started/create-local-tunnel/</li>
+<li><a target="_blank" rel="noopener" href="https://cloudflared.cn/get-started/create-local-tunnel/">https://cloudflared.cn/get-started/create-local-tunnel/</a></li>
 </ul>
-<p>Cloudflare 实现内网穿透主要通过其 <strong>Cloudflare
-Tunnel</strong>（也叫 Argo Tunnel）功能来实现。它允许你在不暴露公共 IP
-的情况下，将本地服务器或应用暴露到互联网上，从而实现内网穿透。以下是
-Cloudflare Tunnel 的基本工作原理和步骤：</p>
-<h3 id="工作原理">工作原理：</h3>
-<ol type="1">
-<li><strong>Cloudflare Tunnel</strong> 创建了一个从本地服务器到
-Cloudflare
-的加密隧道。你的应用或服务运行在内网中，但它通过这个隧道连接到
-Cloudflare 的网络。</li>
-<li><strong>Cloudflare 网络</strong>
-接收到来自用户请求的流量，然后转发到本地服务器。</li>
-<li>用户与本地服务进行交互时，数据流经过加密隧道传输，从而避免了暴露内网
-IP 地址和端口。</li>
+<p>Cloudflare 实现内网穿透主要通过其 <strong>Cloudflare Tunnel</strong>（也叫 Argo Tunnel）功能来实现。它允许你在不暴露公共 IP 的情况下，将本地服务器或应用暴露到互联网上，从而实现内网穿透。以下是 Cloudflare Tunnel 的基本工作原理和步骤：</p>
+<h3 id="工作原理："><a href="#工作原理：" class="headerlink" title="工作原理："></a>工作原理：</h3><ol>
+<li><strong>Cloudflare Tunnel</strong> 创建了一个从本地服务器到 Cloudflare 的加密隧道。你的应用或服务运行在内网中，但它通过这个隧道连接到 Cloudflare 的网络。</li>
+<li><strong>Cloudflare 网络</strong> 接收到来自用户请求的流量，然后转发到本地服务器。</li>
+<li>用户与本地服务进行交互时，数据流经过加密隧道传输，从而避免了暴露内网 IP 地址和端口。</li>
 </ol>
-<h3 id="实现步骤">实现步骤：</h3>
-<ol type="1">
-<li><strong>注册 Cloudflare 账户并添加域名：</strong>
+<h3 id="实现步骤："><a href="#实现步骤：" class="headerlink" title="实现步骤："></a>实现步骤：</h3><ol>
+<li><p><strong>注册 Cloudflare 账户并添加域名：</strong></p>
 <ul>
-<li>如果还没有 Cloudflare 账户，首先去 <a
-target="_blank" rel="noopener" href="https://www.cloudflare.com">Cloudflare 官网</a> 注册一个。</li>
-<li>将你的域名添加到 Cloudflare，并修改 DNS
-设置（如果是现有域名）。</li>
-</ul></li>
-<li><strong>安装 Cloudflare Tunnel 客户端：</strong>
+<li>如果还没有 Cloudflare 账户，首先去 <a target="_blank" rel="noopener" href="https://www.cloudflare.com/">Cloudflare 官网</a> 注册一个。</li>
+<li>将你的域名添加到 Cloudflare，并修改 DNS 设置（如果是现有域名）。</li>
+</ul>
+</li>
+<li><p><strong>安装 Cloudflare Tunnel 客户端：</strong></p>
 <ul>
-<li>在你的本地服务器上安装 <code>cloudflared</code> 客户端。你可以通过
-<a
-target="_blank" rel="noopener" href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation">Cloudflare
-的官方文档</a> 了解详细的安装过程。大致步骤：
-<ul>
-<li>在 Linux 上，你可以使用以下命令： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb<br><span class="hljs-built_in">sudo</span> dpkg -i cloudflared-linux-amd64.deb<br></code></pre></td></tr></table></figure>
-对于没有sudo权限的普通用户 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64<br></code></pre></td></tr></table></figure></li>
+<li>在你的本地服务器上安装 <code>cloudflared</code> 客户端。你可以通过 <a target="_blank" rel="noopener" href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation">Cloudflare 的官方文档</a> 了解详细的安装过程。大致步骤：<ul>
+<li>在 Linux 上，你可以使用以下命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb<br><span class="hljs-built_in">sudo</span> dpkg -i cloudflared-linux-amd64.deb<br></code></pre></td></tr></table></figure>
+对于没有sudo权限的普通用户<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64<br></code></pre></td></tr></table></figure></li>
 <li>也可以在 macOS、Windows 等其他平台上进行类似安装。</li>
-</ul></li>
-</ul></li>
-<li><strong>认证 Cloudflare Tunnel：</strong>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>认证 Cloudflare Tunnel：</strong></p>
 <ul>
-<li>在服务器上运行以下命令，进行认证： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel login<br></code></pre></td></tr></table></figure></li>
-<li>该命令会打开一个浏览器窗口，要求你登录到 Cloudflare
-账户并授权。</li>
-</ul></li>
-<li><strong>创建 Tunnel：</strong>
+<li>在服务器上运行以下命令，进行认证：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel login<br></code></pre></td></tr></table></figure></li>
+<li>该命令会打开一个浏览器窗口，要求你登录到 Cloudflare 账户并授权。</li>
+</ul>
+</li>
+<li><p><strong>创建 Tunnel：</strong></p>
 <ul>
-<li>创建一个新的 Tunnel： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel create &lt;tunnel-name&gt;<br></code></pre></td></tr></table></figure></li>
+<li>创建一个新的 Tunnel：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel create &lt;tunnel-name&gt;<br></code></pre></td></tr></table></figure></li>
 <li>这会生成一个隧道 ID 和证书文件。</li>
-</ul></li>
-<li><strong>配置 Tunnel 代理：</strong>
+</ul>
+</li>
+<li><p><strong>配置 Tunnel 代理：</strong></p>
 <ul>
-<li>设置隧道代理，通常是在本地应用监听的端口上。例如，如果你的服务在
-<code>localhost:8080</code> 上运行，可以使用以下命令将流量通过隧道转发：
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel --url http://localhost:8080<br></code></pre></td></tr></table></figure></li>
-<li>或者也可以直接更改配置文件"~/.cloudflared/config.yml"
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">tunnel:</span> <span class="hljs-string">6bc4c976-1c0c-45a4-bab0-93b7eed4e1d1</span> <span class="hljs-comment"># 你的 Tunnel ID</span><br><span class="hljs-attr">credentials-file:</span> <span class="hljs-string">/home/yujq2/.cloudflared/6bc4c976-1c0c-45a4-bab0-93b7eed4e1d1.json</span><br><br><span class="hljs-attr">ingress:</span><br><span class="hljs-bullet">-</span> <span class="hljs-attr">hostname:</span> <span class="hljs-string">rentereview.cn</span><br>    <span class="hljs-attr">service:</span> <span class="hljs-string">http://localhost:8080</span>  <span class="hljs-comment"># 你的 Web 服务监听端口</span><br><span class="hljs-bullet">-</span> <span class="hljs-attr">service:</span> <span class="hljs-string">http_status:404</span><br></code></pre></td></tr></table></figure></li>
+<li>设置隧道代理，通常是在本地应用监听的端口上。例如，如果你的服务在 <code>localhost:8080</code> 上运行，可以使用以下命令将流量通过隧道转发：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel --url http://localhost:8080<br></code></pre></td></tr></table></figure></li>
+<li>或者也可以直接更改配置文件”~&#x2F;.cloudflared&#x2F;config.yml” <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">tunnel:</span> <span class="hljs-string">6bc4c976-1c0c-45a4-bab0-93b7eed4e1d1</span> <span class="hljs-comment"># 你的 Tunnel ID</span><br><span class="hljs-attr">credentials-file:</span> <span class="hljs-string">/home/yujq2/.cloudflared/6bc4c976-1c0c-45a4-bab0-93b7eed4e1d1.json</span><br><br><span class="hljs-attr">ingress:</span><br><span class="hljs-bullet">-</span> <span class="hljs-attr">hostname:</span> <span class="hljs-string">rentereview.cn</span><br>    <span class="hljs-attr">service:</span> <span class="hljs-string">http://localhost:8080</span>  <span class="hljs-comment"># 你的 Web 服务监听端口</span><br><span class="hljs-bullet">-</span> <span class="hljs-attr">service:</span> <span class="hljs-string">http_status:404</span><br></code></pre></td></tr></table></figure></li>
 <li>然后运行 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel run &lt;tunnel-name&gt;<br></code></pre></td></tr></table></figure></li>
-</ul></li>
-<li><strong>配置 DNS 和路由：</strong>
+</ul>
+</li>
+<li><p><strong>配置 DNS 和路由：</strong></p>
 <ul>
-<li><p>在 Cloudflare 控制面板中，配置你的 DNS 设置，将域名指向
-<code>cloudflare-tunnel</code>。</p></li>
-<li><p>在 Cloudflare 的 DNS 配置中，添加一条 CNAME 记录，将子域（例如
-<code>tunnel.yourdomain.com</code>）指向
-<code>tunnel.cloudflare.com</code>。</p></li>
-<li><p>总结一下</p></li>
-<li><p>在 Cloudflare 控制面板中，通过 DNS 设置，手动添加一个 CNAME
-记录，将子域（如 tunnel.retereview.cn）指向
-your-tunnel-id.cfargotunnel.com。</p></li>
-<li><p>确保你的 Cloudflare Tunnel 在本地启动并运行。</p></li>
-<li><p>等待 DNS 记录生效后，你应该就可以通过访问 tunnel.retereview.cn
-来访问你本地的服务了。</p></li>
-<li><p>或者通过cloudflared程序进行路由 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel route dns jayzquaz retereview.cn<br></code></pre></td></tr></table></figure></p></li>
-<li><p>这将把域名 retereview.cn 路由到名为 jayzquaz 的 Tunnel。</p></li>
-</ul></li>
-<li><strong>启动和验证：</strong>
+<li><p>在 Cloudflare 控制面板中，配置你的 DNS 设置，将域名指向 <code>cloudflare-tunnel</code>。</p>
+</li>
+<li><p>在 Cloudflare 的 DNS 配置中，添加一条 CNAME 记录，将子域（例如 <code>tunnel.yourdomain.com</code>）指向 <code>tunnel.cloudflare.com</code>。</p>
+</li>
+<li><p>总结一下</p>
+</li>
+<li><p>在 Cloudflare 控制面板中，通过 DNS 设置，手动添加一个 CNAME 记录，将子域（如 tunnel.retereview.cn）指向 your-tunnel-id.cfargotunnel.com。</p>
+</li>
+<li><p>确保你的 Cloudflare Tunnel 在本地启动并运行。</p>
+</li>
+<li><p>等待 DNS 记录生效后，你应该就可以通过访问 tunnel.retereview.cn 来访问你本地的服务了。</p>
+</li>
+<li><p>或者通过cloudflared程序进行路由</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel route dns jayzquaz rentereview.cn<br></code></pre></td></tr></table></figure></li>
+<li><p>这将把域名 retereview.cn 路由到名为 jayzquaz 的 Tunnel。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>启动和验证：</strong></p>
 <ul>
-<li>运行 Cloudflare Tunnel 服务： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel run &lt;tunnel-name&gt;<br></code></pre></td></tr></table></figure></li>
-<li>此时，你的本地服务就已经通过 Cloudflare Tunnel
-暴露到互联网上了。</li>
-</ul></li>
-<li><strong>启用 "Always Use HTTPS" 设置</strong>
+<li>运行 Cloudflare Tunnel 服务：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">cloudflared tunnel run &lt;tunnel-name&gt;<br></code></pre></td></tr></table></figure></li>
+<li>此时，你的本地服务就已经通过 Cloudflare Tunnel 暴露到互联网上了。</li>
+</ul>
+</li>
+<li><p><strong>持久化服务（使用 systemd）</strong></p>
 <ul>
-<li><p>Cloudflare 提供了一个非常简单的方法来自动将所有 HTTP 流量重定向到
-HTTPS：通过 "Always Use HTTPS"
-选项。这是最直接的方式，适用于大多数场景。</p></li>
-<li><p>操作步骤：</p></li>
-<li><p>登录到你的 Cloudflare 控制面板。</p></li>
-<li><p>选择你要配置的域名。</p></li>
-<li><p>进入 "SSL/TLS" 设置页面。</p></li>
-<li><p>在页面顶部，点击 "Edge Certificates" 选项卡。</p></li>
-<li><p>向下滚动，找到 "Always Use HTTPS" 设置。</p></li>
-<li><p>开启这个选项，将所有的 HTTP 请求自动重定向到 HTTPS。</p></li>
-</ul></li>
+<li>以上步骤中运行 <code>cloudflared tunnel run</code> 的方式在终端退出后就会停止，为了让服务在后台持续运行，可以使用 systemd 来管理。</li>
+</ul>
+<p> <strong>方法一：使用 systemd 创建服务（推荐）</strong></p>
+<ol>
+<li><p>创建服务文件<br>使用文本编辑器创建服务文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> nano /etc/systemd/system/cloudflared-tunnel.service<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>服务文件内容<br>将以下内容复制到文件中，注意替换 <code>&lt;tunnel-name&gt;</code> 为你的隧道名称：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[Unit]</span><br><span class="hljs-attr">Description</span>=Cloudflare Tunnel<br><span class="hljs-attr">After</span>=network.target<br><br><span class="hljs-section">[Service]</span><br><span class="hljs-attr">Type</span>=simple<br><span class="hljs-attr">User</span>=root<br><span class="hljs-attr">ExecStart</span>=/usr/local/bin/cloudflared tunnel run &lt;tunnel-name&gt;<br><span class="hljs-attr">Restart</span>=always<br><span class="hljs-attr">RestartSec</span>=<span class="hljs-number">5</span><br><span class="hljs-comment"># 可选：设置环境变量</span><br><span class="hljs-attr">Environment</span>=TUNNEL_ORIGIN_CERT=/path/to/cert.pem<br><span class="hljs-comment"># 可选：指定配置文件</span><br><span class="hljs-attr">Environment</span>=CLOUDFLARED_CONFIG=/path/to/config.yml<br><br><span class="hljs-section">[Install]</span><br><span class="hljs-attr">WantedBy</span>=multi-user.target<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>启用并启动服务<br>依次执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 重新加载 systemd</span><br><span class="hljs-built_in">sudo</span> systemctl daemon-reload<br><br><span class="hljs-comment"># 启用开机自启</span><br><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">enable</span> cloudflared-tunnel.service<br><br><span class="hljs-comment"># 启动服务</span><br><span class="hljs-built_in">sudo</span> systemctl start cloudflared-tunnel.service<br></code></pre></td></tr></table></figure>
+
+<p>之后，可以使用以下命令检查服务状态和日志：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 检查状态</span><br><span class="hljs-built_in">sudo</span> systemctl status cloudflared-tunnel.service<br><br><span class="hljs-comment"># 查看日志</span><br><span class="hljs-built_in">sudo</span> journalctl -u cloudflared-tunnel.service -f<br></code></pre></td></tr></table></figure></li>
 </ol>
-<h3 id="优点">优点：</h3>
+</li>
+<li><p><strong>启用 “Always Use HTTPS” 设置</strong></p>
 <ul>
+<li><p>Cloudflare 提供了一个非常简单的方法来自动将所有 HTTP 流量重定向到 HTTPS：通过 “Always Use HTTPS” 选项。这是最直接的方式，适用于大多数场景。</p>
+</li>
+<li><p>操作步骤：</p>
+</li>
+<li><p>登录到你的 Cloudflare 控制面板。</p>
+</li>
+<li><p>选择你要配置的域名。</p>
+</li>
+<li><p>进入 “SSL&#x2F;TLS” 设置页面。</p>
+</li>
+<li><p>在页面顶部，点击 “Edge Certificates” 选项卡。</p>
+</li>
+<li><p>向下滚动，找到 “Always Use HTTPS” 设置。</p>
+</li>
+<li><p>开启这个选项，将所有的 HTTP 请求自动重定向到 HTTPS。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><ul>
 <li><strong>安全性高</strong>：内网不需要暴露在公网，只通过加密隧道进行通信。</li>
 <li><strong>无公网 IP</strong>：适用于没有固定公网 IP 的环境。</li>
 <li><strong>简化配置</strong>：不需要复杂的端口映射或 NAT 配置。</li>
 </ul>
-<h3 id="注意">注意：</h3>
-<ul>
-<li>Cloudflare Tunnel 是一种基于 Cloudflare 的服务，因此需要有一个
-Cloudflare 账户，并且 DNS 需要指向 Cloudflare 才能使用。</li>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ul>
+<li>Cloudflare Tunnel 是一种基于 Cloudflare 的服务，因此需要有一个 Cloudflare 账户，并且 DNS 需要指向 Cloudflare 才能使用。</li>
 <li>可能会有流量限制或费用问题，特别是在高流量场景下。</li>
 </ul>
-<p>这种方式的好处是可以轻松实现内网穿透，并且利用 Cloudflare
-的全球加速和安全防护功能，使你的应用更加可靠和安全。如果有其他问题，或对某些配置有疑问，欢迎继续提问！</p>
+<p>这种方式的好处是可以轻松实现内网穿透，并且利用 Cloudflare 的全球加速和安全防护功能，使你的应用更加可靠和安全。如果有其他问题，或对某些配置有疑问，欢迎继续提问！</p>
 
                 
               </div>

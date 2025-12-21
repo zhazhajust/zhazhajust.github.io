@@ -19,31 +19,24 @@
   <meta name="author" content="JayZz">
   <meta name="keywords" content="">
   
-    <meta name="description" content="2022物院新生定向越野圆满结束   年年岁岁花相似，岁岁年年人不同。又是一年开学季，又是定向越野时。今年的定向越野活动有50多位物院新生报名参赛，探索北大的每一个角落，邂逅校园中的美丽风景与悠久历史。 早晨8:30，随着第一批队伍的出发，定向越野赛正式开始。一个个少年和少女充满斗志，神采飞扬，按照地图的指引，向着各个任务点奔去。 地图如下   图片1    可以看到定向越野过程中">
+    <meta name="description" content="Linux cgroup 实现 SSH 用户资源限制指南概述Linux 控制组（cgroup）是内核提供的资源管理机制，可用于限制、隔离和监控进程组（如用户会话）的资源使用。通过 systemd 与 cgroup 结合，我们可以为 SSH 登录用户设置公平的资源配额，避免单个用户过度占用 CPU、内存等系统资源，提升多用户环境的稳定性。本指南以实际脚本为例，逐步讲解配置方法。 环境准备 系统要求：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2022物院新生定向越野圆满结束">
-<meta property="og:url" content="https://zhazhajust.github.io/2022/10/03/tuisong/index.html">
+<meta property="og:title" content="Linux cgroup 实现 SSH 用户资源限制指南">
+<meta property="og:url" content="https://zhazhajust.github.io/2025/12/21/linux-cgroup-ssh-limit/index.html">
 <meta property="og:site_name" content="Jayz Blog">
-<meta property="og:description" content="2022物院新生定向越野圆满结束   年年岁岁花相似，岁岁年年人不同。又是一年开学季，又是定向越野时。今年的定向越野活动有50多位物院新生报名参赛，探索北大的每一个角落，邂逅校园中的美丽风景与悠久历史。 早晨8:30，随着第一批队伍的出发，定向越野赛正式开始。一个个少年和少女充满斗志，神采飞扬，按照地图的指引，向着各个任务点奔去。 地图如下   图片1    可以看到定向越野过程中">
+<meta property="og:description" content="Linux cgroup 实现 SSH 用户资源限制指南概述Linux 控制组（cgroup）是内核提供的资源管理机制，可用于限制、隔离和监控进程组（如用户会话）的资源使用。通过 systemd 与 cgroup 结合，我们可以为 SSH 登录用户设置公平的资源配额，避免单个用户过度占用 CPU、内存等系统资源，提升多用户环境的稳定性。本指南以实际脚本为例，逐步讲解配置方法。 环境准备 系统要求：">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://zhazhajust.github.io/tuisong/image1.jpg">
-<meta property="og:image" content="https://zhazhajust.github.io/tuisong/image2.jpg">
-<meta property="og:image" content="https://zhazhajust.github.io/tuisong/image3.jpg">
-<meta property="og:image" content="https://zhazhajust.github.io/tuisong/image4.jpg">
-<meta property="og:image" content="https://zhazhajust.github.io/tuisong/image5.jpg">
-<meta property="og:image" content="https://zhazhajust.github.io/tuisong/image6.jpg">
-<meta property="og:image" content="https://zhazhajust.github.io/tuisong/image7.jpg">
-<meta property="og:image" content="https://zhazhajust.github.io/tuisong/image8.jpg">
-<meta property="og:image" content="https://zhazhajust.github.io/tuisong/image9.jpg">
-<meta property="article:published_time" content="2022-10-03T00:00:00.000Z">
-<meta property="article:modified_time" content="2025-02-27T03:08:34.111Z">
+<meta property="article:published_time" content="2025-12-21T00:00:00.000Z">
+<meta property="article:modified_time" content="2025-12-21T07:35:32.381Z">
 <meta property="article:author" content="JayZz">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="cgroup">
+<meta property="article:tag" content="资源管理">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://zhazhajust.github.io/tuisong/image1.jpg">
   
   
   
-  <title>2022物院新生定向越野圆满结束 - Jayz Blog</title>
+  <title>Linux cgroup 实现 SSH 用户资源限制指南 - Jayz Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -209,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="2022物院新生定向越野圆满结束"></span>
+            <span id="subtitle" data-typed-text="Linux cgroup 实现 SSH 用户资源限制指南"></span>
           
         </div>
 
@@ -220,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-03 08:00" pubdate>
-          2022年10月3日 早上
+        <time datetime="2025-12-21 08:00" pubdate>
+          2025年12月21日 早上
         </time>
       </span>
     
@@ -232,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          945 字
         
       </span>
     
@@ -243,7 +236,7 @@
         
         
         
-          10 分钟
+          8 分钟
         
       </span>
     
@@ -280,93 +273,63 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">2022物院新生定向越野圆满结束</h1>
+            <h1 id="seo-header">Linux cgroup 实现 SSH 用户资源限制指南</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="物院新生定向越野圆满结束">2022物院新生定向越野圆满结束</h1>
-<p>  年年岁岁花相似，岁岁年年人不同。又是一年开学季，又是定向越野时。今年的定向越野活动有50多位物院新生报名参赛，探索北大的每一个角落，邂逅校园中的美丽风景与悠久历史。
-早晨8:30，随着第一批队伍的出发，定向越野赛正式开始。一个个少年和少女充满斗志，神采飞扬，按照地图的指引，向着各个任务点奔去。</p>
-<h2 id="地图如下">地图如下</h2>
-<figure>
-<img src="/tuisong/image1.jpg" srcset="/img/loading.gif" lazyload alt="图片1" />
-<figcaption aria-hidden="true">图片1</figcaption>
-</figure>
-<p>  可以看到定向越野过程中共设置八个任务点，各有一个趣味小游戏
-  <strong><em>快来看看大家的精彩瞬间叭～</em></strong></p>
-<h2 id="主线1拓扑手环">主线1、拓扑手环</h2>
-<h3 id="游戏规则">游戏规则</h3>
-<p>  游戏开始时，四个人站在一起闭上眼，伸出双手，由场务任意组合8只手，听到口令“睁眼”后，4位同学睁眼并通过各种方式将手环解开，但不能松手，直到四个人围成一个环，计时评分。
-  <em>同学们用曼妙的舞姿分离了交缠的肢体，解开了拓扑学的难题。</em></p>
-<figure>
-<img src="/tuisong/image2.jpg" srcset="/img/loading.gif" lazyload alt="图片2" />
-<figcaption aria-hidden="true">图片2</figcaption>
-</figure>
-<h2 id="主线2同心棍">主线2、同心棍</h2>
-<h3 id="游戏规则-1">游戏规则</h3>
-<p>  四人分为两组，相向站立，每人伸出一只手指，大家共同将一根水平的长棍子从某一高度放到地上，计时评分。
-  <em>未名湖的湖中仙女将强大的物理学圣剑交到了勇者手中，他们能顺利将圣剑接引到地面吗?</em></p>
-<figure>
-<img src="/tuisong/image3.jpg" srcset="/img/loading.gif" lazyload alt="3" />
-<figcaption aria-hidden="true">3</figcaption>
-</figure>
-<h2 id="主线3砸沙包">主线3、砸沙包</h2>
-<h3 id="游戏规则-2">游戏规则</h3>
-<p>  每人两个沙包，在5m之外投掷击倒纸箱金字塔，以击倒纸箱个数计分。
-  <em>最终没有小组能将纸箱全部击倒，大家对抛物线的计算还有待提高啊。</em></p>
-<figure>
-<img src="/tuisong/image4.jpg" srcset="/img/loading.gif" lazyload alt="4" />
-<figcaption aria-hidden="true">4</figcaption>
-</figure>
-<h2 id="主线4吹乒乓">主线4、吹乒乓</h2>
-<h3 id="游戏规则-3">游戏规则</h3>
-<p>  提供两个装满水的纸杯，三个人参与，其中两个人端稳水杯，一个人将乒乓球从一个水杯吹入另一个水杯，掉落即停，中途不允许向杯中加水。
-  <em>小球在空中飞跃短暂而美妙的弧线，同学们的心也随之一起一落；地面上的水渍逐渐扩大，杯中的水面一点点下降，焦急的情绪又在不经意间升起</em></p>
-<figure>
-<img src="/tuisong/image5.jpg" srcset="/img/loading.gif" lazyload alt="5" />
-<figcaption aria-hidden="true">5</figcaption>
-</figure>
-<h2 id="主线5四人两足">主线5、四人两足</h2>
-<h3 id="游戏规则-4">游戏规则</h3>
-<p>  4人一组，在地上一个方形区域内根据指令相互配合使规定部位着地完成动作，每个动作必须定格三秒才算过关。
-  <em>同学们的身体缠缠绵绵，交错纵横，饱受肌肤相亲之苦，到底是谁想出来的这么离谱的游戏啊（对啊是谁啊，笑）。</em></p>
-<figure>
-<img src="/tuisong/image6.jpg" srcset="/img/loading.gif" lazyload alt="6" />
-<figcaption aria-hidden="true">6</figcaption>
-</figure>
-<h2 id="主线6激光反射">主线6、激光反射</h2>
-<h3 id="游戏规则-5">游戏规则</h3>
-<p>  一人背上贴带区域标记的A4纸，手持激光笔，其余三人各持一面小镜子，将激光成功沿要求的光路反射至A4纸上特定区域上并保持5秒则成功。
-  <em>大家都忘了基本光路知识了吗？不过话说回来，直接拿激光笔往身后一照这个bug，啊这是可以做的吗？</em></p>
-<figure>
-<img src="/tuisong/image7.jpg" srcset="/img/loading.gif" lazyload alt="7" />
-<figcaption aria-hidden="true">7</figcaption>
-</figure>
-<h2 id="主线7数字游戏">主线7、数字游戏</h2>
-<h3 id="游戏规则-6">游戏规则</h3>
-<p>  参与者站成一排，每个人会按照一定规律对应一些数字，当喊出某个正数时，离该数字最近的玩家需要喊“到”。
-  <em>反应快的同学也许发现了规律，但当第一个数字报出来的那一刻所有人几乎无一例外的大脑过载，啊呀口算eπ也不是不可以的嘛。</em></p>
-<figure>
-<img src="/tuisong/image8.jpg" srcset="/img/loading.gif" lazyload alt="8" />
-<figcaption aria-hidden="true">8</figcaption>
-</figure>
-<h2 id="主线8空气动力学飞机">主线8、空气动力学飞机</h2>
-<h3 id="游戏规则-7">游戏规则</h3>
-<p>  每组四个人分别叠好一架纸飞机并放飞，每人只能得到一张纸。
-  <em>静园的草坪之上，飞扬的纸飞机承载着我们的梦想，自由的翱翔于蓝天之上（<del>然后重重摔倒地上</del>），每个人的童年都少不了纸飞机的陪伴，而它也永远寄托着我们的希望。</em></p>
-<figure>
-<img src="/tuisong/image9.jpg" srcset="/img/loading.gif" lazyload alt="9" />
-<figcaption aria-hidden="true">9</figcaption>
-</figure>
-<p>  在完成主线任务后，同学们可以获得一些神秘字母和照片。照片可以解锁燕园之中的隐藏点，进一步帮助同学们探索校园，而字母可以拼成——</p>
-***
-<center>
-WELCOM TO PKUPHYS!
-</center>
-<hr />
-<p>  哈哈，希望各位新生在本次活动中能更好的熟悉校园，熟悉北大，也能认识更多的朋友，留下美好的回忆。
-最后，欢迎来到北大物院！</p>
+                <h1 id="Linux-cgroup-实现-SSH-用户资源限制指南"><a href="#Linux-cgroup-实现-SSH-用户资源限制指南" class="headerlink" title="Linux cgroup 实现 SSH 用户资源限制指南"></a>Linux cgroup 实现 SSH 用户资源限制指南</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Linux 控制组（cgroup）是内核提供的资源管理机制，可用于限制、隔离和监控进程组（如用户会话）的资源使用。通过 systemd 与 cgroup 结合，我们可以为 SSH 登录用户设置公平的资源配额，避免单个用户过度占用 CPU、内存等系统资源，提升多用户环境的稳定性。本指南以实际脚本为例，逐步讲解配置方法。</p>
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul>
+<li><strong>系统要求</strong>：Linux 内核 ≥ 4.15（支持 cgroup v2），使用 systemd 作为初始化系统。</li>
+<li><strong>权限需求</strong>：所有操作需 <code>sudo</code> 权限。</li>
+</ul>
+<hr>
+<h2 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a>配置步骤</h2><h3 id="1-清理现有配置"><a href="#1-清理现有配置" class="headerlink" title="1. 清理现有配置"></a>1. 清理现有配置</h3><p>为避免残留配置干扰，首先清理旧配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><span class="hljs-comment"># 清理现有配置</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">rm</span> -rf /etc/systemd/system/user.slice.d/<br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">rm</span> -rf /etc/systemd/system/user-*.slice.d/<br></code></pre></td></tr></table></figure>
+
+<p><strong>作用</strong>：删除可能存在的旧切片配置目录，确保配置纯净。</p>
+<h3 id="2-设置全局资源限制"><a href="#2-设置全局资源限制" class="headerlink" title="2. 设置全局资源限制"></a>2. 设置全局资源限制</h3><p>创建全局切片配置，限制所有用户会话的总资源上限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 使用正确的配置文件方式</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">mkdir</span> -p /etc/systemd/system/user.slice.d/<br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">tee</span> /etc/systemd/system/user.slice.d/global.conf &lt;&lt; <span class="hljs-string">&#x27;EOF&#x27;</span><br>[Slice]<br>CPUQuota=400%     <span class="hljs-comment"># 限制所有用户会话合计最多使用 400% CPU（即 4 核）</span><br>MemoryMax=16G     <span class="hljs-comment"># 限制所有用户会话合计最多使用 16GB 内存</span><br>EOF<br></code></pre></td></tr></table></figure>
+
+<p><strong>参数说明</strong>：</p>
+<ul>
+<li><code>CPUQuota=400%</code>：表示所有用户进程共享的 CPU 时间上限为 4 个核心的 100% 占用。</li>
+<li><code>MemoryMax=16G</code>：全局内存使用硬限制。</li>
+</ul>
+<h3 id="3-设置单用户默认限制"><a href="#3-设置单用户默认限制" class="headerlink" title="3. 设置单用户默认限制"></a>3. 设置单用户默认限制</h3><p>创建用户级模板，为每个登录用户分配独立配额：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建用户默认模板（用户登录时自动应用）</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">mkdir</span> -p /etc/systemd/system/user@.service.d/<br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">tee</span> /etc/systemd/system/user@.service.d/limit.conf &lt;&lt; <span class="hljs-string">&#x27;EOF&#x27;</span><br>[Service]<br>CPUWeight=100     <span class="hljs-comment"># CPU 相对权重（默认 100，值越高优先级越高）</span><br>MemoryMax=4G      <span class="hljs-comment"># 单用户内存使用上限为 4GB</span><br>EOF<br></code></pre></td></tr></table></figure>
+
+<p><strong>参数说明</strong>：</p>
+<ul>
+<li><code>CPUWeight=100</code>：基于 CPU 时间分配的权重（范围 1–10000），值越大获得的 CPU 时间越多。</li>
+<li><code>MemoryMax=4G</code>：单用户内存硬限制，超限时进程会被终止。</li>
+</ul>
+<h3 id="4-重载并生效配置"><a href="#4-重载并生效配置" class="headerlink" title="4. 重载并生效配置"></a>4. 重载并生效配置</h3><p>使新配置生效：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 重载配置</span><br><span class="hljs-built_in">sudo</span> systemctl daemon-reload<br><br><span class="hljs-comment"># 可选：重启用户切片（或重启系统）</span><br><span class="hljs-comment"># sudo systemctl restart user.slice</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：配置立即生效，但已登录用户需重新登录才能应用新限制。</p>
+<hr>
+<h2 id="验证资源配置"><a href="#验证资源配置" class="headerlink" title="验证资源配置"></a>验证资源配置</h2><p>使用以下脚本检查当前 cgroup 设置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br>find /sys/fs/cgroup/user.slice -name <span class="hljs-string">&quot;cpu.max&quot;</span> -<span class="hljs-built_in">type</span> f -print0 |<br><span class="hljs-keyword">while</span> IFS= <span class="hljs-built_in">read</span> -r -d <span class="hljs-string">&#x27;&#x27;</span> file; <span class="hljs-keyword">do</span><br>  user_dir=$(<span class="hljs-built_in">dirname</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span>)<br>  cpu_limit=$(<span class="hljs-built_in">cat</span> <span class="hljs-string">&quot;<span class="hljs-variable">$file</span>&quot;</span>)<br>  mem_file=<span class="hljs-string">&quot;<span class="hljs-variable">$user_dir</span>/memory.max&quot;</span><br>  <br>  <span class="hljs-keyword">if</span> [ -f <span class="hljs-string">&quot;<span class="hljs-variable">$mem_file</span>&quot;</span> ]; <span class="hljs-keyword">then</span><br>    mem_limit=$(<span class="hljs-built_in">cat</span> <span class="hljs-string">&quot;<span class="hljs-variable">$mem_file</span>&quot;</span>)<br>  <span class="hljs-keyword">else</span><br>    mem_limit=<span class="hljs-string">&quot;未设置&quot;</span><br>  <span class="hljs-keyword">fi</span><br>  <br>  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$user_dir</span>: CPU=<span class="hljs-variable">$cpu_limit</span>, Memory=<span class="hljs-variable">$mem_limit</span>&quot;</span><br><span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>输出示例</strong>：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">/<span class="hljs-keyword">user</span>.<span class="hljs-keyword">slice</span>/<span class="hljs-keyword">user</span><span class="hljs-number">-1000.</span><span class="hljs-keyword">slice</span>: CPU=max <span class="hljs-number">100000</span>, Memory=<span class="hljs-number">4294967296</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li><code>CPU=max 100000</code>：表示 CPU 时间限制为 100000 微秒&#x2F;周期（即 100% 核心）。</li>
+<li><code>Memory=4294967296</code>：内存限制字节数（此处 4GB）。</li>
+</ul>
+<hr>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li><strong>资源分配公平性</strong>：<code>CPUWeight</code> 适用于 CPU 竞争场景，确保高权重用户获得更多资源。</li>
+<li><strong>内存限制</strong>：<code>MemoryMax</code> 为硬限制，超限时进程会触发 OOM Killer。</li>
+<li><strong>持久化配置</strong>：通过 systemd 配置可持久化，重启后依旧有效。</li>
+<li><strong>调试建议</strong>：若配置未生效，检查 <code>systemd-cgls</code> 或 <code>cat /sys/fs/cgroup/user.slice/*/cpu.max</code> 验证。</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过 cgroup 和 systemd 的集成，我们可以高效管理多用户环境下的资源分配。本指南提供的脚本可直接用于生产环境，但需根据实际硬件资源调整参数值。合理配置资源限制能显著提升系统稳定性，避免资源争夺导致的性能下降。</p>
+<hr>
+<blockquote>
+<p>本文仅用于教育目的，操作前请备份重要数据。建议在测试环境验证后再部署到生产系统。</p>
+</blockquote>
 
                 
               </div>
@@ -376,6 +339,17 @@ WELCOM TO PKUPHYS!
               <div class="post-metas my-3">
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+      
+        <a href="/tags/cgroup/" class="print-no-link">#cgroup</a>
+      
+        <a href="/tags/%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/" class="print-no-link">#资源管理</a>
+      
+    </div>
+  
 </div>
 
 
@@ -384,8 +358,8 @@ WELCOM TO PKUPHYS!
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>2022物院新生定向越野圆满结束</div>
-      <div>https://zhazhajust.github.io/2022/10/03/tuisong/</div>
+      <div>Linux cgroup 实现 SSH 用户资源限制指南</div>
+      <div>https://zhazhajust.github.io/2025/12/21/linux-cgroup-ssh-limit/</div>
     </div>
     <div class="license-meta">
       
@@ -397,7 +371,7 @@ WELCOM TO PKUPHYS!
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月3日</div>
+          <div>2025年12月21日</div>
         </div>
       
       
@@ -429,18 +403,12 @@ WELCOM TO PKUPHYS!
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/08/10/vtk/" title="远程连接与唤醒">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">远程连接与唤醒</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/09/15/undulator/" title="Frequency moved undulator">
-                        <span class="hidden-mobile">Frequency moved undulator</span>
+                      <a href="/2025/12/20/slurm-server/" title="CentOS Stream 9 单节点 Slurm 集群部署指南">
+                        <span class="hidden-mobile">CentOS Stream 9 单节点 Slurm 集群部署指南</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
