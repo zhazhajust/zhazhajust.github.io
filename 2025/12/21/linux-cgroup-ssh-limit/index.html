@@ -27,7 +27,7 @@
 <meta property="og:description" content="Linux cgroup 实现 SSH 用户资源限制指南概述Linux 控制组（cgroup）是内核提供的资源管理机制，可用于限制、隔离和监控进程组（如用户会话）的资源使用。通过 systemd 与 cgroup 结合，我们可以为 SSH 登录用户设置公平的资源配额，避免单个用户过度占用 CPU、内存等系统资源，提升多用户环境的稳定性。本指南以实际脚本为例，逐步讲解配置方法。 环境准备 系统要求：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-21T00:00:00.000Z">
-<meta property="article:modified_time" content="2025-12-21T07:35:32.381Z">
+<meta property="article:modified_time" content="2025-12-21T10:02:21.736Z">
 <meta property="article:author" content="JayZz">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="cgroup">
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          945 字
+          1.2k 字
         
       </span>
     
@@ -236,7 +236,7 @@
         
         
         
-          8 分钟
+          10 分钟
         
       </span>
     
@@ -326,6 +326,7 @@
 <li><strong>调试建议</strong>：若配置未生效，检查 <code>systemd-cgls</code> 或 <code>cat /sys/fs/cgroup/user.slice/*/cpu.max</code> 验证。</li>
 </ol>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过 cgroup 和 systemd 的集成，我们可以高效管理多用户环境下的资源分配。本指南提供的脚本可直接用于生产环境，但需根据实际硬件资源调整参数值。合理配置资源限制能显著提升系统稳定性，避免资源争夺导致的性能下降。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><span class="hljs-comment"># 1. 清理现有配置</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">rm</span> -rf /etc/systemd/system/user.slice.d/<br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">rm</span> -rf /etc/systemd/system/user-*.slice.d/<br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">rm</span> -rf /etc/systemd/system/user@.service.d/<br><br><span class="hljs-comment"># 2. 使用正确的配置文件方式</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">mkdir</span> -p /etc/systemd/system/user.slice.d/<br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">tee</span> /etc/systemd/system/user.slice.d/global.conf &lt;&lt; <span class="hljs-string">&#x27;EOF&#x27;</span><br>[Slice]<br><span class="hljs-comment"># CPUQuota=400%</span><br><span class="hljs-comment"># MemoryMax=16G</span><br>CPUQuota=<br>MemoryMax=<br>EOF<br><br><span class="hljs-comment"># 3. 创建用户默认模板（这会在用户登录时自动应用）</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">mkdir</span> -p /etc/systemd/system/user@.service.d/<br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">tee</span> /etc/systemd/system/user@.service.d/limit.conf &lt;&lt; <span class="hljs-string">&#x27;EOF&#x27;</span><br>[Service]<br><span class="hljs-comment"># CPUWeight=100</span><br>CPUQuota=100%<br>MemoryMax=4G<br>EOF<br><br><span class="hljs-comment"># 给 root 的 slice 覆盖掉限制</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">mkdir</span> -p /etc/systemd/system/user-0.slice.d/<br><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">tee</span> /etc/systemd/system/user-0.slice.d/override.conf &lt;&lt;<span class="hljs-string">&#x27;EOF&#x27;</span><br>[Slice]<br>CPUQuota=<br>MemoryMax=<br>EOF<br><br><span class="hljs-comment"># 给特定用户 ID（例如 990）的 slice 覆盖掉限制</span><br>slurm_id=$(<span class="hljs-built_in">id</span> -u slurm)<br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">mkdir</span> -p /etc/systemd/system/user-<span class="hljs-variable">$slurm_id</span>.slice.d/<br><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">tee</span> /etc/systemd/system/user-<span class="hljs-variable">$slurm_id</span>.slice.d/override.conf &lt;&lt;<span class="hljs-string">&#x27;EOF&#x27;</span><br>[Slice]<br>CPUQuota=<br>MemoryMax=<br>CPUWeight=<br>EOF<br><br><span class="hljs-comment"># 4. 重载配置</span><br><span class="hljs-built_in">sudo</span> systemctl daemon-reload<br><br><span class="hljs-comment"># # 5. 重启用户切片（或重启系统）</span><br><span class="hljs-comment"># sudo systemctl restart user.slice</span><br><span class="hljs-built_in">sudo</span> systemctl restart systemd-logind<br></code></pre></td></tr></table></figure>
 <hr>
 <blockquote>
 <p>本文仅用于教育目的，操作前请备份重要数据。建议在测试环境验证后再部署到生产系统。</p>
@@ -403,12 +404,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2025/12/21/install_driver/" title="NVIDIA驱动和CUDA安装脚本 for CentOS Stream 9">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">NVIDIA驱动和CUDA安装脚本 for CentOS Stream 9</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/12/21/install_driver/" title="NVIDIA驱动和CUDA安装脚本 for CentOS Stream 9">
-                        <span class="hidden-mobile">NVIDIA驱动和CUDA安装脚本 for CentOS Stream 9</span>
+                      <a href="/2025/12/20/slurm-server/" title="CentOS Stream 9 单节点 Slurm 集群部署指南">
+                        <span class="hidden-mobile">CentOS Stream 9 单节点 Slurm 集群部署指南</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
