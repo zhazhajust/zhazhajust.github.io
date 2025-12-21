@@ -1,679 +1,139 @@
-
-
-<!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
-
-<head>
-  <meta charset="UTF-8">
-
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
-  <link rel="icon" href="/img/icon.png">
-  
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="JayZz">
-  <meta name="keywords" content="">
-  
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Jayz Blog">
-<meta property="og:url" content="https://zhazhajust.github.io/page/2/index.html">
-<meta property="og:site_name" content="Jayz Blog">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="JayZz">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-  
-  <title>Jayz Blog</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhazhajust.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
-<meta name="generator" content="Hexo 7.3.0"></head>
-
-
-<body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 100vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="An elegant Material-Design theme for Hexo"></span>
-          
-        </div>
-
-        
-      </div>
-
-      
-        <div class="scroll-down-bar">
-          <i class="iconfont icon-arrowdown"></i>
-        </div>
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      <div class="container nopadding-x-md">
-        <div id="board"
-          style="margin-top: 0">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2022/08/17/numerical/" target="_self">
-          太赫兹鬼成像
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/17/numerical/" target="_self">
-        <div>
-          偏微分方程求解对于波动方程等偏微分方程，难以直接求解析解，一般采用数值方法求解。目前电磁学主要通过有限元法（FEM）（通过Galerkin法基函数分解）、有限时域差分法（FDTD）、矩量法（MoM）等进行数值模拟。对于更一般的偏微分方程求解方法，这里介绍Method of Lines方法求解。 Method of LinesMethod of Lines是求解偏微分方程的一种通用计算方法。Meth
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-17 08:00" pubdate>
-              2022-08-17
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2022/08/16/NewtonMethod/" target="_self">
-          牛顿迭代法隐式欧拉法求解微分方程
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/16/NewtonMethod/" target="_self">
-        <div>
-          牛顿迭代法求解ODE首先根据 (\frac{dy}{dx} &#x3D; f(x, y)) 构建 (F(x, y) &#x3D; 0)，然后求解(F(x, y))对(y)的导数，然后迭代求解零点误差 (\text{abs}(F(x, y) - F(x, \text{next}_y))) 最小处的(y)，将(\text{next}_y)作为(y)带入下一个递归， 123456789101112131
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-16 08:00" pubdate>
-              2022-08-16
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2022/08/15/pymesh/" target="_self">
-          Marching Cube算法提取网格
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/15/pymesh/" target="_self">
-        <div>
-          PyMesh3DBasic InstallationThis project for mesh render in data science. 12pip install --upgrade pippip install pymesh3d  If you need mayavi backend. 12pip install mayavipip install pyqt  Quick Start12
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-15 08:00" pubdate>
-              2022-08-15
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2022/08/11/ghostimg/" target="_self">
-          太赫兹鬼成像
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/11/ghostimg/" target="_self">
-        <div>
-          1 简介1.1 量子鬼成像1.2 经典鬼成像1.3 计算成像2 原理2.12.23 鬼成像方案3.1 SI编码3.2 VO2编码3.3 泵浦光编码4 发展方向
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-11 08:00" pubdate>
-              2022-08-11
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2022/07/09/segmentTree/" target="_self">
-          动态开点线段树
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/07/09/segmentTree/" target="_self">
-        <div>
-          动态线段树模板12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849/** * @Description: 线段树（动态开点） * @Author: LFool * @Date 2022/6/7 09:15 **/public class SegmentTreeDynamic
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-09 08:00" pubdate>
-              2022-07-09
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2022/07/05/antiFilter/" target="_self">
-          反滤波
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/07/05/antiFilter/" target="_self">
-        <div>
-          使用傅里叶变换去卷积和逆滤波如果已经有了一张具有模糊核的模糊图像，我们需要将其恢复到原始图像。原理上，我们只需要对原有的滤波卷积核每一个值进行倒数的操作即可实现逆滤波器的效果。在此我们仍然是在频域上进行卷积，代码如下。 需要注意的是，卷积核取到数的过程中需要在原来的数值上加一个微小数值epsilon，以避免分母为零。 12345678910111213141516171819202122im =
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-05 08:00" pubdate>
-              2022-07-05
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2022/07/05/guass/" target="_self">
-          超高斯滤波和阶跃函数
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/07/05/guass/" target="_self">
-        <div>
-          
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-05 08:00" pubdate>
-              2022-07-05
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2022/07/05/gauss_diff/" target="_self">
-          高斯差分和超高斯滤波
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/07/05/gauss_diff/" target="_self">
-        <div>
-          123456789101112131415161718def gauss_func(Nx, sigma, n):    x = np.arange(Nx) * dx    cen = x0    print(cen)    amp = 1    return amp * np.exp(-(x - cen) ** n / (2 * sigma ** n))def gauss_func2d(Nx, N
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-05 08:00" pubdate>
-              2022-07-05
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2022/07/04/matplotlib/" target="_self">
-          matplotlib colorbar位置
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/07/04/matplotlib/" target="_self">
-        <div>
-          matplotlib 3.5以上版本 12345678fig, ax = plt.subplots(figsize = [3, 1.5])norm = mpl.colors.Normalize(0, 20, clip=True)im = plt.pcolormesh([[0,0,0],[0,0,20],[0,6,0]], cmap = &#x27;jet&#x27;, norm = norm)cb
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-04 08:00" pubdate>
-              2022-07-04
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2022/07/03/conv/" target="_self">
-          卷积算法实现AutoCorr和高斯滤波（高斯模糊）
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2022/07/03/conv/" target="_self">
-        <div>
-          自相关123456from scipy import signalrng = np.random.default_rng()sig = rng.standard_normal(1000)autocorr = signal.fftconvolve(sig, sig[::-1], mode=&#x27;full&#x27;)  高斯滤波12345678910import scipyfrom scipy
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-03 08:00" pubdate>
-              2022-07-03
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-
-
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#board">3</a><a class="extend next" rel="next" href="/page/3/#board"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
-
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Jayz Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Jayz Blog"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Jayz Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="website"><meta property="og:title" content="Jayz Blog"><meta property="og:url" content="https://zhazhajust.github.io/"><meta property="og:site_name" content="Jayz Blog"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://zhazhajust.github.io/img/og_image.png"><meta property="article:author" content="JayZz"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://zhazhajust.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zhazhajust.github.io"},"headline":"Jayz Blog","image":["https://zhazhajust.github.io/img/og_image.png"],"author":{"@type":"Person","name":"JayZz"},"publisher":{"@type":"Organization","name":"Jayz Blog","logo":{"@type":"ImageObject"}},"description":""}</script><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
       }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Jayz Blog</a></div><div class="navbar-menu"><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-09-15T00:00:00.000Z" title="9/15/2022, 8:00:00 AM">2022-09-15</time>发表</span><span class="level-item"><time dateTime="2025-12-16T05:04:59.621Z" title="12/16/2025, 1:04:59 PM">2025-12-16</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/09/15/undulator/">Frequency moved undulator</a></p><div class="content"><h2 id="Smilei-or-EPOCH"><a href="#Smilei-or-EPOCH" class="headerlink" title="Smilei or EPOCH"></a>Smilei or EPOCH</h2><p>Mark the oscillate electrons, and save the field produced by them. Then sparated them from the total electric field and save to a new file.</p>
+<h2 id="光波荡器推导"><a href="#光波荡器推导" class="headerlink" title="光波荡器推导"></a>光波荡器推导</h2><p>假设平面波激光方向为$\hat k &#x3D; \frac{\mathbf{k}}{k_L}$，则 $B &#x3D; \frac{(\hat k \times E)}{c}$，电子在激光场中运动方程写为：</p>
+<p>$$<br>\frac{d}{dt}(\gamma mc \beta) &#x3D; -e(E + v \times B)<br>$$</p>
+<p>$$<br>\frac{d}{dt}(\gamma mc \beta) &#x3D; -e[E + \beta \times (\hat k \times E)] &#x3D; -e[E + (\beta \cdot E)\hat k - (\beta \cdot \hat k)E]<br>$$</p>
+<p>我们假设激光沿着x方向偏振，$E &#x3D; E_0 \sin(\omega_Lt − k \cdot x)\hat x$，沿着z方向传播，与z轴呈夹角$\varphi$，波矢$k &#x3D; k_L(0, -\sin \varphi, +\cos \varphi)$，并且 $\omega_L &#x3D; ck_L$。运动方程写为：</p>
+<p>$$<br>\frac{d}{dt}(\gamma mc \beta) &#x3D; -eE_0\sin(ck_Lt - \mathbf{k} \cdot x)[1 - (\hat k \cdot \beta)] &#x3D; \frac{eE_0}{ck_L}\frac{d}{dt}\cos(ck_Lt - \mathbf{k} \cdot x)<br>$$</p>
+<p>方程表明水平方向动量守恒，通过积分可以很容易得出，</p>
+<p>$$<br>\beta_x &#x3D; \frac{eE_0}{\gamma mc^2k_L}\cos(ck_Lt - \mathbf{k}\cdot x)<br>$$</p>
+<p>波荡器参数为$K &#x3D; \frac{eE_0}{mc^2k_L}$，对于Undulator， $K&lt;&lt;1$，$t \approx c&#x2F;\beta_z$，横向振动速度为$\cos(k_L(1&#x2F;\overline{\beta}_z - \cos\varphi)z + k_Ly\sin\varphi)$，则波荡器周期为：</p>
+<p>$$<br>\lambda_u \rightarrow \frac{\overline{\beta}_z\lambda_L}{1 - \overline{\beta}_z\cos\varphi}<br>$$</p>
+<p>将波荡器周期和参数K带入波荡器辐射公式,</p>
+<p>$$<br>\frac{\lambda_1(\phi)}{c} &#x3D; \frac{\lambda_u}{c}[\frac{1 + K^2&#x2F;(4\gamma^2)}{\beta} - (1 - \frac{\phi^2}{2})] \approx \frac{\lambda_u}{c}\frac{1 + K^2&#x2F;2 + \gamma^2\phi^2}{2\gamma^2}<br>$$</p>
+<p>同步辐射共振波长为</p>
+<p>$$<br>\lambda &#x3D; \frac{1 + K^2&#x2F;2}{2\gamma^2}\frac{\lambda_L}{1 - \overline{\beta}_z\cos\varphi}<br>$$</p>
+<p>当满足$\varphi \rightarrow 0, K &lt;&lt; 1$(undulator的假设)时</p>
+<p>$$<br>\lambda \rightarrow \lambda_L<br>$$</p>
+<h2 id="时间收缩效应"><a href="#时间收缩效应" class="headerlink" title="时间收缩效应"></a>时间收缩效应</h2><p>假设$t^{‘}$为粒子静止坐标系，则 $1 - \beta(t^{‘})\cos\phi(t^{‘})$ 为时间收缩因子，对于相对论电子，</p>
+<p>$$<br>\beta &#x3D; \sqrt{1 - \frac{1}{\gamma^2}} \approx 1 - \frac{1}{1\gamma^2}<br>$$</p>
+<p>对于$\gamma &gt;&gt; 1$，$\phi &lt;&lt; 1$</p>
+<p>$$<br>1 - \beta \cos\phi \approx \frac{1}{2}(\frac{1}{\gamma^2} + \phi^2)<br>$$</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-08-17T00:00:00.000Z" title="8/17/2022, 8:00:00 AM">2022-08-17</time>发表</span><span class="level-item"><time dateTime="2025-12-16T05:06:16.849Z" title="12/16/2025, 1:06:16 PM">2025-12-16</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/08/17/numerical/">太赫兹鬼成像</a></p><div class="content"><h1 id="偏微分方程求解"><a href="#偏微分方程求解" class="headerlink" title="偏微分方程求解"></a>偏微分方程求解</h1><p>对于波动方程等偏微分方程，难以直接求解析解，一般采用数值方法求解。目前电磁学主要通过有限元法（FEM）（通过Galerkin法基函数分解）、有限时域差分法（FDTD）、矩量法（MoM）等进行数值模拟。对于更一般的偏微分方程求解方法，这里介绍Method of Lines方法求解。</p>
+<h2 id="Method-of-Lines"><a href="#Method-of-Lines" class="headerlink" title="Method of Lines"></a>Method of Lines</h2><p>Method of Lines是求解偏微分方程的一种通用计算方法。Method of Lines方法通过空间离散，将偏微分方程转化为常微分方程组ODEs，后续通过Eular法，隐式欧拉法（牛顿迭代、不动点法）等求解。</p>
+<h2 id="基本案例"><a href="#基本案例" class="headerlink" title="基本案例"></a>基本案例</h2><p>例：求解扩散方程</p>
+<p>$$<br>\frac{\partial u}{\partial t} &#x3D; D\frac{\partial^2 u}{\partial x^2}<br>$$</p>
+<p>将$D\frac{\partial^2}{\partial x^2}$离散化为矩阵$A$，将$\frac{d}{dt}U$写为$\dot U$，使用矩阵形式表示为$\dot U &#x3D; AU$。</p>
+<p>例如$\frac{du_i}{dt} &#x3D; -v\frac{du}{dx}$<br>方程转化为$\frac{du_i}{dt} &#x3D; -v\frac{(u_i - u_{i-1})}{\delta x}, 1 \leq i \leq M$，再转化为矩阵形式。</p>
+<h2 id="forward-eular"><a href="#forward-eular" class="headerlink" title="forward eular"></a>forward eular</h2><p>讲矩阵乘积写为函数形式<br>$$<br>\dot U &#x3D; F(U)<br>$$<br>则可使用前向欧拉法进行求解<br>$$<br>U_{k+1} &#x3D; U_k + \delta tF(U_k)<br>$$</p>
+<h2 id="RK方法"><a href="#RK方法" class="headerlink" title="RK方法"></a>RK方法</h2><p>龙格库塔方法显式求解Method of Lines得到的ODEs，可以得到更高精度的解。</p>
+<p>积分中值定理可以得出<br>$$<br>U(t + \delta t) &#x3D; U(t) + \delta tF(U(t + \frac{1}{2}\delta t)) + O(\delta t^3)<br>$$</p>
+<p>龙格库塔法通过预测$U(t + \frac{1}{2}\delta t)$来使用前向欧拉法<br>$$<br>\widetilde U_{k+\frac{1}{2}} &#x3D; U_k + \frac{\delta t}{2}F(U_k)<br>$$</p>
+<p>$$<br>U_{k+1} &#x3D; U_k + \delta tF(\widetilde U_{k+\frac{1}{2}})<br>$$</p>
+<p>这是一种两阶段方法。第一阶段预测中点值，第二阶段，即校正阶段，使用预测的中点值进行时间步进。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-08-16T00:00:00.000Z" title="8/16/2022, 8:00:00 AM">2022-08-16</time>发表</span><span class="level-item"><time dateTime="2025-12-16T04:40:25.307Z" title="12/16/2025, 12:40:25 PM">2025-12-16</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/08/16/NewtonMethod/">牛顿迭代法隐式欧拉法求解微分方程</a></p><div class="content"><h1 id="牛顿迭代法求解ODE"><a href="#牛顿迭代法求解ODE" class="headerlink" title="牛顿迭代法求解ODE"></a>牛顿迭代法求解ODE</h1><p>首先根据 (\frac{dy}{dx} &#x3D; f(x, y)) 构建 (F(x, y) &#x3D; 0)，然后求解(F(x, y))对(y)的导数，然后迭代求解零点误差 (\text{abs}(F(x, y) - F(x, \text{next}_y))) 最小处的(y)，将(\text{next}_y)作为(y)带入下一个递归，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line">import sympy</span><br><span class="line"></span><br><span class="line">x = np.zeros(20)</span><br><span class="line">y = np.zeros(20)</span><br><span class="line">y_E = np.zeros(20)</span><br><span class="line">z = np.zeros(20)</span><br><span class="line">x[0] = 0</span><br><span class="line">y[0] = 1</span><br><span class="line">y_E[0] = 1</span><br><span class="line">z[0] = (1+2*x[0])**0.5</span><br><span class="line">h = 0.05</span><br><span class="line"></span><br><span class="line"># dy/dx 导数</span><br><span class="line">def f(x, y):</span><br><span class="line">    return y-2*x/y</span><br><span class="line"></span><br><span class="line">############################</span><br><span class="line">##### 牛顿迭代法构建方程 #####</span><br><span class="line">############################</span><br><span class="line"></span><br><span class="line"># dy/dx = f(x, y)</span><br><span class="line"># y - yn = (x - xn) * f(x, y)</span><br><span class="line"># h * f(x, y) - (y - yn) = 0</span><br><span class="line">def F(x, y, yn):</span><br><span class="line">    return h * f(x, y) - (y - yn)</span><br><span class="line"></span><br><span class="line"># 求解dF(x, y, yn)/dy</span><br><span class="line"># d(0.05 * (y - 2*x/y) - y + yn) / dy</span><br><span class="line"># 0.05 * (1 + 2*x/y**2) - 1</span><br><span class="line"># 0.1 * x/y**2 - 0.95</span><br><span class="line">def dF(x, y):</span><br><span class="line">    return 0.1*x/y**2 - 0.95</span><br><span class="line"></span><br><span class="line">############################</span><br><span class="line">############################</span><br><span class="line">############################</span><br><span class="line"></span><br><span class="line">def newtonMethod(assum, d1, d3):</span><br><span class="line">    y = assum</span><br><span class="line">    Next_y = 0</span><br><span class="line">    if F(d1, y, d3) == 0.0:</span><br><span class="line">        return  y</span><br><span class="line">    else:</span><br><span class="line">        Next_y = y - F(d1, y, d3) / dF(d1, y)</span><br><span class="line"></span><br><span class="line">    # 零点距离</span><br><span class="line">    if abs(F(d1, y, d3) - F(d1, Next_y, d3)) &lt; 1e-5:</span><br><span class="line">        return Next_y</span><br><span class="line">        &#x27;&#x27;&#x27;设置迭代跳出条件, 同时输出满足f(x) = 0的x值&#x27;&#x27;&#x27;</span><br><span class="line">    else:</span><br><span class="line">        return newtonMethod(Next_y, d1, d3)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for i in range(1, 20):</span><br><span class="line">    x[i] = x[i-1]+h</span><br><span class="line">    y[i] = newtonMethod(4, x[i], y[i-1])</span><br><span class="line">    y_E[i] = y_E[i-1] + h*f(x[i-1], y_E[i-1])</span><br><span class="line">    z[i] = (1+2*x[i])**0.5</span><br><span class="line"></span><br><span class="line">plt.plot(x, y, label=&#x27;Implicit Euler&#x27;, color=&#x27;green&#x27;)</span><br><span class="line">plt.plot(x, y_E, label=&#x27;Euler&#x27;, color=&#x27;orange&#x27;)</span><br><span class="line">plt.plot(x, z, label=&#x27;true&#x27;, color=&#x27;red&#x27;)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-08-15T00:00:00.000Z" title="8/15/2022, 8:00:00 AM">2022-08-15</time>发表</span><span class="level-item"><time dateTime="2025-12-16T04:10:45.584Z" title="12/16/2025, 12:10:45 PM">2025-12-16</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/08/15/pymesh/">Marching Cube算法提取网格</a></p><div class="content"><h1 id="PyMesh3D"><a href="#PyMesh3D" class="headerlink" title="PyMesh3D"></a>PyMesh3D</h1><h2 id="Basic-Installation"><a href="#Basic-Installation" class="headerlink" title="Basic Installation"></a>Basic Installation</h2><p>This project for mesh render in data science.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade pip</span><br><span class="line">pip install pymesh3d</span><br></pre></td></tr></table></figure>
+
+<p>If you need mayavi backend.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install mayavi</span><br><span class="line">pip install pyqt</span><br></pre></td></tr></table></figure>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymesh</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
+
+<p>Look at the directory example for full example.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##########################################</span></span><br><span class="line"><span class="comment">############ Rotate Mesh Data ############</span></span><br><span class="line"><span class="comment">##########################################</span></span><br><span class="line"></span><br><span class="line">wkdir = <span class="string">&quot;../../Render&quot;</span></span><br><span class="line"></span><br><span class="line">ey = np.load(wkdir + <span class="string">&quot;/Ez.npy&quot;</span>)[::<span class="number">2</span>, ::<span class="number">50</span>]</span><br><span class="line"></span><br><span class="line">m, n = ey.shape[<span class="number">0</span>], ey.shape[<span class="number">1</span>]</span><br><span class="line">res = np.zeros([m, n, n])</span><br><span class="line">pymesh.rotate(ey, res, ifhalf = <span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">4</span>, <span class="number">3</span>))</span><br><span class="line">plt.contourf(res[:, <span class="built_in">int</span>(n/<span class="number">2</span>), :].T)</span><br><span class="line">cbar = plt.colorbar()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://github.com/zhazhajust/pymesh/blob/main/example/example_files/example_1_0.png?raw=true" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##########################################</span></span><br><span class="line"><span class="comment">############# Save Mesh Data #############</span></span><br><span class="line"><span class="comment">##########################################</span></span><br><span class="line"></span><br><span class="line">mesh = pymesh.get_iso_surf(res, contours_number = <span class="number">4</span>, cmap = <span class="string">&quot;jet&quot;</span>)</span><br><span class="line">color = pymesh.interp_color(mesh.iso_vals, cmap = <span class="string">&quot;jet&quot;</span>)</span><br><span class="line">mesh.export(wkdir + <span class="string">&quot;test&quot;</span>, <span class="string">&quot;obj&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##########################################</span></span><br><span class="line"><span class="comment">############# Load Mesh Data #############</span></span><br><span class="line"><span class="comment">##########################################</span></span><br><span class="line"></span><br><span class="line">mesh = pymesh.Mesh.load(wkdir + <span class="string">&quot;test&quot;</span>, <span class="string">&quot;obj&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">##########################################</span></span><br><span class="line"><span class="comment">############# Plot Mesh Data #############</span></span><br><span class="line"><span class="comment">##########################################</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mayavi <span class="keyword">import</span> mlab</span><br><span class="line"></span><br><span class="line">mlab_mesh = pymesh.iso_surface(mesh, colormap = <span class="string">&quot;RdBu&quot;</span>)</span><br><span class="line">mlab.colorbar()</span><br><span class="line">mlab.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/zhazhajust/pymesh/blob/main/example/example_files/example_3_0.png?raw=true" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">################ plt example #################</span></span><br><span class="line"></span><br><span class="line">surf = mesh.plt_trisurf(cmap = <span class="string">&quot;jet&quot;</span>)</span><br><span class="line">plt.colorbar(surf, orientation = <span class="string">&#x27;horizontal&#x27;</span>)</span><br><span class="line">plt.tight_layout()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://github.com/zhazhajust/pymesh/blob/main/example/example_files/example_2_0.png?raw=true" alt="png"></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-08-11T00:00:00.000Z" title="8/11/2022, 8:00:00 AM">2022-08-11</time>发表</span><span class="level-item"><time dateTime="2025-12-16T04:10:45.584Z" title="12/16/2025, 12:10:45 PM">2025-12-16</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/08/11/ghostimg/">太赫兹鬼成像</a></p><div class="content"><h1 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h1><h2 id="1-1-量子鬼成像"><a href="#1-1-量子鬼成像" class="headerlink" title="1.1 量子鬼成像"></a>1.1 量子鬼成像</h2><h2 id="1-2-经典鬼成像"><a href="#1-2-经典鬼成像" class="headerlink" title="1.2 经典鬼成像"></a>1.2 经典鬼成像</h2><h2 id="1-3-计算成像"><a href="#1-3-计算成像" class="headerlink" title="1.3 计算成像"></a>1.3 计算成像</h2><h1 id="2-原理"><a href="#2-原理" class="headerlink" title="2 原理"></a>2 原理</h1><h2 id="2-1"><a href="#2-1" class="headerlink" title="2.1"></a>2.1</h2><h2 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h2><h1 id="3-鬼成像方案"><a href="#3-鬼成像方案" class="headerlink" title="3 鬼成像方案"></a>3 鬼成像方案</h1><h2 id="3-1-SI编码"><a href="#3-1-SI编码" class="headerlink" title="3.1 SI编码"></a>3.1 SI编码</h2><h2 id="3-2-VO2编码"><a href="#3-2-VO2编码" class="headerlink" title="3.2 VO2编码"></a>3.2 VO2编码</h2><h2 id="3-3-泵浦光编码"><a href="#3-3-泵浦光编码" class="headerlink" title="3.3 泵浦光编码"></a>3.3 泵浦光编码</h2><h1 id="4-发展方向"><a href="#4-发展方向" class="headerlink" title="4 发展方向"></a>4 发展方向</h1></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-07-09T00:00:00.000Z" title="7/9/2022, 8:00:00 AM">2022-07-09</time>发表</span><span class="level-item"><time dateTime="2025-12-16T04:10:45.584Z" title="12/16/2025, 12:10:45 PM">2025-12-16</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/09/segmentTree/">动态开点线段树</a></p><div class="content"><h2 id="动态线段树模板"><a href="#动态线段树模板" class="headerlink" title="动态线段树模板"></a>动态线段树模板</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @Description: 线段树（动态开点）</span></span><br><span class="line"><span class="comment"> * @Author: LFool</span></span><br><span class="line"><span class="comment"> * @Date 2022/6/7 09:15</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SegmentTreeDynamic</span> &#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">        Node left, right;</span><br><span class="line">        <span class="type">int</span> val, add;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> N = (<span class="type">int</span>) <span class="number">1e9</span>;</span><br><span class="line">    <span class="keyword">private</span> Node root = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="type">void</span> <span class="title">update</span><span class="params">(Node node, <span class="type">int</span> start, <span class="type">int</span> end, <span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= start &amp;&amp; end &lt;= r) &#123;</span><br><span class="line">            node.val += (end - start + <span class="number">1</span>) * val;</span><br><span class="line">            node.add += val;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mid = (start + end) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">pushDown</span>(node, mid - start + <span class="number">1</span>, end - mid);</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= mid) <span class="built_in">update</span>(node.left, start, mid, l, r, val);</span><br><span class="line">        <span class="keyword">if</span> (r &gt; mid) <span class="built_in">update</span>(node.right, mid + <span class="number">1</span>, end, l, r, val);</span><br><span class="line">        <span class="built_in">pushUp</span>(node);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="type">int</span> <span class="title">query</span><span class="params">(Node node, <span class="type">int</span> start, <span class="type">int</span> end, <span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= start &amp;&amp; end &lt;= r) <span class="keyword">return</span> node.val;</span><br><span class="line">        <span class="type">int</span> mid = (start + end) &gt;&gt; <span class="number">1</span>, ans = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">pushDown</span>(node, mid - start + <span class="number">1</span>, end - mid);</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= mid) ans += <span class="built_in">query</span>(node.left, start, mid, l, r);</span><br><span class="line">        <span class="keyword">if</span> (r &gt; mid) ans += <span class="built_in">query</span>(node.right, mid + <span class="number">1</span>, end, l, r);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="type">void</span> <span class="title">pushUp</span><span class="params">(Node node)</span> </span>&#123;</span><br><span class="line">        node.val = node.left.val + node.right.val;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="type">void</span> <span class="title">pushDown</span><span class="params">(Node node, <span class="type">int</span> leftNum, <span class="type">int</span> rightNum)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node.left == null) node.left = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">        <span class="keyword">if</span> (node.right == null) node.right = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">        <span class="keyword">if</span> (node.add == <span class="number">0</span>) <span class="keyword">return</span> ;</span><br><span class="line">        node.left.val += node.add * leftNum;</span><br><span class="line">        node.right.val += node.add * rightNum;</span><br><span class="line">        <span class="comment">// 对区间进行「加减」的更新操作，下推懒惰标记时需要累加起来，不能直接覆盖</span></span><br><span class="line">        node.left.add += node.add;</span><br><span class="line">        node.right.add += node.add;</span><br><span class="line">        node.add = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>对于表示为「区间和」且对区间进行「加减」的更新操作的情况，我们在更新节点值的时候『需要✖️左右孩子区间叶子节点的数量 (注意是叶子节点的数量)』；我们在下推懒惰标记的时候『需要累加』！！(这种情况和模版一致！！) 如题目 最近的请求次数<br>对于表示为「区间和」且对区间进行「覆盖」的更新操作的情况，我们在更新节点值的时候『需要✖️左右孩子区间叶子节点的数量 (注意是叶子节点的数量)』；我们在下推懒惰标记的时候『不需要累加』！！(因为是覆盖操作！！) 如题目 区域和检索 - 数组可修改<br>对于表示为「区间最值」且对区间进行「加减」的更新操作的情况，我们在更新节点值的时候『不需要✖️左右孩子区间叶子节点的数量 (注意是叶子节点的数量)』；我们在下推懒惰标记的时候『需要累加』！！ 如题目 我的日程安排表 I、我的日程安排表 III</p>
+<h2 id="我的日程安排表-I"><a href="#我的日程安排表-I" class="headerlink" title="我的日程安排表 I"></a>我的日程安排表 I</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">    <span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">MyCalendar</span>;</span><br><span class="line">    <span class="comment">// 左右孩子节点</span></span><br><span class="line">    Node *left, *right;</span><br><span class="line">    <span class="comment">// 当前节点值，以及懒惰标记的值</span></span><br><span class="line">    <span class="type">int</span> val, add;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyCalendar</span> &#123;</span><br><span class="line">    <span class="keyword">public</span>:    </span><br><span class="line">        <span class="built_in">MyCalendar</span>():<span class="built_in">N</span>(<span class="number">1e9</span>), <span class="built_in">root</span>(<span class="keyword">new</span> <span class="built_in">Node</span>())&#123;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="type">bool</span> <span class="title">book</span><span class="params">(<span class="type">int</span> start, <span class="type">int</span> end)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// 先查询该区间是否为 0</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">query</span>(root, <span class="number">0</span>, N, start, end - <span class="number">1</span>) != <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="comment">// 更新该区间</span></span><br><span class="line">            <span class="built_in">update</span>(root, <span class="number">0</span>, N, start, end - <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(Node* node, <span class="type">int</span> start, <span class="type">int</span> end, <span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (l &lt;= start &amp;&amp; end &lt;= r) &#123;</span><br><span class="line">                node -&gt; val += val;</span><br><span class="line">                node -&gt; add += val;</span><br><span class="line">                <span class="keyword">return</span> ;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">pushDown</span>(node);</span><br><span class="line">            <span class="type">int</span> mid = (start + end) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (l &lt;= mid) <span class="built_in">update</span>(node -&gt; left, start, mid, l, r, val);</span><br><span class="line">            <span class="keyword">if</span> (r &gt; mid) <span class="built_in">update</span>(node -&gt; right, mid + <span class="number">1</span>, end, l, r, val);</span><br><span class="line">            <span class="built_in">pushUp</span>(node);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(Node* node, <span class="type">int</span> start, <span class="type">int</span> end, <span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (l &lt;= start &amp;&amp; end &lt;= r) <span class="keyword">return</span> node -&gt; val;</span><br><span class="line">            <span class="built_in">pushDown</span>(node);</span><br><span class="line">            <span class="type">int</span> mid = (start + end) &gt;&gt; <span class="number">1</span>, ans = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (l &lt;= mid) ans = <span class="built_in">query</span>(node -&gt; left, start, mid, l, r);</span><br><span class="line">            <span class="keyword">if</span> (r &gt; mid) ans = <span class="built_in">max</span>(ans, <span class="built_in">query</span>(node -&gt; right, mid + <span class="number">1</span>, end, l, r));</span><br><span class="line">            <span class="keyword">return</span> ans;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="comment">// *************** 下面是模版 ***************</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="type">int</span> N;</span><br><span class="line">        Node* root;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">pushUp</span><span class="params">(Node* node)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// 每个节点存的是当前区间的最大值</span></span><br><span class="line">            node -&gt; val = <span class="built_in">max</span>(node -&gt; left -&gt; val, node -&gt; right -&gt; val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">pushDown</span><span class="params">(Node* node)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (node -&gt; left == <span class="literal">nullptr</span>) node -&gt; left = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">            <span class="keyword">if</span> (node -&gt; right == <span class="literal">nullptr</span>) node -&gt; right = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">            <span class="keyword">if</span> (node -&gt; add == <span class="number">0</span>) <span class="keyword">return</span> ;</span><br><span class="line">            node -&gt; left -&gt; val += node -&gt; add;</span><br><span class="line">            node -&gt; right -&gt; val += node -&gt; add;</span><br><span class="line">            node -&gt; left -&gt; add += node -&gt; add;</span><br><span class="line">            node -&gt; right -&gt;add += node -&gt; add;</span><br><span class="line">            node -&gt; add = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MyCalendar object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MyCalendar* obj = new MyCalendar();</span></span><br><span class="line"><span class="comment"> * bool param_1 = obj-&gt;book(start,end);</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-07-05T00:00:00.000Z" title="7/5/2022, 8:00:00 AM">2022-07-05</time>发表</span><span class="level-item"><time dateTime="2025-12-16T04:10:45.583Z" title="12/16/2025, 12:10:45 PM">2025-12-16</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/05/antiFilter/">反滤波</a></p><div class="content"><h2 id="使用傅里叶变换去卷积和逆滤波"><a href="#使用傅里叶变换去卷积和逆滤波" class="headerlink" title="使用傅里叶变换去卷积和逆滤波"></a>使用傅里叶变换去卷积和逆滤波</h2><p>如果已经有了一张具有模糊核的模糊图像，我们需要将其恢复到原始图像。原理上，我们只需要对原有的滤波卷积核每一个值进行倒数的操作即可实现逆滤波器的效果。在此我们仍然是在频域上进行卷积，代码如下。</p>
+<p>需要注意的是，卷积核取到数的过程中需要在原来的数值上加一个微小数值epsilon，以避免分母为零。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">im = EyEnd <span class="comment">#255*rgb2gray(imread(&#x27;./images/snow.jpg&#x27;))</span></span><br><span class="line">gauss_kernel = np.outer(signal.gaussian(im.shape[<span class="number">0</span>], <span class="number">3</span>), signal.gaussian(im.shape[<span class="number">1</span>], <span class="number">3</span>))</span><br><span class="line"> </span><br><span class="line">freq = fp.fft2(im)</span><br><span class="line">freq_kernel = fp.fft2(fp.ifftshift(gauss_kernel))</span><br><span class="line">conv = freq*freq_kernel</span><br><span class="line">im_blur = fp.ifft2(conv).real</span><br><span class="line">im_blur = <span class="number">255</span>*im_blur/np.<span class="built_in">max</span>(im_blur)</span><br><span class="line"> </span><br><span class="line">epsilon = <span class="number">10</span>**-<span class="number">6</span></span><br><span class="line">freq = fp.fft2(im_blur)</span><br><span class="line">freq_kernel = <span class="number">1</span>/(epsilon+freq_kernel) <span class="comment"># avoid freq_kernel is zero</span></span><br><span class="line">im_rst = fp.ifft2(conv).real</span><br><span class="line">im_rst = <span class="number">255</span>*im_rst/np.<span class="built_in">max</span>(im_rst)</span><br><span class="line"> </span><br><span class="line">pylab.figure(figsize = (<span class="number">10</span>, <span class="number">6</span>))</span><br><span class="line">pylab.subplot(<span class="number">221</span>), pylab.imshow(im), pylab.title(<span class="string">&#x27;Original Image&#x27;</span>), pylab.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line">pylab.subplot(<span class="number">222</span>), pylab.imshow(im_blur), pylab.title(<span class="string">&#x27;Blurred Image Image&#x27;</span>), pylab.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line">pylab.subplot(<span class="number">223</span>), pylab.imshow(im_rst), pylab.title(<span class="string">&#x27;Restored Image with inverse filter&#x27;</span>), pylab.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line">pylab.subplot(<span class="number">224</span>), pylab.imshow(im_rst - im), pylab.title(<span class="string">&#x27;Diff Image&#x27;</span>), pylab.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="利用维纳滤波器去卷积"><a href="#利用维纳滤波器去卷积" class="headerlink" title="利用维纳滤波器去卷积"></a>利用维纳滤波器去卷积</h2><p>前面的去卷积方法需要已知模糊核，在这里使用维纳滤波器，在不知道模糊核的情况下，从损坏的信号中去除噪声，达到复原图像的目的。首先构造一个已经损坏了的图像。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">im = rgb2gray(imread(<span class="string">&#x27;./images/cat.jpg&#x27;</span>))</span><br><span class="line"> </span><br><span class="line">n = <span class="number">7</span></span><br><span class="line">psf = np.ones((n, n))/n**<span class="number">2</span></span><br><span class="line">im1 = signal.convolve2d(im, psf, mode = <span class="string">&#x27;same&#x27;</span>)</span><br><span class="line">im1 += <span class="number">0.1</span>*np.std(im1)*np.random.standard_normal(im.shape)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>再使用维纳滤波完成操作，最后就能得到图像</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">im2, _ = restoration.unsupervised_wiener(im1, psf)</span><br><span class="line">fig, axes = pylab.subplots(nrows = <span class="number">1</span>, ncols = <span class="number">3</span>, figsize = (<span class="number">200</span>, <span class="number">40</span>), sharex = <span class="literal">True</span>,</span><br><span class="line"> sharey = <span class="literal">True</span>)</span><br><span class="line">pylab.gray()</span><br><span class="line">axes[<span class="number">0</span>].imshow(im), axes[<span class="number">0</span>].axis(<span class="string">&#x27;off&#x27;</span>), axes[<span class="number">0</span>].set_title(<span class="string">&#x27;Original image&#x27;</span>, size = <span class="number">200</span>)</span><br><span class="line">axes[<span class="number">1</span>].imshow(im1), axes[<span class="number">1</span>].axis(<span class="string">&#x27;off&#x27;</span>), axes[<span class="number">1</span>].set_title(<span class="string">&#x27;Noisy blurred image&#x27;</span>, size = <span class="number">200</span>)</span><br><span class="line">axes[<span class="number">2</span>].imshow(im2), axes[<span class="number">2</span>].axis(<span class="string">&#x27;off&#x27;</span>), axes[<span class="number">2</span>].set_title(<span class="string">&#x27;Self tuned restoration&#x27;</span>, size = <span class="number">200</span>)</span><br><span class="line">fig.tight_layout()</span><br><span class="line">pylab.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用低通滤波，重建图像"><a href="#使用低通滤波，重建图像" class="headerlink" title="使用低通滤波，重建图像"></a>使用低通滤波，重建图像</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">im_fft = fp.ifftshift(im_fft_shift)</span><br><span class="line">im = np.clip(fp.ifft2(im_fft).real, <span class="number">0</span>, <span class="number">255</span>)</span><br><span class="line">pylab.figure(figsize = (<span class="number">10</span>,<span class="number">10</span>))</span><br><span class="line">pylab.imshow(im,pylab.cm.gray), pylab.axis(<span class="string">&#x27;off&#x27;</span>), pylab.title(<span class="string">&#x27;Noise image&#x27;</span>), pylab.show()</span><br><span class="line"></span><br><span class="line">keep_fraction = <span class="number">0.1</span></span><br><span class="line">r,c = im_fft.shape</span><br><span class="line">im_fft[<span class="built_in">int</span>(r*keep_fraction):<span class="built_in">int</span>(r*(<span class="number">1</span>-keep_fraction))] = <span class="number">0</span></span><br><span class="line">im_fft[:, <span class="built_in">int</span>(c*keep_fraction):<span class="built_in">int</span>(c*(<span class="number">1</span>-keep_fraction))] = <span class="number">0</span></span><br><span class="line">pylab.figure(), plot_spectrum(fp.fftshift(im_fft)), pylab.title(<span class="string">&#x27;Filitered Spectrum&#x27;</span>)</span><br><span class="line"></span><br><span class="line">im_new = fp.ifft2(im_fft).real</span><br><span class="line">pylab.figure(figsize = (<span class="number">10</span>, <span class="number">10</span>))</span><br><span class="line">pylab.imshow(im_new,pylab.cm.gray), pylab.axis(<span class="string">&#x27;off&#x27;</span>), pylab.title(<span class="string">&#x27;Reconstructed image&#x27;</span>), pylab.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-07-05T00:00:00.000Z" title="7/5/2022, 8:00:00 AM">2022-07-05</time>发表</span><span class="level-item"><time dateTime="2025-12-16T04:10:45.584Z" title="12/16/2025, 12:10:45 PM">2025-12-16</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/05/gauss_diff/">高斯差分和超高斯滤波</a></p><div class="content"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gauss_func</span>(<span class="params">Nx, sigma, n</span>):</span><br><span class="line">    x = np.arange(Nx) * dx</span><br><span class="line">    cen = x0</span><br><span class="line">    <span class="built_in">print</span>(cen)</span><br><span class="line">    amp = <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> amp * np.exp(-(x - cen) ** n / (<span class="number">2</span> * sigma ** n))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gauss_func2d</span>(<span class="params">Nx, Ny, sigma, n</span>):</span><br><span class="line">    x = np.arange(Nx)</span><br><span class="line">    y = np.arange(Ny)</span><br><span class="line">    Y, X = np.meshgrid(y, x)</span><br><span class="line">    cen = [x0, y0]</span><br><span class="line">    <span class="built_in">print</span>(cen)</span><br><span class="line">    amp = <span class="number">1</span></span><br><span class="line">    R = np.sqrt((X * dx - cen[<span class="number">0</span>])**<span class="number">2</span> + (Y * dy - cen[<span class="number">1</span>])**<span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> amp * np.exp(- R ** n / (<span class="number">2</span> * sigma ** n))</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-07-04T00:00:00.000Z" title="7/4/2022, 8:00:00 AM">2022-07-04</time>发表</span><span class="level-item"><time dateTime="2025-12-16T04:45:26.910Z" title="12/16/2025, 12:45:26 PM">2025-12-16</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/04/matplotlib/">matplotlib colorbar位置</a></p><div class="content"><p>matplotlib 3.5以上版本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">fig, ax = plt.subplots(figsize = [<span class="number">3</span>, <span class="number">1.5</span>])</span><br><span class="line">norm = mpl.colors.Normalize(<span class="number">0</span>, <span class="number">20</span>, clip=<span class="literal">True</span>)</span><br><span class="line">im = plt.pcolormesh([[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">0</span>,<span class="number">20</span>],[<span class="number">0</span>,<span class="number">6</span>,<span class="number">0</span>]], cmap = <span class="string">&#x27;jet&#x27;</span>, norm = norm)</span><br><span class="line"></span><br><span class="line">cbar2 = fig.colorbar(im, cmap = <span class="string">&#x27;jet&#x27;</span>, location=<span class="string">&#x27;top&#x27;</span>,  shrink = <span class="number">0.8</span>)</span><br><span class="line">cbar2.set_label(<span class="string">&#x27;E_k [MeV]&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果figure.colorbar没有location参数，则使用mpl.colorbar.make_axes或者mpl.colorbar.make_axes_gridspec构造cax然后生成调用Colorbar构造函数生成cbar</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#plt.colorbar().set_label.__doc__</span></span><br><span class="line"><span class="comment">#kw = &#123;&quot;location&quot;: &quot;top&quot;, &quot;orientation&quot;: &quot;horizontal&quot;,</span></span><br><span class="line"><span class="comment">#                   &quot;anchor&quot;: (0.5, 0.0), &quot;panchor&quot;: (0.5, 1.0), &quot;pad&quot;: 0.05&#125;</span></span><br><span class="line"><span class="comment">#kw[&#x27;orientation&#x27;] = kw[&#x27;orientation&#x27;]</span></span><br><span class="line"><span class="comment">#location = kw[&#x27;ticklocation&#x27;] = kw[&#x27;location&#x27;]</span></span><br><span class="line"></span><br><span class="line">kw = &#123;<span class="string">&#x27;shrink&#x27;</span>: <span class="number">0.8</span>, <span class="string">&#x27;orientation&#x27;</span>: <span class="string">&quot;horizontal&quot;</span>, <span class="string">&#x27;location&#x27;</span>: <span class="string">&#x27;top&#x27;</span>&#125;</span><br><span class="line"><span class="comment">#cax, kw = mpl.colorbar.make_axes_gridspec(ax, **kw)</span></span><br><span class="line">cax, kw = mpl.colorbar.make_axes(ax, **kw)</span><br><span class="line"></span><br><span class="line">NON_COLORBAR_KEYS = [<span class="string">&#x27;fraction&#x27;</span>, <span class="string">&#x27;pad&#x27;</span>, <span class="string">&#x27;shrink&#x27;</span>, <span class="string">&#x27;aspect&#x27;</span>, <span class="string">&#x27;anchor&#x27;</span>,</span><br><span class="line">                        <span class="string">&#x27;panchor&#x27;</span>]</span><br><span class="line"></span><br><span class="line">cb_kw = &#123;k: v <span class="keyword">for</span> k, v <span class="keyword">in</span> kw.items() <span class="keyword">if</span> k <span class="keyword">not</span> <span class="keyword">in</span> NON_COLORBAR_KEYS&#125;</span><br><span class="line"></span><br><span class="line">cbar = mpl.colorbar.Colorbar(cax, im, ticklocation = <span class="string">&quot;top&quot;</span>, orientation = <span class="string">&quot;horizontal&quot;</span>)</span><br><span class="line">cbar.set_label(<span class="string">&#x27;E_k [MeV]&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>此外，也可以自定义cax然后生成cbar</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cax = fig.add_axes([<span class="number">0.15</span>, <span class="number">1.05</span>, <span class="number">0.7</span>, <span class="number">0.05</span>], label=<span class="string">&quot;&lt;colorbar&gt;&quot;</span>)</span><br><span class="line">cbar = mpl.colorbar.Colorbar(cax, im, orientation = <span class="string">&quot;horizontal&quot;</span>, ticklocation = <span class="string">&quot;top&quot;</span>)</span><br><span class="line">cbar.set_ticks([<span class="number">0</span>, <span class="number">10</span>, <span class="number">20</span>])</span><br><span class="line">cbar.ax.xaxis.set_ticks_position(<span class="string">&#x27;top&#x27;</span>)</span><br><span class="line">cbar.ax.xaxis.set_label_position(<span class="string">&#x27;top&#x27;</span>)</span><br><span class="line">cbar.set_label(<span class="string">&#x27;E_k [MeV]&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-07-03T00:00:00.000Z" title="7/3/2022, 8:00:00 AM">2022-07-03</time>发表</span><span class="level-item"><time dateTime="2025-12-16T04:10:45.583Z" title="12/16/2025, 12:10:45 PM">2025-12-16</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/03/conv/">卷积算法实现AutoCorr和高斯滤波（高斯模糊）</a></p><div class="content"><h2 id="自相关"><a href="#自相关" class="headerlink" title="自相关"></a>自相关</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> signal</span><br><span class="line">rng = np.random.default_rng()</span><br><span class="line">sig = rng.standard_normal(<span class="number">1000</span>)</span><br><span class="line">autocorr = signal.fftconvolve(sig, sig[::-<span class="number">1</span>], mode=<span class="string">&#x27;full&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="高斯滤波"><a href="#高斯滤波" class="headerlink" title="高斯滤波"></a>高斯滤波</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scipy</span><br><span class="line"><span class="keyword">from</span> scipy.ndimage <span class="keyword">import</span> gaussian_filter</span><br><span class="line"><span class="keyword">import</span> scipy.signal <span class="keyword">as</span> signal</span><br><span class="line"></span><br><span class="line">c = <span class="number">3e8</span></span><br><span class="line">dx = <span class="number">1e-6</span> * (x[<span class="number">1</span>] - x[<span class="number">0</span>])</span><br><span class="line">sigma = c/<span class="number">10e12</span>/dx</span><br><span class="line"></span><br><span class="line">EyTHz = scipy.ndimage.gaussian_filter(EyEnd, sigma = <span class="number">15</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>使用高斯核卷积进行滤波</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">im = EyEnd</span><br><span class="line">gauss_kernel = np.outer(signal.gaussian(im.shape[<span class="number">0</span>], <span class="number">15</span>), signal.gaussian(im.shape[<span class="number">1</span>], <span class="number">15</span>))</span><br><span class="line"><span class="comment">#gauss_kernel = gauss_kernel/np.sum(gauss_kernel)</span></span><br><span class="line">gauss_kernel /= np.trapz(np.trapz(gauss_kernel))</span><br><span class="line">im_real = signal.convolve(im, gauss_kernel, mode=<span class="string">&#x27;same&#x27;</span>)</span><br><span class="line"><span class="comment">#im_real = im * gauss_kernel</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>其中sigma为滤波宽度</p>
+<h2 id="使用卷积实现滤波"><a href="#使用卷积实现滤波" class="headerlink" title="使用卷积实现滤波"></a>使用卷积实现滤波</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> signal</span><br><span class="line"><span class="comment">#from scipy import misc</span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment">####动态模糊核心</span></span><br><span class="line">guass_kernal = [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>],</span><br><span class="line">                [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>],</span><br><span class="line">                [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>]]</span><br><span class="line"></span><br><span class="line">result = signal.convolve2d(origin, guass_kernal, boundary=<span class="string">&#x27;symm&#x27;</span>, mode=<span class="string">&#x27;same&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>二维的卷积运算还有一种函数，是signal.sepfir2d()，它可以传入三个参数，后两个参数指定行和列的卷积和(两个方向上的卷积是可以不同的，分别指定卷积和序列)。</p>
+<h2 id="频域卷积"><a href="#频域卷积" class="headerlink" title="频域卷积"></a>频域卷积</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> signal</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> numpy.fft <span class="keyword">as</span> fp</span><br><span class="line"></span><br><span class="line">im = EyEnd <span class="comment">#EyEnd为需要滤波的图像</span></span><br><span class="line"></span><br><span class="line">gauss_kernel = np.outer(signal.gaussian(im.shape[<span class="number">0</span>], <span class="number">15</span>), </span><br><span class="line">signal.gaussian(im.shape[<span class="number">1</span>], <span class="number">15</span>))</span><br><span class="line"></span><br><span class="line">plt.pcolormesh(gauss_kernel, cmap = <span class="string">&#x27;jet&#x27;</span>)</span><br><span class="line"></span><br><span class="line">freq = np.fft.fft2(im)</span><br><span class="line"><span class="keyword">assert</span>(freq.shape == gauss_kernel.shape)</span><br><span class="line">freq_kernel = np.fft.fft2(np.fft.ifftshift(gauss_kernel))</span><br><span class="line"></span><br><span class="line">fig = plt.figure(figsize = (<span class="number">10</span>, <span class="number">4</span>))</span><br><span class="line">ax_1 = fig.add_subplot(<span class="number">121</span>, projection=<span class="string">&#x27;3d&#x27;</span>)</span><br><span class="line">ax_2 = fig.add_subplot(<span class="number">122</span>, projection=<span class="string">&#x27;3d&#x27;</span>)</span><br><span class="line"> </span><br><span class="line">Y = np.arange(<span class="number">0</span> - <span class="built_in">int</span>(im.shape[<span class="number">0</span>]/<span class="number">2</span>), im.shape[<span class="number">0</span>] - <span class="built_in">int</span>(im.shape[<span class="number">0</span>]/<span class="number">2</span>), <span class="number">1</span>)</span><br><span class="line">X = np.arange(<span class="number">0</span> - <span class="built_in">int</span>(im.shape[<span class="number">1</span>]/<span class="number">2</span>), im.shape[<span class="number">1</span>] - <span class="built_in">int</span>(im.shape[<span class="number">1</span>]/<span class="number">2</span>), <span class="number">1</span>)</span><br><span class="line">X, Y = np.meshgrid(X, Y)</span><br><span class="line"> </span><br><span class="line">ax_1.plot_surface(X, Y, np.log10(np.<span class="built_in">abs</span>(fp.ifftshift(freq))), rstride=<span class="number">4</span>,</span><br><span class="line">cstride=<span class="number">4</span>, cmap=plt.cm.coolwarm)</span><br><span class="line"> </span><br><span class="line">ax_2.plot_surface(X, Y, np.<span class="built_in">abs</span>(fp.ifftshift(freq_kernel)), rstride=<span class="number">4</span>,</span><br><span class="line">cstride=<span class="number">4</span>, cmap=plt.cm.coolwarm)</span><br><span class="line">plt.show()</span><br><span class="line"></span><br><span class="line">conv = freq*freq_kernel</span><br><span class="line">im1 = fp.ifft2(conv).real</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>简洁版</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> signal</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> numpy.fft <span class="keyword">as</span> fp</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fftConv</span>(<span class="params">im, sigma</span>):</span><br><span class="line"></span><br><span class="line">    gauss_kernel = np.outer(signal.gaussian(im.shape[<span class="number">0</span>], sigma), </span><br><span class="line">    signal.gaussian(im.shape[<span class="number">1</span>], sigma))</span><br><span class="line">    plotFreq(freqX, freqY, gauss_kernel.T)</span><br><span class="line"></span><br><span class="line">    freq = np.fft.fft2(im)</span><br><span class="line">    <span class="keyword">assert</span>(freq.shape == gauss_kernel.shape)</span><br><span class="line">    freq_kernel = np.fft.fft2(np.fft.ifftshift(gauss_kernel))</span><br><span class="line">    <span class="comment">#freq_kernel = np.fft.fft2(gauss_kernel)</span></span><br><span class="line">    plotField(freqX, freqY, np.log10(np.<span class="built_in">abs</span>(fp.ifftshift(freq))).T)</span><br><span class="line">    plotFreq(freqX, freqY, np.<span class="built_in">abs</span>(fp.ifftshift(freq_kernel)).T) </span><br><span class="line"></span><br><span class="line">    conv = freq*freq_kernel</span><br><span class="line">    im1 = fp.ifft2(conv).real</span><br><span class="line">    <span class="keyword">return</span> im1</span><br><span class="line"></span><br><span class="line">im = EyEnd</span><br><span class="line">plotField(x, y, im.T)</span><br><span class="line">sigma = <span class="number">15</span></span><br><span class="line">im1 = fftConv(im, sigma)</span><br><span class="line">plotField(freqX, freqY, im1.T) </span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
+<p>时域和频域对比</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> pylab</span><br><span class="line"></span><br><span class="line">freq = np.fft.fft2(im)</span><br><span class="line"><span class="keyword">assert</span>(freq.shape == gauss_kernel.shape)</span><br><span class="line">freq_kernel = np.fft.fft2(np.fft.ifftshift(gauss_kernel))</span><br><span class="line">conv = freq * freq_kernel</span><br><span class="line">im1 = fp.ifft2(conv).real</span><br><span class="line"></span><br><span class="line">pylab.figure(figsize = (<span class="number">20</span>, <span class="number">8</span>))</span><br><span class="line">pylab.gray()</span><br><span class="line">pylab.subplot(<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>), pylab.pcolormesh(im.T, cmap = <span class="string">&#x27;bwr&#x27;</span>), pylab.title(<span class="string">&#x27;Original Image&#x27;</span>, size = <span class="number">30</span>), pylab.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line">pylab.subplot(<span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>), pylab.pcolormesh(gauss_kernel.T, cmap = <span class="string">&#x27;jet&#x27;</span>), pylab.title(<span class="string">&#x27;Gaussian Kernel&#x27;</span>, size = <span class="number">30</span>), pylab.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line">pylab.subplot(<span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>), pylab.pcolormesh(im1.T, cmap = <span class="string">&#x27;bwr&#x27;</span>), pylab.title(<span class="string">&#x27;Output Image&#x27;</span>, size = <span class="number">30</span>), pylab.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">imOrigin = (<span class="number">20</span>*np.log10(np.<span class="built_in">abs</span>(<span class="number">0.1</span>+fp.ifftshift(freq)))).astype(<span class="built_in">int</span>)</span><br><span class="line">pylab.subplot(<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>), pylab.pcolormesh(imOrigin.T, cmap = <span class="string">&#x27;bwr&#x27;</span>)</span><br><span class="line">pylab.title(<span class="string">&#x27;Origin Image Spectrum&#x27;</span>, size = <span class="number">30</span>), pylab.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">imGuassian = (<span class="number">20</span>*np.log10(np.<span class="built_in">abs</span>(<span class="number">0.1</span>+fp.ifftshift(freq_kernel)))).astype(<span class="built_in">int</span>)</span><br><span class="line">pylab.subplot(<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>), pylab.pcolormesh(imGuassian.T, cmap = <span class="string">&#x27;jet&#x27;</span>)</span><br><span class="line">pylab.title(<span class="string">&#x27;Gaussian Kernel Spectrum&#x27;</span>, size = <span class="number">30</span>), pylab.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br><span class="line">imOutSpec = (<span class="number">20</span>*np.log10(np.<span class="built_in">abs</span>(<span class="number">0.1</span>+fp.ifftshift(conv)))).astype(<span class="built_in">int</span>)</span><br><span class="line">pylab.subplot(<span class="number">2</span>, <span class="number">3</span>, <span class="number">6</span>), pylab.pcolormesh(imOutSpec.T, cmap = <span class="string">&#x27;jet&#x27;</span>)</span><br><span class="line">pylab.title(<span class="string">&#x27;Output Image Spectrum&#x27;</span>, size = <span class="number">30</span>), pylab.axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-</body>
-</html>
+<h2 id="带通滤波"><a href="#带通滤波" class="headerlink" title="带通滤波"></a>带通滤波</h2><p>在这里尝试使用高斯差分核（两个高斯核的差），作为带通滤波器。带通滤波是保留一定频段内的频率分量，而丢弃其余所有的频率分量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">###读取图像</span></span><br><span class="line">im = img_as_float(pylab.imread(<span class="string">&#x27;./images/snow.jpg&#x27;</span>))</span><br><span class="line">pylab.figure(), pylab.imshow(im), pylab.axis(<span class="string">&#x27;off&#x27;</span>), pylab.show()</span><br><span class="line">x = np.linspace(-<span class="number">10</span>, <span class="number">10</span>, <span class="number">15</span>)</span><br><span class="line"><span class="comment">###kernel 1 生成</span></span><br><span class="line">kernel = np.exp(-<span class="number">0.005</span>*x**<span class="number">2</span>)</span><br><span class="line">kernel /= np.trapz(kernel)</span><br><span class="line">guass_kernel_1 = kernel[:, np.newaxis] * kernel[np.newaxis, :]</span><br><span class="line"><span class="comment">###kernel 2 生成</span></span><br><span class="line">kernel = np.exp(-<span class="number">5</span>*x**<span class="number">2</span>)</span><br><span class="line">kernel /= np.trapz(kernel)</span><br><span class="line">guass_kernel_2 = kernel[:, np.newaxis] * kernel[np.newaxis, :]</span><br><span class="line"><span class="comment">###进行差分</span></span><br><span class="line">DOGkernel = guass_kernel_1[:,:,np.newaxis] - guass_kernel_2[:,:,np.newaxis]</span><br><span class="line"><span class="comment">###卷积</span></span><br><span class="line">im = signal.fftconvolve(im, DOGkernel, mode = <span class="string">&#x27;same&#x27;</span>)</span><br><span class="line">pylab.figure, pylab.imshow(np.clip(im, <span class="number">0</span>, <span class="number">1</span>)), pylab.axis(<span class="string">&#x27;off&#x27;</span>), <span class="built_in">print</span>(np.<span class="built_in">max</span>(im))</span><br><span class="line">pylab.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/">上一页</a></div><div class="pagination-next"><a href="/page/3/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link is-current" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/icon.png" alt="JayZz"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">JayZz</p><p class="is-size-6 is-block">开发者</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>城市, 国家</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">25</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">6</p></a></div></div></nav></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-12-21T00:00:00.000Z">2025-12-21</time></p><p class="title"><a href="/2025/12/21/linux-cgroup-ssh-limit/">Linux cgroup 实现 SSH 用户资源限制指南</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-02-27T00:00:00.000Z">2025-02-27</time></p><p class="title"><a href="/2025/02/27/rel_mom/">广义动量守恒推导</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-02-02T07:40:21.000Z">2025-02-02</time></p><p class="title"><a href="/2025/02/02/cloudflare/">Cloudflare tunnel 内网穿透</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-02-02T07:40:21.000Z">2025-02-02</time></p><p class="title"><a href="/2025/02/02/slurm-server/">CentOS Stream 9 单节点 Slurm 集群部署指南</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-02-02T03:26:21.000Z">2025-02-02</time></p><p class="title"><a href="/2025/02/02/subtree/">Subtree仓库添加</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Jayz Blog</a><p class="is-size-7"><span>&copy; 2025 JayZz</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><!--!--><script data-pjax src="/js/main.js" defer></script><!--!--></body></html>
