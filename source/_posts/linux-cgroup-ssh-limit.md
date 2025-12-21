@@ -126,6 +126,60 @@ done
 
 通过 cgroup 和 systemd 的集成，我们可以高效管理多用户环境下的资源分配。本指南提供的脚本可直接用于生产环境，但需根据实际硬件资源调整参数值。合理配置资源限制能显著提升系统稳定性，避免资源争夺导致的性能下降。
 
+
+```bash
+#!/bin/bash
+# 1. 清理现有配置
+sudo rm -rf /etc/systemd/system/user.slice.d/
+sudo rm -rf /etc/systemd/system/user-*.slice.d/
+sudo rm -rf /etc/systemd/system/user@.service.d/
+
+# 2. 使用正确的配置文件方式
+sudo mkdir -p /etc/systemd/system/user.slice.d/
+sudo tee /etc/systemd/system/user.slice.d/global.conf << 'EOF'
+[Slice]
+# CPUQuota=400%
+# MemoryMax=16G
+CPUQuota=
+MemoryMax=
+EOF
+
+# 3. 创建用户默认模板（这会在用户登录时自动应用）
+sudo mkdir -p /etc/systemd/system/user@.service.d/
+sudo tee /etc/systemd/system/user@.service.d/limit.conf << 'EOF'
+[Service]
+# CPUWeight=100
+CPUQuota=100%
+MemoryMax=4G
+EOF
+
+# 给 root 的 slice 覆盖掉限制
+sudo mkdir -p /etc/systemd/system/user-0.slice.d/
+
+sudo tee /etc/systemd/system/user-0.slice.d/override.conf <<'EOF'
+[Slice]
+CPUQuota=
+MemoryMax=
+EOF
+
+# 给特定用户 ID（例如 990）的 slice 覆盖掉限制
+slurm_id=$(id -u slurm)
+sudo mkdir -p /etc/systemd/system/user-$slurm_id.slice.d/
+
+sudo tee /etc/systemd/system/user-$slurm_id.slice.d/override.conf <<'EOF'
+[Slice]
+CPUQuota=
+MemoryMax=
+CPUWeight=
+EOF
+
+# 4. 重载配置
+sudo systemctl daemon-reload
+
+# # 5. 重启用户切片（或重启系统）
+# sudo systemctl restart user.slice
+sudo systemctl restart systemd-logind
+```
 ---
 
 > 本文仅用于教育目的，操作前请备份重要数据。建议在测试环境验证后再部署到生产系统。
