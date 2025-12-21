@@ -1,6 +1,6 @@
 ---
 title: CentOS Stream 9 单节点 Slurm 集群部署指南
-date: 2025-02-02 15:40:21
+date: 2025-12-20 15:40:21
 tags: [Slurm, HPC, 集群管理]
 ---
 
