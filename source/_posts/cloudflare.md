@@ -54,7 +54,7 @@ Cloudflare 实现内网穿透主要通过其 **Cloudflare Tunnel**（也叫 Argo
    - 或者也可以直接更改配置文件"~/.cloudflared/config.yml"
     ```
     tunnel: 6bc4c976-1c0c-45a4-bab0-93b7eed4e1d1 # 你的 Tunnel ID
-    credentials-file: /home/yujq2/.cloudflared/6bc4c976-1c0c-45a4-bab0-93b7eed4e1d1.json
+    credentials-file: $HOME/.cloudflared/6bc4c976-1c0c-45a4-bab0-93b7eed4e1d1.json
 
     ingress:
     - hostname: rentereview.cn
@@ -75,9 +75,9 @@ Cloudflare 实现内网穿透主要通过其 **Cloudflare Tunnel**（也叫 Argo
 
    - 或者通过cloudflared程序进行路由
    ```bash
-   cloudflared tunnel route dns jayzquaz rentereview.cn
+   cloudflared tunnel route dns <tunnel-name> rentereview.cn
    ```
-   - 这将把域名 retereview.cn 路由到名为 jayzquaz 的 Tunnel。
+   - 这将把域名 rentereview.cn 路由到名为 <tunnel-name> 的 Tunnel。
 7. **启动和验证：**
     - 运行 Cloudflare Tunnel 服务：
       ```bash
