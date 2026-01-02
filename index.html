@@ -1,500 +1,746 @@
-<!doctype html>
-<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Jayz Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Jayz Blog"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Jayz Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="website"><meta property="og:title" content="Jayz Blog"><meta property="og:url" content="https://zhazhajust.github.io/"><meta property="og:site_name" content="Jayz Blog"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://zhazhajust.github.io/img/og_image.png"><meta property="article:author" content="JayZz"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://zhazhajust.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zhazhajust.github.io"},"headline":"Jayz Blog","image":["https://zhazhajust.github.io/img/og_image.png"],"author":{"@type":"Person","name":"JayZz"},"publisher":{"@type":"Organization","name":"Jayz Blog","logo":{"@type":"ImageObject"}},"description":""}</script><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><!-- hexo injector head_end start --><script>
-  (function () {
-      function switchTab() {
-          if (!location.hash) {
-            return;
-          }
 
-          const id = '#' + CSS.escape(location.hash.substring(1));
-          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
-          if (!$tabMenu) {
-            return;
-          }
 
-          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
-          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
-          Array.from($tabMenuContainer.querySelectorAll('a'))
-              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
-              .forEach($content => $content.classList.add('is-hidden'));
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
-          if ($tabMenu) {
-              $tabMenu.parentElement.classList.add('is-active');
-          }
-          const $activeTab = document.querySelector(id);
-          if ($activeTab) {
-              $activeTab.classList.remove('is-hidden');
-          }
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="JayZz">
+  <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Jayz Blog">
+<meta property="og:url" content="https://zhazhajust.github.io/index.html">
+<meta property="og:site_name" content="Jayz Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="JayZz">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Jayz Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhazhajust.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="An elegant Material-Design theme for Hexo"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2026/01/02/rootless_network/" target="_self">
+          Podman Compose 容器无法访问外网：Rootless 网络原理与解决方案（pasta vs slirp4netns）
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2026/01/02/rootless_network/" target="_self">
+        <div>
+          现象：同一份 docker-compose.yml，用 Docker Compose 启动后容器能访问外网；用 Podman Compose 启动后容器访问外网失败。结论：通常不是业务问题，而是 Podman Rootless 网络实现与 Docker Rootful NAT Bridge 的差异导致。  一、现象与定位我这边首先用一条命令确认 Podman 的运行模式与网络后端： 123456
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2026-01-02 00:00" pubdate>
+              2026-01-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%BF%90%E7%BB%B4/" class="category-chain-item">运维</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%BF%90%E7%BB%B4/%E5%AE%B9%E5%99%A8/" class="category-chain-item">容器</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/podman/">#podman</a>
+            
+              <a href="/tags/docker/">#docker</a>
+            
+              <a href="/tags/compose/">#compose</a>
+            
+              <a href="/tags/linux/">#linux</a>
+            
+              <a href="/tags/network/">#network</a>
+            
+              <a href="/tags/rootless/">#rootless</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/12/21/linux-cgroup-ssh-limit/" target="_self">
+          Linux cgroup 实现 SSH 用户资源限制指南
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/12/21/linux-cgroup-ssh-limit/" target="_self">
+        <div>
+          Linux cgroup 实现 SSH 用户资源限制指南概述Linux 控制组（cgroup）是内核提供的资源管理机制，可用于限制、隔离和监控进程组（如用户会话）的资源使用。通过 systemd 与 cgroup 结合，我们可以为 SSH 登录用户设置公平的资源配额，避免单个用户过度占用 CPU、内存等系统资源，提升多用户环境的稳定性。本指南以实际脚本为例，逐步讲解配置方法。 环境准备 系统要求：
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-12-21 08:00" pubdate>
+              2025-12-21
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">#Linux</a>
+            
+              <a href="/tags/cgroup/">#cgroup</a>
+            
+              <a href="/tags/%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/">#资源管理</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/12/21/install_driver/" target="_self">
+          NVIDIA驱动和CUDA安装脚本 for CentOS Stream 9
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/12/21/install_driver/" target="_self">
+        <div>
+          安装好centos9系统后，装好显卡，配置好网络环境。安装好NVIDIA驱动，然后安装CUDA工具包。以下是完整的安装脚本： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-12-21 08:00" pubdate>
+              2025-12-21
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/12/20/slurm-server/" target="_self">
+          CentOS Stream 9 单节点 Slurm 集群部署指南
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/12/20/slurm-server/" target="_self">
+        <div>
+          本文提供 CentOS Stream 9 单节点环境下安装配置 Slurm（含 slurmctld + slurmd）的标准流程，适用于开发、测试及单机调度场景。 一、环境假设与目标架构1. 环境假设 操作系统：CentOS Stream 9（最小化或标准安装） 主机名：node1 IP：192.168.1.10（示例） 角色： 控制节点（Controller）：node1 计算节点（Comput
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-12-20 15:40" pubdate>
+              2025-12-20
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Slurm/">#Slurm</a>
+            
+              <a href="/tags/HPC/">#HPC</a>
+            
+              <a href="/tags/%E9%9B%86%E7%BE%A4%E7%AE%A1%E7%90%86/">#集群管理</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/02/27/rel_mom/" target="_self">
+          广义动量守恒推导
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/02/27/rel_mom/" target="_self">
+        <div>
+          下面给出一个较为详细的推导思路，说明为什么会得到方程$$\frac{d}{dt}\left(\mathbf{p}_\perp + q,\mathbf{A}\right) &#x3D; 0 \quad \Longrightarrow \quad \mathbf{p}_\perp &#x3D; \mathbf{p}_\perp^0 - q,\mathbf{A},$$以及 $\mathbf{p}_\pe
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-02-27 08:00" pubdate>
+              2025-02-27
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/02/02/cloudflare/" target="_self">
+          Cloudflare tunnel 内网穿透
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/02/02/cloudflare/" target="_self">
+        <div>
+          https://cloudflared.cn/get-started/create-local-tunnel/  Cloudflare 实现内网穿透主要通过其 Cloudflare Tunnel（也叫 Argo Tunnel）功能来实现。它允许你在不暴露公共 IP 的情况下，将本地服务器或应用暴露到互联网上，从而实现内网穿透。以下是 Cloudflare Tunnel 的基本工作原理和步骤： 工
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-02-02 15:40" pubdate>
+              2025-02-02
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2025/02/02/subtree/" target="_self">
+          Subtree仓库添加
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2025/02/02/subtree/" target="_self">
+        <div>
+          Step 1初始化 git 仓库并提交初始文件 1234567891011# 在当前目录初始化仓库git init# 创建或编辑 README.md（示例）echo &quot;# 项目&quot; &gt; README.md# 将所有改动添加到暂存区git add .# 提交到本地仓库git commit -m &quot;Init&quot;  解释：  git init：在当前目录创建一个
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-02-02 11:26" pubdate>
+              2025-02-02
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/08/10/datascience/" target="_self">
+          机器学习资源
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/10/datascience/" target="_self">
+        <div>
+          数据分析入门https://github.com/apachecn/pyda-2e-zh.git Twitter算法https://github.com/twitter/the-algorithm.git Data Science笔记https://github.com/fengdu78/Data-Science-Notes Machine Learning笔记吴恩达Machine learnin
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-08-10 08:00" pubdate>
+              2023-08-10
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/08/10/remote/" target="_self">
+          远程连接与唤醒
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/10/remote/" target="_self">
+        <div>
+          简介首先准备好公网ipv4 or ipv6，使用ddns-go绑定动态ip地址到dns服务器（静态ip不需要），此时可。随后运行WolGoWeb服务，即可使用url进行远程唤醒。 dynv6使用 https://dynv6.com 进行动态域名解析，绑定ipv6于自定义域名 https://xxx.dynv6.net 。 ddns-go简单好用的DDNS。自动更新域名解析到公网IP(支持阿里云、腾
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-08-10 08:00" pubdate>
+              2023-08-10
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2022/09/15/undulator/" target="_self">
+          Frequency moved undulator
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/15/undulator/" target="_self">
+        <div>
+          Smilei or EPOCHMark the oscillate electrons, and save the field produced by them. Then sparated them from the total electric field and save to a new file. 光波荡器推导假设平面波激光方向为$\hat k &#x3D; \frac{\mathbf{
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-09-15 08:00" pubdate>
+              2022-09-15
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
       }
-      switchTab();
-      window.addEventListener('hashchange', switchTab, false);
-  })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Jayz Blog</a></div><div class="navbar-menu"><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-12-21T00:00:00.000Z" title="12/21/2025, 8:00:00 AM">2025-12-21</time>发表</span><span class="level-item"><time dateTime="2025-12-21T00:14:51.186Z" title="12/21/2025, 8:14:51 AM">2025-12-21</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/12/21/linux-cgroup-ssh-limit/">Linux cgroup 实现 SSH 用户资源限制指南</a></p><div class="content"><p>本文详细介绍如何使用 cgroup 对 SSH 登录用户进行资源限制，包括 CPU、内存和 GPU 资源的配额管理。</p>
-<h2 id="一、cgroup-限制原理"><a href="#一、cgroup-限制原理" class="headerlink" title="一、cgroup 限制原理"></a>一、cgroup 限制原理</h2><h3 id="1-资源控制层次"><a href="#1-资源控制层次" class="headerlink" title="1. 资源控制层次"></a>1. 资源控制层次</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    A[系统资源] --&gt; B[cgroup 层级]</span><br><span class="line">    B --&gt; C[用户会话]</span><br><span class="line">    B --&gt; D[用户进程]</span><br><span class="line">    C --&gt; E[CPU 限制]</span><br><span class="line">    C --&gt; F[内存限制]</span><br><span class="line">    C --&gt; G[GPU 限制]</span><br></pre></td></tr></table></figure>
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
 
-<h3 id="2-关键组件"><a href="#2-关键组件" class="headerlink" title="2. 关键组件"></a>2. 关键组件</h3><table>
-<thead>
-<tr>
-<th>组件</th>
-<th>功能</th>
-<th>配置文件</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>cgconfig</td>
-<td>cgroup 定义</td>
-<td><code>/etc/cgconfig.conf</code></td>
-</tr>
-<tr>
-<td>cgred</td>
-<td>规则引擎</td>
-<td><code>/etc/cgrules.conf</code></td>
-</tr>
-<tr>
-<td>pam_cgroup</td>
-<td>PAM 集成</td>
-<td><code>/etc/pam.d/sshd</code></td>
-</tr>
-</tbody></table>
-<h2 id="二、基础环境配置"><a href="#二、基础环境配置" class="headerlink" title="二、基础环境配置"></a>二、基础环境配置</h2><h3 id="1-安装必要工具"><a href="#1-安装必要工具" class="headerlink" title="1. 安装必要工具"></a>1. 安装必要工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CentOS/RHEL</span></span><br><span class="line"><span class="built_in">sudo</span> dnf install libcgroup libcgroup-tools</span><br><span class="line"></span><br><span class="line"><span class="comment"># Ubuntu/Debian</span></span><br><span class="line"><span class="built_in">sudo</span> apt install cgroup-tools cgroupfs-mount</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-启用-cgroup-服务"><a href="#2-启用-cgroup-服务" class="headerlink" title="2. 启用 cgroup 服务"></a>2. 启用 cgroup 服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> cgconfig</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> cgred</span><br></pre></td></tr></table></figure>
 
-<h2 id="三、SSH-用户资源限制配置"><a href="#三、SSH-用户资源限制配置" class="headerlink" title="三、SSH 用户资源限制配置"></a>三、SSH 用户资源限制配置</h2><h3 id="1-创建-cgroup-模板"><a href="#1-创建-cgroup-模板" class="headerlink" title="1. 创建 cgroup 模板"></a>1. 创建 cgroup 模板</h3><p>编辑 <code>/etc/cgconfig.conf</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># CPU 限制（相对权重）</span><br><span class="line">group ssh_limit/cpu &#123;</span><br><span class="line">    cpu &#123;</span><br><span class="line">        cpu.shares = 512;  # 默认1024，值越小权重越低</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 内存限制（硬限制）</span><br><span class="line">group ssh_limit/memory &#123;</span><br><span class="line">    memory &#123;</span><br><span class="line">        memory.limit_in_bytes = 8G;</span><br><span class="line">        memory.memsw.limit_in_bytes = 16G;  # 包含交换空间</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># CPU 核绑定</span><br><span class="line">group ssh_limit/cpuset &#123;</span><br><span class="line">    cpuset &#123;</span><br><span class="line">        cpuset.cpus = &quot;0-3&quot;;  # 只允许使用0-3号CPU核心</span><br><span class="line">        cpuset.mems = &quot;0&quot;;    # NUMA节点</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-配置用户映射规则"><a href="#2-配置用户映射规则" class="headerlink" title="2. 配置用户映射规则"></a>2. 配置用户映射规则</h3><p>编辑 <code>/etc/cgrules.conf</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 格式：用户:进程 控制器组 路径</span><br><span class="line">*:user1  cpu,memory,cpuset  ssh_limit/</span><br><span class="line">*:user2  cpu,memory,cpuset  ssh_limit/</span><br><span class="line">*:@devteam  cpu,memory,cpuset  ssh_limit/  # 用户组</span><br></pre></td></tr></table></figure>
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
-<h3 id="3-集成-SSH-认证"><a href="#3-集成-SSH-认证" class="headerlink" title="3. 集成 SSH 认证"></a>3. 集成 SSH 认证</h3><p>编辑 <code>/etc/pam.d/sshd</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在 session 部分添加</span><br><span class="line">session    required     pam_cgroup.so</span><br></pre></td></tr></table></figure>
 
-<h3 id="4-重启服务"><a href="#4-重启服务" class="headerlink" title="4. 重启服务"></a>4. 重启服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart cgconfig cgred sshd</span><br></pre></td></tr></table></figure>
 
-<h2 id="四、GPU-资源限制（NVIDIA）"><a href="#四、GPU-资源限制（NVIDIA）" class="headerlink" title="四、GPU 资源限制（NVIDIA）"></a>四、GPU 资源限制（NVIDIA）</h2><h3 id="1-安装-GPU-cgroup-工具"><a href="#1-安装-GPU-cgroup-工具" class="headerlink" title="1. 安装 GPU cgroup 工具"></a>1. 安装 GPU cgroup 工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># NVIDIA 专用工具</span></span><br><span class="line"><span class="built_in">sudo</span> dnf install nvidia-cgroup-tools</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或手动配置</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /sys/fs/cgroup/devices/gpu_limited</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-配置-GPU-设备规则"><a href="#2-配置-GPU-设备规则" class="headerlink" title="2. 配置 GPU 设备规则"></a>2. 配置 GPU 设备规则</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 禁止所有GPU设备</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;c 195:* rwm&#x27;</span> | <span class="built_in">sudo</span> <span class="built_in">tee</span> /sys/fs/cgroup/devices/gpu_limited/devices.deny</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按需允许特定设备</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;c 195:0 rwm&#x27;</span> | <span class="built_in">sudo</span> <span class="built_in">tee</span> /sys/fs/cgroup/devices/gpu_limited/devices.allow  <span class="comment"># /dev/nvidia0</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;c 195:1 rwm&#x27;</span> | <span class="built_in">sudo</span> <span class="built_in">tee</span> /sys/fs/cgroup/devices/gpu_limited/devices.allow  <span class="comment"># /dev/nvidia1</span></span><br></pre></td></tr></table></figure>
+  <script  src="/js/local-search.js" ></script>
 
-<h3 id="3-用户-GPU-配额"><a href="#3-用户-GPU-配额" class="headerlink" title="3. 用户 GPU 配额"></a>3. 用户 GPU 配额</h3><p>在 <code>/etc/cgrules.conf</code> 添加：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*:gpu_user  devices  gpu_limited/</span><br></pre></td></tr></table></figure>
 
-<h2 id="五、资源使用监控"><a href="#五、资源使用监控" class="headerlink" title="五、资源使用监控"></a>五、资源使用监控</h2><h3 id="1-实时查看-cgroup-状态"><a href="#1-实时查看-cgroup-状态" class="headerlink" title="1. 实时查看 cgroup 状态"></a>1. 实时查看 cgroup 状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CPU 使用</span></span><br><span class="line">cgget -g cpu:ssh_limit/cpu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 内存使用</span></span><br><span class="line">cgget -g memory:ssh_limit/memory</span><br><span class="line"></span><br><span class="line"><span class="comment"># GPU 设备访问</span></span><br><span class="line">cgget -g devices:gpu_limited</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-生成资源报告"><a href="#2-生成资源报告" class="headerlink" title="2. 生成资源报告"></a>2. 生成资源报告</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 每小时记录资源使用</span></span><br><span class="line">*/60 * * * * root cgget -g cpu,memory:ssh_limit/ &gt; /var/log/cgroup-usage.log</span><br></pre></td></tr></table></figure>
 
-<h2 id="六、高级配置技巧"><a href="#六、高级配置技巧" class="headerlink" title="六、高级配置技巧"></a>六、高级配置技巧</h2><h3 id="1-动态调整限制"><a href="#1-动态调整限制" class="headerlink" title="1. 动态调整限制"></a>1. 动态调整限制</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 临时增加内存配额（8G → 12G）</span></span><br><span class="line">cgset -r memory.limit_in_bytes=12G ssh_limit/memory</span><br><span class="line"></span><br><span class="line"><span class="comment"># 永久修改需更新 /etc/cgconfig.conf</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="2-用户组配额继承"><a href="#2-用户组配额继承" class="headerlink" title="2. 用户组配额继承"></a>2. 用户组配额继承</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 父组定义</span><br><span class="line">group parent_group &#123;</span><br><span class="line">    cpu &#123;</span><br><span class="line">        cpu.shares = 1024;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 子组继承</span><br><span class="line">group parent_group/child_group &#123;</span><br><span class="line">    cpu &#123;</span><br><span class="line">        cpu.shares = 512;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
 
-<h2 id="七、常见问题排查"><a href="#七、常见问题排查" class="headerlink" title="七、常见问题排查"></a>七、常见问题排查</h2><h3 id="1-SSH-登录后无限制"><a href="#1-SSH-登录后无限制" class="headerlink" title="1. SSH 登录后无限制"></a>1. SSH 登录后无限制</h3><p><strong>检查点</strong>：</p>
-<ol>
-<li><code>pam_cgroup</code> 是否在 <code>/etc/pam.d/sshd</code> 中启用</li>
-<li>用户是否在 <code>/etc/cgrules.conf</code> 中定义</li>
-<li>cgred 服务状态：<code>systemctl status cgred</code></li>
-</ol>
-<h3 id="2-GPU-设备访问被拒"><a href="#2-GPU-设备访问被拒" class="headerlink" title="2. GPU 设备访问被拒"></a>2. GPU 设备访问被拒</h3><p><strong>解决步骤</strong>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看设备权限</span></span><br><span class="line">cgget -g devices:gpu_limited</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加缺失设备</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;c 195:2 rwm&#x27;</span> | <span class="built_in">sudo</span> <span class="built_in">tee</span> /sys/fs/cgroup/devices/gpu_limited/devices.allow</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-内存超限处理"><a href="#3-内存超限处理" class="headerlink" title="3. 内存超限处理"></a>3. 内存超限处理</h3><p>配置 OOM 通知：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># /etc/cgconfig.conf</span><br><span class="line">group ssh_limit/memory &#123;</span><br><span class="line">    memory &#123;</span><br><span class="line">        memory.oom_control = 1;  # 启用OOM通知</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  
 
-<p>监控 OOM 事件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">tail</span> -f /var/log/messages | grep -i oom</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>本文档更新日期：2025-12-21<br>适用系统：CentOS&#x2F;RHEL 8+, Ubuntu 20.04+</p>
-</blockquote>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-02-27T00:00:00.000Z" title="2/27/2025, 8:00:00 AM">2025-02-27</time>发表</span><span class="level-item"><time dateTime="2025-12-16T05:04:30.843Z" title="12/16/2025, 1:04:30 PM">2025-12-16</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/02/27/rel_mom/">广义动量守恒推导</a></p><div class="content"><p>下面给出一个较为详细的推导思路，说明为什么会得到方程<br>$$<br>\frac{d}{dt}\left(\mathbf{p}_\perp + q,\mathbf{A}\right) &#x3D; 0 \quad \Longrightarrow \quad \mathbf{p}_\perp &#x3D; \mathbf{p}_\perp^0 - q,\mathbf{A},<br>$$<br>以及 $\mathbf{p}_\perp^0 &#x3D; m \gamma^0 \mathbf{v}_\perp^0$ 等结果。这里 $\mathbf{p}_\perp$ 指的是粒子的横向(与主传播方向正交)动量，$\mathbf{A}$ 是电磁势(矢势)，$q$ 是粒子电荷，$m$ 是粒子质量，$\gamma$ 是相对论因子。下面分步骤说明。</p>
-<hr>
-<h2 id="1-广义动量的定义与运动方程"><a href="#1-广义动量的定义与运动方程" class="headerlink" title="1. 广义动量的定义与运动方程"></a>1. 广义动量的定义与运动方程</h2><p>在经典电动力学中，带电粒子在电磁场中运动的拉格朗日量可以写作<br>$$<br>\mathcal{L} ;&#x3D;; -,m c^2,\sqrt{1 - v^2&#x2F;c^2} ;+; q,\mathbf{A}\cdot\mathbf{v} ;-; q,\phi,<br>$$<br>其中 $\mathbf{A}$ 是矢势、$\phi$ 是标势，$\mathbf{v}$ 是粒子速度，$c$ 是光速。相应的<strong>广义动量</strong>(canonical momentum)定义为<br>$$<br>\mathbf{P} ;&#x3D;; \frac{\partial \mathcal{L}}{\partial \mathbf{v}}<br>;&#x3D;; \mathbf{p} + q,\mathbf{A},<br>$$<br>其中<br>$$<br>\mathbf{p} ;&#x3D;; \gamma m,\mathbf{v}<br>\quad (\text{惯性动量或机械动量}).<br>$$<br>因此<br>$$<br>\mathbf{p} ;&#x3D;; \mathbf{P} ;-; q,\mathbf{A}.<br>$$</p>
-<h3 id="电磁场中的牛顿方程"><a href="#电磁场中的牛顿方程" class="headerlink" title="电磁场中的牛顿方程"></a>电磁场中的牛顿方程</h3><p>带电粒子在电磁场中的相对论运动方程(牛顿-洛伦兹方程)可以写作<br>$$<br>\frac{d\mathbf{p}}{dt} ;&#x3D;; q,\bigl(\mathbf{E} + \mathbf{v}\times\mathbf{B}\bigr).<br>$$<br>若用广义动量 $\mathbf{P} &#x3D; \mathbf{p} + q\mathbf{A}$ 来表述，则有<br>$$<br>\frac{d\mathbf{P}}{dt}<br>;&#x3D;; q,\mathbf{E} + q,\frac{d\mathbf{A}}{dt}<br>;&#x3D;; q\bigl(\mathbf{E} + \mathbf{v}\times\mathbf{B}\bigr),<br>$$<br>因为 $\mathbf{E} &#x3D; -,\nabla \phi - \partial_t \mathbf{A}$ 且 $\mathbf{v}\times\mathbf{B}$ 也可以用 $\mathbf{A}$ 表示。经过一系列推导后，若在某些方向(比如横向方向 $\perp$)上，系统的对称性或平移不变性保证了对该分量的广义动量守恒，那么就会得到<br>$$<br>\frac{d}{dt}(\mathbf{p}_\perp + q,\mathbf{A}_\perp) ;&#x3D;; 0.<br>$$</p>
-<hr>
-<h2 id="2-为何-frac-d-dt-mathbf-p-perp-q-mathbf-A-0-？"><a href="#2-为何-frac-d-dt-mathbf-p-perp-q-mathbf-A-0-？" class="headerlink" title="2. 为何 $\frac{d}{dt}(\mathbf{p}_\perp + q,\mathbf{A}) &#x3D; 0$？"></a>2. 为何 $\frac{d}{dt}(\mathbf{p}_\perp + q,\mathbf{A}) &#x3D; 0$？</h2><p>在文中(方程(10b))，作者给出的理由是「由于在 $y$ 和 $z$ 方向的平移不变性(translational invariance)」，导致横向广义动量不随时间变化，即<br>$$<br>\frac{d}{dt}\bigl(\mathbf{p}_\perp + q,\mathbf{A}\bigr) &#x3D; 0.<br>$$<br>换言之，在横向方向(相对于主传播或流动方向)没有空间上的变化或外力的额外依赖，因而该分量的广义动量守恒。  </p>
-<p>如果令 $\mathbf{p}_\perp^0$ 表示 $t &lt; 0$ 时刻(或“初始”)的横向动量，且当 $t&lt;0$ 时矢势 $\mathbf{A} &#x3D; 0$，那么守恒量就是<br>$$<br>\mathbf{p}<em>\perp^0 + q,\mathbf{A}\big|</em>{t&lt;0} ;&#x3D;; \mathbf{p}_\perp^0.<br>$$<br>因为守恒，所以在 $t\ge 0$ 的任何时刻都满足<br>$$<br>\mathbf{p}_\perp(t) + q,\mathbf{A}(t) ;&#x3D;; \mathbf{p}_\perp^0.<br>$$<br>从而得到<br>$$<br>\mathbf{p}_\perp(t)<br>;&#x3D;; \mathbf{p}_\perp^0 - q,\mathbf{A}(t).<br>$$<br>这正是方程(11)的主要形式。</p>
-<hr>
-<h2 id="3-初始横向动量-mathbf-p-perp-0-的物理含义"><a href="#3-初始横向动量-mathbf-p-perp-0-的物理含义" class="headerlink" title="3. 初始横向动量 $\mathbf{p}_\perp^0$ 的物理含义"></a>3. 初始横向动量 $\mathbf{p}_\perp^0$ 的物理含义</h2><!-- 作者接下来又写道   -->
-<p>$$<br>\mathbf{p}_\perp^0 ;&#x3D;; m,\gamma^0 ,\mathbf{v}_\perp^0<br>;&#x3D;; -,\hat{\mathbf{y}},m,c,\tan\alpha,<br>$$<br>表明最初(比如等离子体还未受到后续场作用时，$t&lt;0$)，带电粒子在横向($\perp$)方向有一个初始速度 $\mathbf{v}_\perp^0$，对应的相对论动量即<br>$$<br>\mathbf{p}_\perp^0 &#x3D; \gamma^0 m \mathbf{v}_\perp^0.<br>$$<br>这里 $\gamma^0 &#x3D; 1&#x2F;\sqrt{1 - (v_\perp^0)^2&#x2F;c^2}$ 表示初始速度对应的相对论因子。文中举例给出了 $\mathbf{p}_\perp^0 &#x3D; -,\hat{\mathbf{y}},m,c,\tan\alpha$ 这样一个具体数值，说明粒子初始时在负 $y$ 方向以一定速度($\tan\alpha$ 相关)运动。</p>
-<hr>
-<h2 id="4-总结推导脉络"><a href="#4-总结推导脉络" class="headerlink" title="4. 总结推导脉络"></a>4. 总结推导脉络</h2><ol>
-<li><strong>广义动量守恒的关键</strong>：由于在横向方向上(这里指 $y,z$ 或者作者只关注某个正交方向)不存在对粒子的净推力，或者说系统在该方向上具备平移对称性，因此$\mathbf{p}_\perp + q,\mathbf{A}$ 守恒。  </li>
-<li><strong>初始条件</strong>：$t&lt;0$ 时，$\mathbf{A}&#x3D;0$，故初始时刻的广义动量就是粒子的机械动量 $\mathbf{p}_\perp^0$。  </li>
-<li><strong>随时间推演</strong>：由于守恒量不变，可写出<br>$$<br>\mathbf{p}_\perp(t) + q,\mathbf{A}(t)<br>;&#x3D;; \mathbf{p}_\perp^0<br>\quad\Longrightarrow\quad<br>\mathbf{p}_\perp(t)<br>;&#x3D;; \mathbf{p}_\perp^0 - q,\mathbf{A}(t).<br>$$  </li>
-<li><strong>相对论动量表达</strong>：$\mathbf{p}_\perp^0 &#x3D; m,\gamma^0,\mathbf{v}_\perp^0$，并且在具体物理情景(例如等离子体流动)中可以给出速度或动量的方向和大小，如文中的 $-\hat{\mathbf{y}},m,c,\tan\alpha$。</li>
-</ol>
-<!-- 这就是文中方程(10b) 和(11)背后的主要推导逻辑。 -->
-<p>要点在于：  </p>
-<ul>
-<li>电磁场中，<strong>机械动量</strong> $\mathbf{p}$ 并非一定守恒，但<strong>广义动量</strong> $\mathbf{p} + q\mathbf{A}$ 可能由于对称性而守恒。  </li>
-<li>一旦认定在某个方向上无净力(或场结构具备平移不变性)，就可断言那一方向的广义动量守恒，从而得到 $\mathbf{p}_\perp &#x3D; \mathbf{p}_\perp^0 - q\mathbf{A}$ 这样的形式。  </li>
-<li>初始条件决定了 $\mathbf{p}_\perp^0$ 的具体值，再结合守恒方程就能得到随时间演化的横向动量。</li>
-</ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-02-02T07:40:21.000Z" title="2/2/2025, 3:40:21 PM">2025-02-02</time>发表</span><span class="level-item"><time dateTime="2025-12-16T04:21:25.134Z" title="12/16/2025, 12:21:25 PM">2025-12-16</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/02/02/cloudflare/">Cloudflare tunnel 内网穿透</a></p><div class="content"><ul>
-<li><a target="_blank" rel="noopener" href="https://cloudflared.cn/get-started/create-local-tunnel/">https://cloudflared.cn/get-started/create-local-tunnel/</a></li>
-</ul>
-<p>Cloudflare 实现内网穿透主要通过其 <strong>Cloudflare Tunnel</strong>（也叫 Argo Tunnel）功能来实现。它允许你在不暴露公共 IP 的情况下，将本地服务器或应用暴露到互联网上，从而实现内网穿透。以下是 Cloudflare Tunnel 的基本工作原理和步骤：</p>
-<h3 id="工作原理："><a href="#工作原理：" class="headerlink" title="工作原理："></a>工作原理：</h3><ol>
-<li><strong>Cloudflare Tunnel</strong> 创建了一个从本地服务器到 Cloudflare 的加密隧道。你的应用或服务运行在内网中，但它通过这个隧道连接到 Cloudflare 的网络。</li>
-<li><strong>Cloudflare 网络</strong> 接收到来自用户请求的流量，然后转发到本地服务器。</li>
-<li>用户与本地服务进行交互时，数据流经过加密隧道传输，从而避免了暴露内网 IP 地址和端口。</li>
-</ol>
-<h3 id="实现步骤："><a href="#实现步骤：" class="headerlink" title="实现步骤："></a>实现步骤：</h3><ol>
-<li><p><strong>注册 Cloudflare 账户并添加域名：</strong></p>
-<ul>
-<li>如果还没有 Cloudflare 账户，首先去 <a target="_blank" rel="noopener" href="https://www.cloudflare.com/">Cloudflare 官网</a> 注册一个。</li>
-<li>将你的域名添加到 Cloudflare，并修改 DNS 设置（如果是现有域名）。</li>
-</ul>
-</li>
-<li><p><strong>安装 Cloudflare Tunnel 客户端：</strong></p>
-<ul>
-<li>在你的本地服务器上安装 <code>cloudflared</code> 客户端。你可以通过 <a target="_blank" rel="noopener" href="https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation">Cloudflare 的官方文档</a> 了解详细的安装过程。大致步骤：<ul>
-<li>在 Linux 上，你可以使用以下命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb</span><br><span class="line"><span class="built_in">sudo</span> dpkg -i cloudflared-linux-amd64.deb</span><br></pre></td></tr></table></figure>
-对于没有sudo权限的普通用户<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64</span><br></pre></td></tr></table></figure></li>
-<li>也可以在 macOS、Windows 等其他平台上进行类似安装。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>认证 Cloudflare Tunnel：</strong></p>
-<ul>
-<li>在服务器上运行以下命令，进行认证：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel login</span><br></pre></td></tr></table></figure></li>
-<li>该命令会打开一个浏览器窗口，要求你登录到 Cloudflare 账户并授权。</li>
-</ul>
-</li>
-<li><p><strong>创建 Tunnel：</strong></p>
-<ul>
-<li>创建一个新的 Tunnel：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel create &lt;tunnel-name&gt;</span><br></pre></td></tr></table></figure></li>
-<li>这会生成一个隧道 ID 和证书文件。</li>
-</ul>
-</li>
-<li><p><strong>配置 Tunnel 代理：</strong></p>
-<ul>
-<li>设置隧道代理，通常是在本地应用监听的端口上。例如，如果你的服务在 <code>localhost:8080</code> 上运行，可以使用以下命令将流量通过隧道转发：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel --url http://localhost:8080</span><br></pre></td></tr></table></figure></li>
-<li>或者也可以直接更改配置文件”~&#x2F;.cloudflared&#x2F;config.yml” <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tunnel: 6bc4c976-1c0c-45a4-bab0-93b7eed4e1d1 # 你的 Tunnel ID</span><br><span class="line">credentials-file: /home/yujq2/.cloudflared/6bc4c976-1c0c-45a4-bab0-93b7eed4e1d1.json</span><br><span class="line"></span><br><span class="line">ingress:</span><br><span class="line">- hostname: rentereview.cn</span><br><span class="line">    service: http://localhost:8080  # 你的 Web 服务监听端口</span><br><span class="line">- service: http_status:404</span><br></pre></td></tr></table></figure></li>
-<li>然后运行 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel run &lt;tunnel-name&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p><strong>配置 DNS 和路由：</strong></p>
-<ul>
-<li><p>在 Cloudflare 控制面板中，配置你的 DNS 设置，将域名指向 <code>cloudflare-tunnel</code>。</p>
-</li>
-<li><p>在 Cloudflare 的 DNS 配置中，添加一条 CNAME 记录，将子域（例如 <code>tunnel.yourdomain.com</code>）指向 <code>tunnel.cloudflare.com</code>。</p>
-</li>
-<li><p>总结一下</p>
-</li>
-<li><p>在 Cloudflare 控制面板中，通过 DNS 设置，手动添加一个 CNAME 记录，将子域（如 tunnel.retereview.cn）指向 your-tunnel-id.cfargotunnel.com。</p>
-</li>
-<li><p>确保你的 Cloudflare Tunnel 在本地启动并运行。</p>
-</li>
-<li><p>等待 DNS 记录生效后，你应该就可以通过访问 tunnel.retereview.cn 来访问你本地的服务了。</p>
-</li>
-<li><p>或者通过cloudflared程序进行路由</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel route dns jayzquaz rentereview.cn</span><br></pre></td></tr></table></figure></li>
-<li><p>这将把域名 retereview.cn 路由到名为 jayzquaz 的 Tunnel。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>启动和验证：</strong></p>
-<ul>
-<li>运行 Cloudflare Tunnel 服务：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cloudflared tunnel run &lt;tunnel-name&gt;</span><br></pre></td></tr></table></figure></li>
-<li>此时，你的本地服务就已经通过 Cloudflare Tunnel 暴露到互联网上了。</li>
-</ul>
-</li>
-<li><p><strong>持久化服务（使用 systemd）</strong></p>
-<ul>
-<li>以上步骤中运行 <code>cloudflared tunnel run</code> 的方式在终端退出后就会停止，为了让服务在后台持续运行，可以使用 systemd 来管理。</li>
-</ul>
-<p> <strong>方法一：使用 systemd 创建服务（推荐）</strong></p>
-<ol>
-<li><p>创建服务文件<br>使用文本编辑器创建服务文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nano /etc/systemd/system/cloudflared-tunnel.service</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>服务文件内容<br>将以下内容复制到文件中，注意替换 <code>&lt;tunnel-name&gt;</code> 为你的隧道名称：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Cloudflare Tunnel</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">User=root</span><br><span class="line">ExecStart=/usr/local/bin/cloudflared tunnel run &lt;tunnel-name&gt;</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=5</span><br><span class="line"># 可选：设置环境变量</span><br><span class="line">Environment=TUNNEL_ORIGIN_CERT=/path/to/cert.pem</span><br><span class="line"># 可选：指定配置文件</span><br><span class="line">Environment=CLOUDFLARED_CONFIG=/path/to/config.yml</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启用并启动服务<br>依次执行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重新加载 systemd</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl daemon-reload</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启用开机自启</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> cloudflared-tunnel.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动服务</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl start cloudflared-tunnel.service</span><br></pre></td></tr></table></figure>
-
-<p>之后，可以使用以下命令检查服务状态和日志：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查状态</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl status cloudflared-tunnel.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看日志</span></span><br><span class="line"><span class="built_in">sudo</span> journalctl -u cloudflared-tunnel.service -f</span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><p><strong>启用 “Always Use HTTPS” 设置</strong></p>
-<ul>
-<li><p>Cloudflare 提供了一个非常简单的方法来自动将所有 HTTP 流量重定向到 HTTPS：通过 “Always Use HTTPS” 选项。这是最直接的方式，适用于大多数场景。</p>
-</li>
-<li><p>操作步骤：</p>
-</li>
-<li><p>登录到你的 Cloudflare 控制面板。</p>
-</li>
-<li><p>选择你要配置的域名。</p>
-</li>
-<li><p>进入 “SSL&#x2F;TLS” 设置页面。</p>
-</li>
-<li><p>在页面顶部，点击 “Edge Certificates” 选项卡。</p>
-</li>
-<li><p>向下滚动，找到 “Always Use HTTPS” 设置。</p>
-</li>
-<li><p>开启这个选项，将所有的 HTTP 请求自动重定向到 HTTPS。</p>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><ul>
-<li><strong>安全性高</strong>：内网不需要暴露在公网，只通过加密隧道进行通信。</li>
-<li><strong>无公网 IP</strong>：适用于没有固定公网 IP 的环境。</li>
-<li><strong>简化配置</strong>：不需要复杂的端口映射或 NAT 配置。</li>
-</ul>
-<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ul>
-<li>Cloudflare Tunnel 是一种基于 Cloudflare 的服务，因此需要有一个 Cloudflare 账户，并且 DNS 需要指向 Cloudflare 才能使用。</li>
-<li>可能会有流量限制或费用问题，特别是在高流量场景下。</li>
-</ul>
-<p>这种方式的好处是可以轻松实现内网穿透，并且利用 Cloudflare 的全球加速和安全防护功能，使你的应用更加可靠和安全。如果有其他问题，或对某些配置有疑问，欢迎继续提问！</p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-02-02T07:40:21.000Z" title="2/2/2025, 3:40:21 PM">2025-02-02</time>发表</span><span class="level-item"><time dateTime="2025-12-21T00:09:45.381Z" title="12/21/2025, 8:09:45 AM">2025-12-21</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/02/02/slurm-server/">CentOS Stream 9 单节点 Slurm 集群部署指南</a></p><div class="content"><p>本文提供 CentOS Stream 9 单节点环境下安装配置 Slurm（含 slurmctld + slurmd）的标准流程，适用于开发、测试及单机调度场景。</p>
-<h2 id="一、环境假设与目标架构"><a href="#一、环境假设与目标架构" class="headerlink" title="一、环境假设与目标架构"></a>一、环境假设与目标架构</h2><h3 id="1-环境假设"><a href="#1-环境假设" class="headerlink" title="1. 环境假设"></a>1. 环境假设</h3><ul>
-<li>操作系统：CentOS Stream 9（最小化或标准安装）</li>
-<li>主机名：node1</li>
-<li>IP：192.168.1.10（示例）</li>
-<li>角色：<ul>
-<li>控制节点（Controller）：node1</li>
-<li>计算节点（Compute）：node1</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-Slurm-组件"><a href="#2-Slurm-组件" class="headerlink" title="2. Slurm 组件"></a>2. Slurm 组件</h3><ul>
-<li>slurmctld：控制守护进程</li>
-<li>slurmd：计算节点守护进程</li>
-<li>slurmdbd：单机测试通常不需要</li>
-</ul>
-<h2 id="二、系统基础准备"><a href="#二、系统基础准备" class="headerlink" title="二、系统基础准备"></a>二、系统基础准备</h2><h3 id="1-设置主机名与-hosts"><a href="#1-设置主机名与-hosts" class="headerlink" title="1. 设置主机名与 hosts"></a>1. 设置主机名与 hosts</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname node1</span><br><span class="line"><span class="built_in">cat</span> &gt;&gt; /etc/hosts &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">192.168.1.10   node1</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-关闭防火墙（测试环境建议）"><a href="#2-关闭防火墙（测试环境建议）" class="headerlink" title="2. 关闭防火墙（测试环境建议）"></a>2. 关闭防火墙（测试环境建议）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">disable</span> --now firewalld</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-关闭-SELinux"><a href="#3-关闭-SELinux" class="headerlink" title="3. 关闭 SELinux"></a>3. 关闭 SELinux</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">&#x27;s/^SELINUX=.*/SELINUX=disabled/&#x27;</span> /etc/selinux/config</span><br><span class="line">setenforce 0</span><br></pre></td></tr></table></figure>
-
-<h2 id="三、安装-Slurm-及依赖"><a href="#三、安装-Slurm-及依赖" class="headerlink" title="三、安装 Slurm 及依赖"></a>三、安装 Slurm 及依赖</h2><p>CentOS 9 官方仓库已包含 Slurm，无需自行编译。</p>
-<h3 id="1-安装-EPEL"><a href="#1-安装-EPEL" class="headerlink" title="1. 安装 EPEL"></a>1. 安装 EPEL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf install -y epel-release</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-安装-Slurm"><a href="#2-安装-Slurm" class="headerlink" title="2. 安装 Slurm"></a>2. 安装 Slurm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf install -y slurm slurm-slurmd slurm-slurmctld munge</span><br></pre></td></tr></table></figure>
-
-<h2 id="四、配置-Munge（Slurm-认证核心）"><a href="#四、配置-Munge（Slurm-认证核心）" class="headerlink" title="四、配置 Munge（Slurm 认证核心）"></a>四、配置 Munge（Slurm 认证核心）</h2><p>Slurm 强依赖 munge 进行节点认证。</p>
-<h3 id="1-创建-munge-key"><a href="#1-创建-munge-key" class="headerlink" title="1. 创建 munge key"></a>1. 创建 munge key</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/sbin/create-munge-key</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-设置权限"><a href="#2-设置权限" class="headerlink" title="2. 设置权限"></a>2. 设置权限</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chown</span> -R munge:munge /etc/munge /var/lib/munge /var/log/munge</span><br><span class="line"><span class="built_in">chmod</span> 400 /etc/munge/munge.key</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-启动-munge"><a href="#3-启动-munge" class="headerlink" title="3. 启动 munge"></a>3. 启动 munge</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> --now munge</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-验证-munge"><a href="#4-验证-munge" class="headerlink" title="4. 验证 munge"></a>4. 验证 munge</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">munge -n | unmunge</span><br></pre></td></tr></table></figure>
-<p>正常应看到：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">STATUS:          Success (0)</span><br></pre></td></tr></table></figure>
-
-<h2 id="五、创建-Slurm-用户与目录"><a href="#五、创建-Slurm-用户与目录" class="headerlink" title="五、创建 Slurm 用户与目录"></a>五、创建 Slurm 用户与目录</h2><h3 id="1-创建-slurm-用户"><a href="#1-创建-slurm-用户" class="headerlink" title="1. 创建 slurm 用户"></a>1. 创建 slurm 用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -r -s /sbin/nologin slurm</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-创建必要目录"><a href="#2-创建必要目录" class="headerlink" title="2. 创建必要目录"></a>2. 创建必要目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /var/spool/slurm/&#123;ctld,d&#125;</span><br><span class="line"><span class="built_in">mkdir</span> -p /var/log/slurm</span><br><span class="line"><span class="built_in">chown</span> -R slurm:slurm /var/spool/slurm /var/log/slurm</span><br></pre></td></tr></table></figure>
-
-<h2 id="六、配置-slurm-conf（核心）"><a href="#六、配置-slurm-conf（核心）" class="headerlink" title="六、配置 slurm.conf（核心）"></a>六、配置 slurm.conf（核心）</h2><h3 id="1-生成基础模板"><a href="#1-生成基础模板" class="headerlink" title="1. 生成基础模板"></a>1. 生成基础模板</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> /etc/slurm/slurm.conf.example /etc/slurm/slurm.conf</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-编辑-etc-slurm-slurm-conf"><a href="#2-编辑-etc-slurm-slurm-conf" class="headerlink" title="2. 编辑 &#x2F;etc&#x2F;slurm&#x2F;slurm.conf"></a>2. 编辑 &#x2F;etc&#x2F;slurm&#x2F;slurm.conf</h3><p>最小可用单机配置示例：</p>
-<p>slurm.conf 示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">############################</span><br><span class="line"># 基本集群信息</span><br><span class="line">############################</span><br><span class="line">ClusterName=single_cluster</span><br><span class="line">SlurmctldHost=node1(127.0.0.1)</span><br><span class="line">SlurmUser=slurm</span><br><span class="line">SlurmdUser=root</span><br><span class="line"></span><br><span class="line">############################</span><br><span class="line"># 端口</span><br><span class="line">############################</span><br><span class="line">SlurmctldPort=6817</span><br><span class="line">SlurmdPort=6818</span><br><span class="line"></span><br><span class="line">############################</span><br><span class="line"># 状态与日志</span><br><span class="line">############################</span><br><span class="line">StateSaveLocation=/var/spool/slurm/ctld</span><br><span class="line">SlurmdSpoolDir=/var/spool/slurm/d</span><br><span class="line">SlurmctldLogFile=/var/log/slurm/slurmctld.log</span><br><span class="line">SlurmdLogFile=/var/log/slurm/slurmd.log</span><br><span class="line"></span><br><span class="line">############################</span><br><span class="line"># 认证</span><br><span class="line">############################</span><br><span class="line">AuthType=auth/munge</span><br><span class="line">CryptoType=crypto/munge</span><br><span class="line"></span><br><span class="line">############################</span><br><span class="line"># 调度器</span><br><span class="line">############################</span><br><span class="line">SchedulerType=sched/backfill</span><br><span class="line">SchedulerParameters=bf_continue,bf_interval=30</span><br><span class="line"></span><br><span class="line">############################</span><br><span class="line"># 资源选择（关键）</span><br><span class="line">############################</span><br><span class="line">SelectType=select/cons_res</span><br><span class="line">SelectTypeParameters=CR_Core_Memory</span><br><span class="line"></span><br><span class="line">############################</span><br><span class="line"># cgroup（生产必开）</span><br><span class="line">############################</span><br><span class="line">ProctrackType=proctrack/cgroup</span><br><span class="line">TaskPlugin=task/cgroup</span><br><span class="line"># TaskPluginParam=Sched</span><br><span class="line">JobAcctGatherType=jobacct_gather/cgroup</span><br><span class="line"></span><br><span class="line">############################</span><br><span class="line"># 进程跟踪 / 清理</span><br><span class="line">############################</span><br><span class="line">KillOnBadExit=1</span><br><span class="line">ReturnToService=2</span><br><span class="line"></span><br><span class="line">############################</span><br><span class="line"># 超时</span><br><span class="line">############################</span><br><span class="line">SlurmctldTimeout=300</span><br><span class="line">SlurmdTimeout=300</span><br><span class="line"></span><br><span class="line">############################</span><br><span class="line"># 节点定义（按真实资源）</span><br><span class="line">############################</span><br><span class="line">NodeName=node1 \</span><br><span class="line">  CPUs=56 \</span><br><span class="line">  RealMemory=128027 \</span><br><span class="line">  Sockets=2 \</span><br><span class="line">  CoresPerSocket=28 \</span><br><span class="line">  ThreadsPerCore=1 \</span><br><span class="line">  Gres=gpu:V100:8 \</span><br><span class="line">  State=UNKNOWN</span><br><span class="line"></span><br><span class="line">GresTypes=gpu</span><br><span class="line"></span><br><span class="line">############################</span><br><span class="line"># 分区定义</span><br><span class="line">############################</span><br><span class="line">PartitionName=debug \</span><br><span class="line">  Nodes=node1 \</span><br><span class="line">  Default=YES \</span><br><span class="line">  MaxTime=1:00:00 \</span><br><span class="line">  State=UP</span><br><span class="line"></span><br><span class="line">PartitionName=normal \</span><br><span class="line">  Nodes=node1 \</span><br><span class="line">  MaxTime=7-00:00:00 \</span><br><span class="line">  State=UP</span><br></pre></td></tr></table></figure>
-
-<p>cgroup.conf 示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">###</span><br><span class="line">#</span><br><span class="line"># Slurm cgroup support configuration file</span><br><span class="line">#</span><br><span class="line"># See man slurm.conf and man cgroup.conf for further</span><br><span class="line"># information on cgroup configuration parameters</span><br><span class="line">#--</span><br><span class="line">CgroupMountpoint=/sys/fs/cgroup</span><br><span class="line">CgroupAutomount=yes</span><br><span class="line"></span><br><span class="line">ConstrainCores=yes</span><br><span class="line">ConstrainRAMSpace=yes</span><br><span class="line">ConstrainSwapSpace=yes</span><br><span class="line">ConstrainDevices=yes</span><br><span class="line"></span><br><span class="line">AllowedRAMSpace=100</span><br><span class="line">AllowedSwapSpace=0</span><br><span class="line"></span><br><span class="line">MaxRAMPercent=98</span><br><span class="line">MaxSwapPercent=0</span><br><span class="line"></span><br><span class="line">MinRAMSpace=30</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意</strong>：</p>
-<ul>
-<li><code>CPUs</code> 和 <code>RealMemory</code> 根据 <code>lscpu</code>、<code>free -m</code> 实际调整</li>
-<li><code>NodeName</code> 必须与 hostname 完全一致</li>
-</ul>
-<h2 id="七、启动-Slurm-服务"><a href="#七、启动-Slurm-服务" class="headerlink" title="七、启动 Slurm 服务"></a>七、启动 Slurm 服务</h2><h3 id="1-启动-slurmctld"><a href="#1-启动-slurmctld" class="headerlink" title="1. 启动 slurmctld"></a>1. 启动 slurmctld</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> --now slurmctld</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-启动-slurmd"><a href="#2-启动-slurmd" class="headerlink" title="2. 启动 slurmd"></a>2. 启动 slurmd</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> --now slurmd</span><br></pre></td></tr></table></figure>
-
-<h2 id="八、验证-Slurm-状态"><a href="#八、验证-Slurm-状态" class="headerlink" title="八、验证 Slurm 状态"></a>八、验证 Slurm 状态</h2><h3 id="1-查看节点状态"><a href="#1-查看节点状态" class="headerlink" title="1. 查看节点状态"></a>1. 查看节点状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sinfo</span><br></pre></td></tr></table></figure>
-<p>期望输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST</span><br><span class="line">debug        up   infinite      1   idle node1</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-查看节点详情"><a href="#2-查看节点详情" class="headerlink" title="2. 查看节点详情"></a>2. 查看节点详情</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scontrol show node node1</span><br></pre></td></tr></table></figure>
-
-<h2 id="九、提交测试任务"><a href="#九、提交测试任务" class="headerlink" title="九、提交测试任务"></a>九、提交测试任务</h2><h3 id="1-交互式任务"><a href="#1-交互式任务" class="headerlink" title="1. 交互式任务"></a>1. 交互式任务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">srun -n 1 hostname</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-批处理任务"><a href="#2-批处理任务" class="headerlink" title="2. 批处理任务"></a>2. 批处理任务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; test.sh &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">#!/bin/bash</span></span><br><span class="line"><span class="string">#SBATCH -n 1</span></span><br><span class="line"><span class="string">#SBATCH -o test.out</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">hostname</span></span><br><span class="line"><span class="string">sleep 10</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line">sbatch test.sh</span><br></pre></td></tr></table></figure>
-
-<p>查看任务：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">squeue</span><br></pre></td></tr></table></figure>
-
-<h2 id="十、常见问题排查"><a href="#十、常见问题排查" class="headerlink" title="十、常见问题排查"></a>十、常见问题排查</h2><h3 id="1-节点状态为-DOWN"><a href="#1-节点状态为-DOWN" class="headerlink" title="1. 节点状态为 DOWN"></a>1. 节点状态为 DOWN</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scontrol update NodeName=node1 State=RESUME</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-查看日志"><a href="#2-查看日志" class="headerlink" title="2. 查看日志"></a>2. 查看日志</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">journalctl -u slurmctld -f</span><br><span class="line">journalctl -u slurmd -f</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-Munge-错误"><a href="#3-Munge-错误" class="headerlink" title="3. Munge 错误"></a>3. Munge 错误</h3><ul>
-<li>确认 munge 正在运行</li>
-<li><code>/etc/munge/munge.key</code> 权限必须是 400</li>
-</ul>
-<h2 id="十一、slurmdbd-需求分析"><a href="#十一、slurmdbd-需求分析" class="headerlink" title="十一、slurmdbd 需求分析"></a>十一、slurmdbd 需求分析</h2><table>
-<thead>
-<tr>
-<th>场景</th>
-<th>是否需要</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>单机测试</td>
-<td>否</td>
-</tr>
-<tr>
-<td>作业计费&#x2F;统计</td>
-<td>是</td>
-</tr>
-<tr>
-<td>多用户审计</td>
-<td>是</td>
-</tr>
-</tbody></table>
-<p>如需以下扩展配置，请说明使用场景：</p>
-<ul>
-<li>CentOS 9 + slurmdbd + MariaDB 配置</li>
-<li>GPU（NVIDIA）节点配置</li>
-<li>cgroup 资源隔离详细配置</li>
-<li>多节点集群扩展方案</li>
-</ul>
-<h2 id="十二、GPU-配置（V100-示例）"><a href="#十二、GPU-配置（V100-示例）" class="headerlink" title="十二、GPU 配置（V100 示例）"></a>十二、GPU 配置（V100 示例）</h2><h3 id="1-确认-GPU-设备"><a href="#1-确认-GPU-设备" class="headerlink" title="1. 确认 GPU 设备"></a>1. 确认 GPU 设备</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -l /dev/nvidia*</span><br></pre></td></tr></table></figure>
-<p>输出示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/dev/nvidia0</span><br><span class="line">/dev/nvidia1</span><br><span class="line">/dev/nvidiactl</span><br><span class="line">/dev/nvidia-uvm</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-配置-gres-conf"><a href="#2-配置-gres-conf" class="headerlink" title="2. 配置 gres.conf"></a>2. 配置 gres.conf</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/slurm/gres.conf</span><br></pre></td></tr></table></figure>
-<p>示例（2 × V100）：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NodeName=node1 Name=gpu Type=V100 File=/dev/nvidia0</span><br><span class="line">NodeName=node1 Name=gpu Type=V100 File=/dev/nvidia1</span><br></pre></td></tr></table></figure>
-
-<p><strong>要点</strong>：</p>
-<ul>
-<li><code>Type=V100</code> 是 <code>--gres=gpu:V100:x</code> 参数的关键</li>
-<li><code>NodeName</code> 必须和 slurm.conf 完全一致</li>
-</ul>
-<h3 id="3-修改-slurm-conf"><a href="#3-修改-slurm-conf" class="headerlink" title="3. 修改 slurm.conf"></a>3. 修改 slurm.conf</h3><p>在节点定义中添加 GPU 资源：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NodeName=node1 \</span><br><span class="line">  CPUs=64 \</span><br><span class="line">  RealMemory=125000 \</span><br><span class="line">  Gres=gpu:V100:2 \</span><br><span class="line">  State=UNKNOWN</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-启用-GPU-隔离"><a href="#4-启用-GPU-隔离" class="headerlink" title="4. 启用 GPU 隔离"></a>4. 启用 GPU 隔离</h3><p>确认 <code>/etc/slurm/cgroup.conf</code> 包含：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ConstrainDevices=yes</span><br></pre></td></tr></table></figure>
-<p><strong>重要</strong>：未启用隔离会导致所有作业都能访问全部 GPU</p>
-<h3 id="5-重启服务"><a href="#5-重启服务" class="headerlink" title="5. 重启服务"></a>5. 重启服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart slurmctld slurmd</span><br></pre></td></tr></table></figure>
-
-<h2 id="十三、GPU-功能验证"><a href="#十三、GPU-功能验证" class="headerlink" title="十三、GPU 功能验证"></a>十三、GPU 功能验证</h2><h3 id="1-查看节点资源"><a href="#1-查看节点资源" class="headerlink" title="1. 查看节点资源"></a>1. 查看节点资源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scontrol show node node1</span><br></pre></td></tr></table></figure>
-<p>应包含：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Gres=gpu:V100:2</span><br><span class="line">GresUsed=0</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-查看-GPU-视图"><a href="#2-查看-GPU-视图" class="headerlink" title="2. 查看 GPU 视图"></a>2. 查看 GPU 视图</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sinfo -o <span class="string">&quot;%N %G&quot;</span></span><br></pre></td></tr></table></figure>
-<p>输出示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node1 gpu:V100:2</span><br></pre></td></tr></table></figure>
-
-<h2 id="十四、GPU-作业示例"><a href="#十四、GPU-作业示例" class="headerlink" title="十四、GPU 作业示例"></a>十四、GPU 作业示例</h2><h3 id="1-交互式任务（单-GPU）"><a href="#1-交互式任务（单-GPU）" class="headerlink" title="1. 交互式任务（单 GPU）"></a>1. 交互式任务（单 GPU）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">srun --gres=gpu:V100:1 --pty bash</span><br><span class="line">nvidia-smi  <span class="comment"># 应只看到1张GPU</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-批处理任务-1"><a href="#2-批处理任务-1" class="headerlink" title="2. 批处理任务"></a>2. 批处理任务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; gpu_test.sh &lt;&lt;<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="comment">#SBATCH -J gpu_test</span></span><br><span class="line"><span class="comment">#SBATCH --gres=gpu:V100:1</span></span><br><span class="line"><span class="comment">#SBATCH --cpus-per-task=4</span></span><br><span class="line"><span class="comment">#SBATCH --mem=16G</span></span><br><span class="line"><span class="comment">#SBATCH -o gpu_test.out</span></span><br><span class="line"></span><br><span class="line">nvidia-smi</span><br><span class="line"><span class="built_in">sleep</span> 30</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">sbatch gpu_test.sh</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-多-GPU-任务"><a href="#3-多-GPU-任务" class="headerlink" title="3. 多 GPU 任务"></a>3. 多 GPU 任务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">srun --gres=gpu:V100:2 --pty bash</span><br></pre></td></tr></table></figure>
-
-<h2 id="十五、常见-GPU-问题"><a href="#十五、常见-GPU-问题" class="headerlink" title="十五、常见 GPU 问题"></a>十五、常见 GPU 问题</h2><h3 id="❌-作业内能看到所有-GPU"><a href="#❌-作业内能看到所有-GPU" class="headerlink" title="❌ 作业内能看到所有 GPU"></a>❌ 作业内能看到所有 GPU</h3><p><strong>原因</strong>：</p>
-<ul>
-<li><code>ConstrainDevices=no</code></li>
-<li>未使用 <code>task/cgroup</code></li>
-</ul>
-<p><strong>修复</strong>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ConstrainDevices=yes</span><br><span class="line">TaskPlugin=task/cgroup</span><br></pre></td></tr></table></figure>
-
-<h3 id="❌-提交-GPU-作业一直排队"><a href="#❌-提交-GPU-作业一直排队" class="headerlink" title="❌ 提交 GPU 作业一直排队"></a>❌ 提交 GPU 作业一直排队</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">squeue</span><br><span class="line">scontrol show job &lt;jobid&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>常见原因</strong>：</p>
-<ul>
-<li>GPU 已被占用</li>
-<li>请求的 GPU 类型错误（如写成 A100）</li>
-</ul>
-<h3 id="❌-GPU-规格指定差异"><a href="#❌-GPU-规格指定差异" class="headerlink" title="❌ GPU 规格指定差异"></a>❌ GPU 规格指定差异</h3><table>
-<thead>
-<tr>
-<th>写法</th>
-<th>行为</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>--gres=gpu:1</code></td>
-<td>使用任意 GPU</td>
-</tr>
-<tr>
-<td><code>--gres=gpu:V100:1</code></td>
-<td>仅使用 V100</td>
-</tr>
-</tbody></table>
-<p>生产环境建议始终指定 GPU 类型</p>
-<h2 id="十六、生产环境建议"><a href="#十六、生产环境建议" class="headerlink" title="十六、生产环境建议"></a>十六、生产环境建议</h2><h3 id="1-资源限制"><a href="#1-资源限制" class="headerlink" title="1. 资源限制"></a>1. 资源限制</h3><p>在分区配置中添加：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DefMemPerGPU=32000  # 每GPU分配32GB内存</span><br></pre></td></tr></table></figure>
-<p>避免 GPU 作业抢占全部内存</p>
-<h3 id="2-节点隔离"><a href="#2-节点隔离" class="headerlink" title="2. 节点隔离"></a>2. 节点隔离</h3><p>未来扩展多节点时，使用独立分区区分 GPU&#x2F;CPU 节点</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>V100 GPU 的配置需要同时满足：</p>
-<ol>
-<li>正确的 <code>gres.conf</code> 定义</li>
-<li><code>slurm.conf</code> 中的资源声明</li>
-<li><code>cgroup.conf</code> 的设备隔离</li>
-</ol>
-<p>根据需求可进一步配置：</p>
-<ul>
-<li>MIG &#x2F; 多 GPU 混合调度</li>
-<li>GPU + CPU 绑核（NUMA 亲和）</li>
-<li>GPU 分区 &#x2F; QOS</li>
-<li>多用户 GPU 计费</li>
-</ul>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-02-02T03:26:21.000Z" title="2/2/2025, 11:26:21 AM">2025-02-02</time>发表</span><span class="level-item"><time dateTime="2025-12-16T04:10:45.585Z" title="12/16/2025, 12:10:45 PM">2025-12-16</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/02/02/subtree/">Subtree仓库添加</a></p><div class="content"><h2 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h2><p>初始化git仓库<br>git init<br>添加README.md文件<br>git add .<br>git commit -m “Init”</p>
-<h2 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h2><p>添加git subtree仓库<br>git remote add label <git-url><br>git fetch label<br>git add subtree –prefix&#x3D;<path> label&#x2F;<branch></p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-02-02T03:26:21.000Z" title="2/2/2025, 11:26:21 AM">2025-02-02</time>发表</span><span class="level-item"><time dateTime="2025-12-16T04:10:45.584Z" title="12/16/2025, 12:10:45 PM">2025-12-16</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/02/02/postpic/">PIC模拟后处理</a></p><div class="content"><h2 id="PIC模拟后处理软件"><a href="#PIC模拟后处理软件" class="headerlink" title="PIC模拟后处理软件"></a>PIC模拟后处理软件</h2><h4 id="postpic"><a href="#postpic" class="headerlink" title="postpic"></a>postpic</h4><p>地址<a target="_blank" rel="noopener" href="https://github.com/skuschel/postpic.git">https://github.com/skuschel/postpic.git</a><br>示例<a target="_blank" rel="noopener" href="https://github.com/skuschel/postpic-examples.git">https://github.com/skuschel/postpic-examples.git</a></p>
-<h4 id="VisualPIC"><a href="#VisualPIC" class="headerlink" title="VisualPIC"></a>VisualPIC</h4><p>可视化GUI程序<a target="_blank" rel="noopener" href="https://github.com/AngelFP/VisualPIC.git@dev">https://github.com/AngelFP/VisualPIC.git@dev</a></p>
-<h4 id="PICViewer"><a href="#PICViewer" class="headerlink" title="PICViewer"></a>PICViewer</h4><p>PICViewer is a visualization GUI implemented on PyQt.<br>dependency</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/yt-project/yt.git</span><br></pre></td></tr></table></figure>
-
-<p>Install</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://bitbucket.org/ecp_warpx/picviewer/</span><br></pre></td></tr></table></figure></div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-08-10T00:00:00.000Z" title="8/10/2023, 8:00:00 AM">2023-08-10</time>发表</span><span class="level-item"><time dateTime="2025-12-16T04:10:45.583Z" title="12/16/2025, 12:10:45 PM">2025-12-16</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2023/08/10/computation/">计算辐射物理</a></p><div class="content"><h1 id="ComputationalRadiationPhysics"><a href="#ComputationalRadiationPhysics" class="headerlink" title="ComputationalRadiationPhysics"></a>ComputationalRadiationPhysics</h1><h2 id="Opticspy"><a href="#Opticspy" class="headerlink" title="Opticspy"></a>Opticspy</h2><p> Optics diffraction calculation.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/opticspy/lightpipes.git">https://github.com/opticspy/lightpipes.git</a></p>
-<h2 id="Clara2"><a href="#Clara2" class="headerlink" title="Clara2"></a>Clara2</h2><p>Clara2 - a parallel classical radiation calculator based on Liénard-Wiechert potentials.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ComputationalRadiationPhysics/clara2">https://github.com/ComputationalRadiationPhysics/clara2</a></p>
-<h2 id="PIConGPU"><a href="#PIConGPU" class="headerlink" title="PIConGPU"></a>PIConGPU</h2><p>Performance-Portable Particle-in-Cell Simulations for the Exascale Era.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/ComputationalRadiationPhysics/picongpu.git">https://github.com/ComputationalRadiationPhysics/picongpu.git</a></p>
-<h2 id="Meep"><a href="#Meep" class="headerlink" title="Meep"></a>Meep</h2><p>free finite-difference time-domain (FDTD) software for electromagnetic simulations</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/NanoComp/meep.git">https://github.com/NanoComp/meep.git</a></p>
-<p>and MIT Photonic-Bands: computation of photonic band structures in periodic media</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/NanoComp/mpb.git">https://github.com/NanoComp/mpb.git</a></p>
-<h2 id="GVF"><a href="#GVF" class="headerlink" title="GVF"></a>GVF</h2><p>Gradient Vector Flow in Python based on the work of <a target="_blank" rel="noopener" href="http://www.iacl.ece.jhu.edu/static/gvf/">Chenyang Xu and Jerry Prince</a>.</p>
-<p>Gradient Vector Flow in 3D based on the work of <a target="_blank" rel="noopener" href="https://www.eriksmistad.no/3d-gradient-vector-flow-matlab-implementation/">Erik Smistad</a>.</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Christophe-Foyer/GVF-Python.git">https://github.com/Christophe-Foyer/GVF-Python.git</a></p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-08-10T00:00:00.000Z" title="8/10/2023, 8:00:00 AM">2023-08-10</time>发表</span><span class="level-item"><time dateTime="2025-12-16T04:10:45.583Z" title="12/16/2025, 12:10:45 PM">2025-12-16</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2023/08/10/datascience/">机器学习资源</a></p><div class="content"><h2 id="数据分析入门"><a href="#数据分析入门" class="headerlink" title="数据分析入门"></a>数据分析入门</h2><p><a target="_blank" rel="noopener" href="https://github.com/apachecn/pyda-2e-zh.git">https://github.com/apachecn/pyda-2e-zh.git</a></p>
-<h2 id="Twitter算法"><a href="#Twitter算法" class="headerlink" title="Twitter算法"></a>Twitter算法</h2><p><a target="_blank" rel="noopener" href="https://github.com/twitter/the-algorithm.git">https://github.com/twitter/the-algorithm.git</a></p>
-<h2 id="Data-Science笔记"><a href="#Data-Science笔记" class="headerlink" title="Data Science笔记"></a>Data Science笔记</h2><p><a target="_blank" rel="noopener" href="https://github.com/fengdu78/Data-Science-Notes">https://github.com/fengdu78/Data-Science-Notes</a></p>
-<h2 id="Machine-Learning笔记"><a href="#Machine-Learning笔记" class="headerlink" title="Machine Learning笔记"></a>Machine Learning笔记</h2><p>吴恩达Machine learning笔记。</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/fengdu78/Coursera-ML-AndrewNg-Notes.git">https://github.com/fengdu78/Coursera-ML-AndrewNg-Notes.git</a></p>
-<h2 id="100-Day-Machine-Learning"><a href="#100-Day-Machine-Learning" class="headerlink" title="100-Day-Machine-Learning"></a>100-Day-Machine-Learning</h2><p>100-Days-Of-ML-Code中文版</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/MLEveryday/100-Days-Of-ML-Code.git">https://github.com/MLEveryday/100-Days-Of-ML-Code.git</a></p>
-<h2 id="Deep-Learning-Book"><a href="#Deep-Learning-Book" class="headerlink" title="Deep Learning Book"></a>Deep Learning Book</h2><p>Deep Learning Book Chinese online： <a target="_blank" rel="noopener" href="https://exacity.github.io/deeplearningbook-chinese/Chapter1_introduction/">https://exacity.github.io/deeplearningbook-chinese/Chapter1_introduction/</a></p>
-<p>Source Code： <a target="_blank" rel="noopener" href="https://github.com/exacity/deeplearningbook-chinese.git">https://github.com/exacity/deeplearningbook-chinese.git</a></p>
-<h2 id="Huawei-拍月亮"><a href="#Huawei-拍月亮" class="headerlink" title="Huawei 拍月亮"></a>Huawei 拍月亮</h2><p><a target="_blank" rel="noopener" href="https://github.com/zhazhajust/Learning-to-See-in-the-Dark.git">https://github.com/zhazhajust/Learning-to-See-in-the-Dark.git</a></p>
-<h2 id="GPT2-0"><a href="#GPT2-0" class="headerlink" title="GPT2.0"></a>GPT2.0</h2><p>基于开源GPT2.0的初代创作型人工智能 | 可扩展、可进化</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/EssayKillerBrain/WriteGPT.git">https://github.com/EssayKillerBrain/WriteGPT.git</a></p>
-<h2 id="Full-Stack"><a href="#Full-Stack" class="headerlink" title="Full Stack"></a>Full Stack</h2><p>🚀 fullstack tutorial 2022，后台技术栈&#x2F;架构师之路&#x2F;全栈开发社区，春招&#x2F;秋招&#x2F;校招&#x2F;面试。</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/frank-lam/fullstack-tutorial.git">https://github.com/frank-lam/fullstack-tutorial.git</a></p>
-<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><p>21天学会JAVA</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/DuGuQiuBai/Java.git">https://github.com/DuGuQiuBai/Java.git</a></p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-08-10T00:00:00.000Z" title="8/10/2023, 8:00:00 AM">2023-08-10</time>发表</span><span class="level-item"><time dateTime="2025-12-16T04:10:45.584Z" title="12/16/2025, 12:10:45 PM">2025-12-16</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2023/08/10/remote/">远程连接与唤醒</a></p><div class="content"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>首先准备好公网ipv4 or ipv6，使用ddns-go绑定动态ip地址到dns服务器（静态ip不需要），此时可。随后运行WolGoWeb服务，即可使用url进行远程唤醒。</p>
-<h2 id="dynv6"><a href="#dynv6" class="headerlink" title="dynv6"></a>dynv6</h2><p>使用 <a target="_blank" rel="noopener" href="https://dynv6.com/">https://dynv6.com</a> 进行动态域名解析，绑定ipv6于自定义域名 <a target="_blank" rel="noopener" href="https://xxx.dynv6.net/">https://xxx.dynv6.net</a> 。</p>
-<h2 id="ddns-go"><a href="#ddns-go" class="headerlink" title="ddns-go"></a>ddns-go</h2><p>简单好用的DDNS。自动更新域名解析到公网IP(支持阿里云、腾讯云、Dnspod、Cloudflare、Callback、华为云、百度云、Porkbun、GoDaddy、Google Domain)</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/jeessy2/ddns-go.git">https://github.com/jeessy2/ddns-go.git</a></p>
-<p>此时，ipv6已解析于ddns服务器，通过自定义url可以通过远程连接软件如rdp、moonlight、parsec等直接访问。</p>
-<h2 id="WolGoWeb"><a href="#WolGoWeb" class="headerlink" title="WolGoWeb"></a>WolGoWeb</h2><p>基于Golang的Web服务器，使用url链接即可发起wake on lan局域网唤醒。</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/zhazhajust/WolGoWeb.git">https://github.com/zhazhajust/WolGoWeb.git</a></p>
-<p>然后测试url唤醒，在浏览器输入 <a target="_blank" rel="noopener" href="http://xxx:9090/wol?mac=00-00-00-00-00-00">http://xxx:9090/wol?mac=00-00-00-00-00-00</a> （网卡MAC地址）。</p>
-<h2 id="Wake-On-Lan-GUI-程序（Optional）"><a href="#Wake-On-Lan-GUI-程序（Optional）" class="headerlink" title="Wake On Lan GUI 程序（Optional）"></a>Wake On Lan GUI 程序（Optional）</h2><p><a target="_blank" rel="noopener" href="https://github.com/basildane/WakeOnLAN.git">https://github.com/basildane/WakeOnLAN.git</a></p>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6622c33f4cd3">https://www.jianshu.com/p/6622c33f4cd3</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhouym.tech/2022/Wake-On-Lan/">https://zhouym.tech/2022/Wake-On-Lan/</a></p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-08-10T00:00:00.000Z" title="8/10/2023, 8:00:00 AM">2023-08-10</time>发表</span><span class="level-item"><time dateTime="2025-12-16T04:10:45.585Z" title="12/16/2025, 12:10:45 PM">2025-12-16</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2023/08/10/vtk/">远程连接与唤醒</a></p><div class="content"><h1 id="VTK-and-Paraview"><a href="#VTK-and-Paraview" class="headerlink" title="VTK and Paraview"></a>VTK and Paraview</h1><p>vtk examples:<br><a target="_blank" rel="noopener" href="https://examples.vtk.org/site/Python/IO/WriteXMLLinearCells/">https://examples.vtk.org/site/Python/IO/WriteXMLLinearCells/</a></p>
-<p>source:<br><a target="_blank" rel="noopener" href="https://github.com/Kitware/vtk-examples">https://github.com/Kitware/vtk-examples</a></p>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/page/0/">上一页</a></div><div class="pagination-next"><a href="/page/2/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/icon.png" alt="JayZz"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">JayZz</p><p class="is-size-6 is-block">开发者</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>城市, 国家</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">25</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">6</p></a></div></div></nav></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-12-21T00:00:00.000Z">2025-12-21</time></p><p class="title"><a href="/2025/12/21/linux-cgroup-ssh-limit/">Linux cgroup 实现 SSH 用户资源限制指南</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-02-27T00:00:00.000Z">2025-02-27</time></p><p class="title"><a href="/2025/02/27/rel_mom/">广义动量守恒推导</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-02-02T07:40:21.000Z">2025-02-02</time></p><p class="title"><a href="/2025/02/02/cloudflare/">Cloudflare tunnel 内网穿透</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-02-02T07:40:21.000Z">2025-02-02</time></p><p class="title"><a href="/2025/02/02/slurm-server/">CentOS Stream 9 单节点 Slurm 集群部署指南</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-02-02T03:26:21.000Z">2025-02-02</time></p><p class="title"><a href="/2025/02/02/subtree/">Subtree仓库添加</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Jayz Blog</a><p class="is-size-7"><span>&copy; 2025 JayZz</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
-            article: {
-                highlight: {
-                    clipboard: true,
-                    fold: 'unfolded'
-                }
-            }
-        };</script><script data-pjax src="/js/column.js"></script><!--!--><script data-pjax src="/js/main.js" defer></script><!--!--></body></html>
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

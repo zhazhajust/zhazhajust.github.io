@@ -1,114 +1,358 @@
-<!doctype html>
-<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><title>标签: 资源管理 - Jayz Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Jayz Blog"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Jayz Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="website"><meta property="og:title" content="Jayz Blog"><meta property="og:url" content="https://zhazhajust.github.io/"><meta property="og:site_name" content="Jayz Blog"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://zhazhajust.github.io/img/og_image.png"><meta property="article:author" content="JayZz"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://zhazhajust.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://zhazhajust.github.io"},"headline":"Jayz Blog","image":["https://zhazhajust.github.io/img/og_image.png"],"author":{"@type":"Person","name":"JayZz"},"publisher":{"@type":"Organization","name":"Jayz Blog","logo":{"@type":"ImageObject"}},"description":""}</script><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><!--!--><!-- hexo injector head_end start --><script>
-  (function () {
-      function switchTab() {
-          if (!location.hash) {
-            return;
-          }
 
-          const id = '#' + CSS.escape(location.hash.substring(1));
-          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
-          if (!$tabMenu) {
-            return;
-          }
 
-          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
-          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
-          Array.from($tabMenuContainer.querySelectorAll('a'))
-              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
-              .forEach($content => $content.classList.add('is-hidden'));
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
-          if ($tabMenu) {
-              $tabMenu.parentElement.classList.add('is-active');
-          }
-          const $activeTab = document.querySelector(id);
-          if ($activeTab) {
-              $activeTab.classList.remove('is-hidden');
-          }
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="JayZz">
+  <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="标签 - 资源管理">
+<meta property="og:url" content="https://zhazhajust.github.io/tags/%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86/index.html">
+<meta property="og:site_name" content="Jayz Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="JayZz">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>标签 - 资源管理 - Jayz Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhazhajust.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 80vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="标签 - 资源管理"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<div class="list-group">
+  <p class="h4">共计 1 篇文章</p>
+  <hr>
+  
+  
+    
+      
+      <p class="h5">2025</p>
+    
+    <a href="/2025/12/21/linux-cgroup-ssh-limit/" class="list-group-item list-group-item-action">
+      <time>12-21</time>
+      <div class="list-group-item-title">Linux cgroup 实现 SSH 用户资源限制指南</div>
+    </a>
+  
+</div>
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
       }
-      switchTab();
-      window.addEventListener('hashchange', switchTab, false);
-  })();
-  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">Jayz Blog</a></div><div class="navbar-menu"><div class="navbar-end"></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags/">标签</a></li><li class="is-active"><a href="#" aria-current="page">资源管理</a></li></ul></nav></div></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-12-21T00:00:00.000Z" title="12/21/2025, 8:00:00 AM">2025-12-21</time>发表</span><span class="level-item"><time dateTime="2025-12-21T00:14:51.186Z" title="12/21/2025, 8:14:51 AM">2025-12-21</time>更新</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2025/12/21/linux-cgroup-ssh-limit/">Linux cgroup 实现 SSH 用户资源限制指南</a></p><div class="content"><p>本文详细介绍如何使用 cgroup 对 SSH 登录用户进行资源限制，包括 CPU、内存和 GPU 资源的配额管理。</p>
-<h2 id="一、cgroup-限制原理"><a href="#一、cgroup-限制原理" class="headerlink" title="一、cgroup 限制原理"></a>一、cgroup 限制原理</h2><h3 id="1-资源控制层次"><a href="#1-资源控制层次" class="headerlink" title="1. 资源控制层次"></a>1. 资源控制层次</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    A[系统资源] --&gt; B[cgroup 层级]</span><br><span class="line">    B --&gt; C[用户会话]</span><br><span class="line">    B --&gt; D[用户进程]</span><br><span class="line">    C --&gt; E[CPU 限制]</span><br><span class="line">    C --&gt; F[内存限制]</span><br><span class="line">    C --&gt; G[GPU 限制]</span><br></pre></td></tr></table></figure>
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
 
-<h3 id="2-关键组件"><a href="#2-关键组件" class="headerlink" title="2. 关键组件"></a>2. 关键组件</h3><table>
-<thead>
-<tr>
-<th>组件</th>
-<th>功能</th>
-<th>配置文件</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>cgconfig</td>
-<td>cgroup 定义</td>
-<td><code>/etc/cgconfig.conf</code></td>
-</tr>
-<tr>
-<td>cgred</td>
-<td>规则引擎</td>
-<td><code>/etc/cgrules.conf</code></td>
-</tr>
-<tr>
-<td>pam_cgroup</td>
-<td>PAM 集成</td>
-<td><code>/etc/pam.d/sshd</code></td>
-</tr>
-</tbody></table>
-<h2 id="二、基础环境配置"><a href="#二、基础环境配置" class="headerlink" title="二、基础环境配置"></a>二、基础环境配置</h2><h3 id="1-安装必要工具"><a href="#1-安装必要工具" class="headerlink" title="1. 安装必要工具"></a>1. 安装必要工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CentOS/RHEL</span></span><br><span class="line"><span class="built_in">sudo</span> dnf install libcgroup libcgroup-tools</span><br><span class="line"></span><br><span class="line"><span class="comment"># Ubuntu/Debian</span></span><br><span class="line"><span class="built_in">sudo</span> apt install cgroup-tools cgroupfs-mount</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-启用-cgroup-服务"><a href="#2-启用-cgroup-服务" class="headerlink" title="2. 启用 cgroup 服务"></a>2. 启用 cgroup 服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> cgconfig</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> cgred</span><br></pre></td></tr></table></figure>
 
-<h2 id="三、SSH-用户资源限制配置"><a href="#三、SSH-用户资源限制配置" class="headerlink" title="三、SSH 用户资源限制配置"></a>三、SSH 用户资源限制配置</h2><h3 id="1-创建-cgroup-模板"><a href="#1-创建-cgroup-模板" class="headerlink" title="1. 创建 cgroup 模板"></a>1. 创建 cgroup 模板</h3><p>编辑 <code>/etc/cgconfig.conf</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># CPU 限制（相对权重）</span><br><span class="line">group ssh_limit/cpu &#123;</span><br><span class="line">    cpu &#123;</span><br><span class="line">        cpu.shares = 512;  # 默认1024，值越小权重越低</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 内存限制（硬限制）</span><br><span class="line">group ssh_limit/memory &#123;</span><br><span class="line">    memory &#123;</span><br><span class="line">        memory.limit_in_bytes = 8G;</span><br><span class="line">        memory.memsw.limit_in_bytes = 16G;  # 包含交换空间</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># CPU 核绑定</span><br><span class="line">group ssh_limit/cpuset &#123;</span><br><span class="line">    cpuset &#123;</span><br><span class="line">        cpuset.cpus = &quot;0-3&quot;;  # 只允许使用0-3号CPU核心</span><br><span class="line">        cpuset.mems = &quot;0&quot;;    # NUMA节点</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-配置用户映射规则"><a href="#2-配置用户映射规则" class="headerlink" title="2. 配置用户映射规则"></a>2. 配置用户映射规则</h3><p>编辑 <code>/etc/cgrules.conf</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 格式：用户:进程 控制器组 路径</span><br><span class="line">*:user1  cpu,memory,cpuset  ssh_limit/</span><br><span class="line">*:user2  cpu,memory,cpuset  ssh_limit/</span><br><span class="line">*:@devteam  cpu,memory,cpuset  ssh_limit/  # 用户组</span><br></pre></td></tr></table></figure>
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
-<h3 id="3-集成-SSH-认证"><a href="#3-集成-SSH-认证" class="headerlink" title="3. 集成 SSH 认证"></a>3. 集成 SSH 认证</h3><p>编辑 <code>/etc/pam.d/sshd</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在 session 部分添加</span><br><span class="line">session    required     pam_cgroup.so</span><br></pre></td></tr></table></figure>
 
-<h3 id="4-重启服务"><a href="#4-重启服务" class="headerlink" title="4. 重启服务"></a>4. 重启服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart cgconfig cgred sshd</span><br></pre></td></tr></table></figure>
 
-<h2 id="四、GPU-资源限制（NVIDIA）"><a href="#四、GPU-资源限制（NVIDIA）" class="headerlink" title="四、GPU 资源限制（NVIDIA）"></a>四、GPU 资源限制（NVIDIA）</h2><h3 id="1-安装-GPU-cgroup-工具"><a href="#1-安装-GPU-cgroup-工具" class="headerlink" title="1. 安装 GPU cgroup 工具"></a>1. 安装 GPU cgroup 工具</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># NVIDIA 专用工具</span></span><br><span class="line"><span class="built_in">sudo</span> dnf install nvidia-cgroup-tools</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或手动配置</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /sys/fs/cgroup/devices/gpu_limited</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-配置-GPU-设备规则"><a href="#2-配置-GPU-设备规则" class="headerlink" title="2. 配置 GPU 设备规则"></a>2. 配置 GPU 设备规则</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 禁止所有GPU设备</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;c 195:* rwm&#x27;</span> | <span class="built_in">sudo</span> <span class="built_in">tee</span> /sys/fs/cgroup/devices/gpu_limited/devices.deny</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按需允许特定设备</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;c 195:0 rwm&#x27;</span> | <span class="built_in">sudo</span> <span class="built_in">tee</span> /sys/fs/cgroup/devices/gpu_limited/devices.allow  <span class="comment"># /dev/nvidia0</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;c 195:1 rwm&#x27;</span> | <span class="built_in">sudo</span> <span class="built_in">tee</span> /sys/fs/cgroup/devices/gpu_limited/devices.allow  <span class="comment"># /dev/nvidia1</span></span><br></pre></td></tr></table></figure>
+  <script  src="/js/local-search.js" ></script>
 
-<h3 id="3-用户-GPU-配额"><a href="#3-用户-GPU-配额" class="headerlink" title="3. 用户 GPU 配额"></a>3. 用户 GPU 配额</h3><p>在 <code>/etc/cgrules.conf</code> 添加：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*:gpu_user  devices  gpu_limited/</span><br></pre></td></tr></table></figure>
 
-<h2 id="五、资源使用监控"><a href="#五、资源使用监控" class="headerlink" title="五、资源使用监控"></a>五、资源使用监控</h2><h3 id="1-实时查看-cgroup-状态"><a href="#1-实时查看-cgroup-状态" class="headerlink" title="1. 实时查看 cgroup 状态"></a>1. 实时查看 cgroup 状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CPU 使用</span></span><br><span class="line">cgget -g cpu:ssh_limit/cpu</span><br><span class="line"></span><br><span class="line"><span class="comment"># 内存使用</span></span><br><span class="line">cgget -g memory:ssh_limit/memory</span><br><span class="line"></span><br><span class="line"><span class="comment"># GPU 设备访问</span></span><br><span class="line">cgget -g devices:gpu_limited</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-生成资源报告"><a href="#2-生成资源报告" class="headerlink" title="2. 生成资源报告"></a>2. 生成资源报告</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 每小时记录资源使用</span></span><br><span class="line">*/60 * * * * root cgget -g cpu,memory:ssh_limit/ &gt; /var/log/cgroup-usage.log</span><br></pre></td></tr></table></figure>
 
-<h2 id="六、高级配置技巧"><a href="#六、高级配置技巧" class="headerlink" title="六、高级配置技巧"></a>六、高级配置技巧</h2><h3 id="1-动态调整限制"><a href="#1-动态调整限制" class="headerlink" title="1. 动态调整限制"></a>1. 动态调整限制</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 临时增加内存配额（8G → 12G）</span></span><br><span class="line">cgset -r memory.limit_in_bytes=12G ssh_limit/memory</span><br><span class="line"></span><br><span class="line"><span class="comment"># 永久修改需更新 /etc/cgconfig.conf</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="2-用户组配额继承"><a href="#2-用户组配额继承" class="headerlink" title="2. 用户组配额继承"></a>2. 用户组配额继承</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 父组定义</span><br><span class="line">group parent_group &#123;</span><br><span class="line">    cpu &#123;</span><br><span class="line">        cpu.shares = 1024;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 子组继承</span><br><span class="line">group parent_group/child_group &#123;</span><br><span class="line">    cpu &#123;</span><br><span class="line">        cpu.shares = 512;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
 
-<h2 id="七、常见问题排查"><a href="#七、常见问题排查" class="headerlink" title="七、常见问题排查"></a>七、常见问题排查</h2><h3 id="1-SSH-登录后无限制"><a href="#1-SSH-登录后无限制" class="headerlink" title="1. SSH 登录后无限制"></a>1. SSH 登录后无限制</h3><p><strong>检查点</strong>：</p>
-<ol>
-<li><code>pam_cgroup</code> 是否在 <code>/etc/pam.d/sshd</code> 中启用</li>
-<li>用户是否在 <code>/etc/cgrules.conf</code> 中定义</li>
-<li>cgred 服务状态：<code>systemctl status cgred</code></li>
-</ol>
-<h3 id="2-GPU-设备访问被拒"><a href="#2-GPU-设备访问被拒" class="headerlink" title="2. GPU 设备访问被拒"></a>2. GPU 设备访问被拒</h3><p><strong>解决步骤</strong>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看设备权限</span></span><br><span class="line">cgget -g devices:gpu_limited</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加缺失设备</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;c 195:2 rwm&#x27;</span> | <span class="built_in">sudo</span> <span class="built_in">tee</span> /sys/fs/cgroup/devices/gpu_limited/devices.allow</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-内存超限处理"><a href="#3-内存超限处理" class="headerlink" title="3. 内存超限处理"></a>3. 内存超限处理</h3><p>配置 OOM 通知：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># /etc/cgconfig.conf</span><br><span class="line">group ssh_limit/memory &#123;</span><br><span class="line">    memory &#123;</span><br><span class="line">        memory.oom_control = 1;  # 启用OOM通知</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  
 
-<p>监控 OOM 事件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">tail</span> -f /var/log/messages | grep -i oom</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>本文档更新日期：2025-12-21<br>适用系统：CentOS&#x2F;RHEL 8+, Ubuntu 20.04+</p>
-</blockquote>
-</div></article></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/icon.png" alt="JayZz"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">JayZz</p><p class="is-size-6 is-block">开发者</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>城市, 国家</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives/"><p class="title">25</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories/"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags/"><p class="title">6</p></a></div></div></nav></div></div><div class="column-right-shadow is-hidden-widescreen"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3"><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-12-21T00:00:00.000Z">2025-12-21</time></p><p class="title"><a href="/2025/12/21/linux-cgroup-ssh-limit/">Linux cgroup 实现 SSH 用户资源限制指南</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-02-27T00:00:00.000Z">2025-02-27</time></p><p class="title"><a href="/2025/02/27/rel_mom/">广义动量守恒推导</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-02-02T07:40:21.000Z">2025-02-02</time></p><p class="title"><a href="/2025/02/02/cloudflare/">Cloudflare tunnel 内网穿透</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-02-02T07:40:21.000Z">2025-02-02</time></p><p class="title"><a href="/2025/02/02/slurm-server/">CentOS Stream 9 单节点 Slurm 集群部署指南</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-02-02T03:26:21.000Z">2025-02-02</time></p><p class="title"><a href="/2025/02/02/subtree/">Subtree仓库添加</a></p></div></article></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">Jayz Blog</a><p class="is-size-7"><span>&copy; 2025 JayZz</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
-            article: {
-                highlight: {
-                    clipboard: true,
-                    fold: 'unfolded'
-                }
-            }
-        };</script><script data-pjax src="/js/column.js"></script><!--!--><script data-pjax src="/js/main.js" defer></script><!--!--></body></html>
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

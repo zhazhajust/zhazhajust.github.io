@@ -1,0 +1,761 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/icon.png">
+  <link rel="icon" href="/img/icon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="JayZz">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="现象：同一份 docker-compose.yml，用 Docker Compose 启动后容器能访问外网；用 Podman Compose 启动后容器访问外网失败。结论：通常不是业务问题，而是 Podman Rootless 网络实现与 Docker Rootful NAT Bridge 的差异导致。  一、现象与定位我这边首先用一条命令确认 Podman 的运行模式与网络后端： 123456">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Podman Compose 容器无法访问外网：Rootless 网络原理与解决方案（pasta vs slirp4netns）">
+<meta property="og:url" content="https://zhazhajust.github.io/2026/01/02/rootless_network/index.html">
+<meta property="og:site_name" content="Jayz Blog">
+<meta property="og:description" content="现象：同一份 docker-compose.yml，用 Docker Compose 启动后容器能访问外网；用 Podman Compose 启动后容器访问外网失败。结论：通常不是业务问题，而是 Podman Rootless 网络实现与 Docker Rootful NAT Bridge 的差异导致。  一、现象与定位我这边首先用一条命令确认 Podman 的运行模式与网络后端： 123456">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-02T15:07:51.269Z">
+<meta property="article:author" content="JayZz">
+<meta property="article:tag" content="podman">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="compose">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="network">
+<meta property="article:tag" content="rootless">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Podman Compose 容器无法访问外网：Rootless 网络原理与解决方案（pasta vs slirp4netns） - Jayz Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhazhajust.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Podman Compose 容器无法访问外网：Rootless 网络原理与解决方案（pasta vs slirp4netns）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-01-02 00:00" pubdate>
+          2026年1月2日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Podman Compose 容器无法访问外网：Rootless 网络原理与解决方案（pasta vs slirp4netns）</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>现象：同一份 <code>docker-compose.yml</code>，用 <strong>Docker Compose</strong> 启动后容器能访问外网；用 <strong>Podman Compose</strong> 启动后容器访问外网失败。<br>结论：通常不是业务问题，而是 <strong>Podman Rootless 网络实现与 Docker Rootful NAT Bridge 的差异</strong>导致。</p>
+</blockquote>
+<h2 id="一、现象与定位"><a href="#一、现象与定位" class="headerlink" title="一、现象与定位"></a>一、现象与定位</h2><p>我这边首先用一条命令确认 Podman 的运行模式与网络后端：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">podman info --format <span class="hljs-string">&#x27;&#123;&#123;.Host.Security.Rootless&#125;&#125; &#123;&#123;.Host.NetworkBackend&#125;&#125;&#x27;</span><br>````<br><br>输出：<br><br>```text<br><span class="hljs-literal">true</span> netavark<br></code></pre></td></tr></table></figure>
+
+<p>含义：</p>
+<ul>
+<li><code>true</code>：说明是 <strong>rootless（非 root）</strong> 模式在运行容器。</li>
+<li><code>netavark</code>：Podman 的网络后端（负责创建网络等）。</li>
+</ul>
+<p><strong>关键点</strong>：Docker 常见是 rootful + bridge NAT，Podman rootless 则不能直接使用内核层面的 iptables&#x2F;nftables NAT 规则，需要走 rootless 专用的网络方案（如 <code>pasta</code> &#x2F; <code>slirp4netns</code>）。</p>
+<hr>
+<h2 id="二、为什么-Docker-能外网，Podman-rootless-却不行？"><a href="#二、为什么-Docker-能外网，Podman-rootless-却不行？" class="headerlink" title="二、为什么 Docker 能外网，Podman rootless 却不行？"></a>二、为什么 Docker 能外网，Podman rootless 却不行？</h2><h3 id="1）NAT-出口是什么？"><a href="#1）NAT-出口是什么？" class="headerlink" title="1）NAT 出口是什么？"></a>1）NAT 出口是什么？</h3><p>容器通常拿到的是私网地址（例如 <code>10.x</code> &#x2F; <code>172.16-31.x</code> &#x2F; <code>192.168.x</code>）。这些地址在公网是<strong>不可路由</strong>的：</p>
+<ul>
+<li>容器发起公网请求时，源 IP 是私网地址；</li>
+<li>公网服务器回包时不知道该把响应发回哪里（私网地址在公网不可达）。</li>
+</ul>
+<p>因此需要一个“出口”把私网源地址<strong>改写</strong>成宿主机可路由的地址，并维护映射关系，让回包能正确回到容器。这种机制就是 <strong>NAT（Network Address Translation）</strong>，对应的位置就是 <strong>NAT 出口</strong>。</p>
+<p>简化理解：</p>
+<ul>
+<li>出去：<code>容器私网 IP:端口</code> → 改写成 <code>宿主机对外 IP:端口</code></li>
+<li>回来：根据映射表把回包还原 → 转发回容器</li>
+</ul>
+<p>Docker 默认 bridge 网络会配合内核 NAT（iptables&#x2F;nftables）实现这一点，所以“出公网”通常很稳。</p>
+<h3 id="2）rootless-的限制：没有特权做系统级-NAT"><a href="#2）rootless-的限制：没有特权做系统级-NAT" class="headerlink" title="2）rootless 的限制：没有特权做系统级 NAT"></a>2）rootless 的限制：没有特权做系统级 NAT</h3><p>在 rootless 模式下，Podman 运行在普通用户权限，<strong>不能随意修改系统的 iptables&#x2F;nftables 规则</strong>，于是需要使用 rootless 专用的网络方案来实现联网。</p>
+<p>Podman rootless 常见两种网络实现：</p>
+<ul>
+<li><code>pasta</code>：尽量让容器“像在宿主机网络上一样”，但在某些环境里（多网卡、VPN、策略路由、默认路由复杂等）可能出现出口选择&#x2F;回程路径问题；并且其行为与 Docker 的经典 NAT bridge 不完全一致。</li>
+<li><code>slirp4netns</code>：通过用户态方式提供一个更“传统”的 <strong>NAT 出口模型</strong>（更接近 Docker bridge + NAT 的体验），很多场景下对“访问外网（HTTP&#x2F;HTTPS）”更稳定。</li>
+</ul>
+<hr>
+<h2 id="三、排查思路（快速判断是路由问题还是-DNS-问题）"><a href="#三、排查思路（快速判断是路由问题还是-DNS-问题）" class="headerlink" title="三、排查思路（快速判断是路由问题还是 DNS 问题）"></a>三、排查思路（快速判断是路由问题还是 DNS 问题）</h2><p>进容器测试：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">podman <span class="hljs-built_in">exec</span> -it &lt;容器名&gt; sh -lc <span class="hljs-string">&#x27;</span><br><span class="hljs-string">ip route;</span><br><span class="hljs-string">cat /etc/resolv.conf;</span><br><span class="hljs-string">curl -I https://1.1.1.1 || true;</span><br><span class="hljs-string">curl -I https://example.com || true</span><br><span class="hljs-string">&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>解释：</p>
+<ul>
+<li><code>curl https://1.1.1.1</code> 也失败：多半是 <strong>路由&#x2F;NAT&#x2F;出口</strong>问题。</li>
+<li><code>1.1.1.1</code> 通但 <code>example.com</code> 不通：多半是 <strong>DNS</strong> 问题（可考虑在 compose 显式配置 <code>dns:</code> 或检查 base 配置是否在 Podman 下合并生效）。</li>
+</ul>
+<hr>
+<h2 id="四、最终解决方案：切换-rootless-默认网络为-slirp4netns"><a href="#四、最终解决方案：切换-rootless-默认网络为-slirp4netns" class="headerlink" title="四、最终解决方案：切换 rootless 默认网络为 slirp4netns"></a>四、最终解决方案：切换 rootless 默认网络为 slirp4netns</h2><p>编辑配置文件：</p>
+<p><code>~/.config/containers/containers.conf</code></p>
+<p>加入：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[network]</span><br><span class="hljs-attr">default_rootless_network_cmd</span> = <span class="hljs-string">&quot;slirp4netns&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>重建容器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">podman compose down<br>podman compose up -d<br></code></pre></td></tr></table></figure>
+
+<p><strong>结果</strong>：容器恢复可访问外网。</p>
+<h3 id="为什么这个改动有效？"><a href="#为什么这个改动有效？" class="headerlink" title="为什么这个改动有效？"></a>为什么这个改动有效？</h3><p>因为它把 rootless 容器的出网方式切换成 <code>slirp4netns</code> 的用户态 NAT 模型，提供更明确的“虚拟网关 + NAT 出口”，从而让私网地址的容器流量能稳定转换并访问公网（更接近 Docker 默认 bridge 的行为）。</p>
+<hr>
+<h2 id="五、备选方案"><a href="#五、备选方案" class="headerlink" title="五、备选方案"></a>五、备选方案</h2><h3 id="方案-A：直接用-rootful-运行（更接近-Docker）"><a href="#方案-A：直接用-rootful-运行（更接近-Docker）" class="headerlink" title="方案 A：直接用 rootful 运行（更接近 Docker）"></a>方案 A：直接用 rootful 运行（更接近 Docker）</h3><p>如果环境允许（并且你希望网络行为尽量和 Docker 一致）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> podman compose up -d<br></code></pre></td></tr></table></figure>
+
+<p>rootful 下可以使用更标准的内核桥接与 NAT 能力。</p>
+<h3 id="方案-B：保持-pasta，但指定出口接口（适合复杂路由）"><a href="#方案-B：保持-pasta，但指定出口接口（适合复杂路由）" class="headerlink" title="方案 B：保持 pasta，但指定出口接口（适合复杂路由）"></a>方案 B：保持 pasta，但指定出口接口（适合复杂路由）</h3><p>如果你必须使用 <code>pasta</code>（例如你更在意性能、或需要某些 pasta 特性），可以考虑指定正确的出公网接口，避免出口选择错误（多网卡&#x2F;VPN&#x2F;策略路由环境尤其重要）。</p>
+<hr>
+<h2 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h2><ul>
+<li><strong>Docker Compose 能外网</strong>：典型是 rootful + bridge + 内核 NAT，出网路径明确。</li>
+<li><strong>Podman Compose 外网失败（常见）</strong>：rootless 模式下网络实现不同，默认方案在某些环境里不稳定或行为不等价。</li>
+<li><strong>最快&#x2F;最稳的修复</strong>：rootless 切换默认网络为 <code>slirp4netns</code>：</li>
+</ul>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[network]</span><br><span class="hljs-attr">default_rootless_network_cmd</span> = <span class="hljs-string">&quot;slirp4netns&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>如果你也遇到“Docker 能联网但 Podman 不行”的情况，优先检查是不是 rootless，并用以上方式切换网络实现，通常能立刻解决。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">::contentReference[oaicite:0]&#123;<span class="hljs-attribute">index</span>=0&#125;<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%BF%90%E7%BB%B4/" class="category-chain-item">运维</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%BF%90%E7%BB%B4/%E5%AE%B9%E5%99%A8/" class="category-chain-item">容器</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/podman/" class="print-no-link">#podman</a>
+      
+        <a href="/tags/docker/" class="print-no-link">#docker</a>
+      
+        <a href="/tags/compose/" class="print-no-link">#compose</a>
+      
+        <a href="/tags/linux/" class="print-no-link">#linux</a>
+      
+        <a href="/tags/network/" class="print-no-link">#network</a>
+      
+        <a href="/tags/rootless/" class="print-no-link">#rootless</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Podman Compose 容器无法访问外网：Rootless 网络原理与解决方案（pasta vs slirp4netns）</div>
+      <div>https://zhazhajust.github.io/2026/01/02/rootless_network/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>JayZz</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年1月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/12/21/linux-cgroup-ssh-limit/" title="Linux cgroup 实现 SSH 用户资源限制指南">
+                        <span class="hidden-mobile">Linux cgroup 实现 SSH 用户资源限制指南</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"lmwFt8y04VWEYqkNwIO2xFht-MdYXbMMI","appKey":"ZEVDL4e6onfPxKSXVYohm0eC","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
